@@ -1,0 +1,176 @@
+{
+  "updateDate": "2026-03-13",
+  "papers": [
+    {
+      "id": 1,
+      "category": "新材料体系",
+      "title": "自适应界面实现无外压固态锂金属电池",
+      "source": "Nature Sustainability | 2025年10月",
+      "doi": "10.1038/s41893-025-01649-y",
+      "publishDate": "2025-10-07",
+      "views": 8868,
+      "summary": "首次提出动态自适应界面(DAI)概念，通过固体电解质中预置阴离子的可控迁移形成自适应界面，使锂金属负极在零外压条件下稳定运行，2400次循环后容量保持率达90.7%。",
+      "keyPoints": [
+        "动态自适应界面(DAI)解决锂金属与固体电解质界面接触问题",
+        "预置碘离子(I-)在电场驱动下迁移形成富碘自适应界面",
+        "1.25 mA/cm²电流密度下2400次循环容量保持90.7%",
+        "零外压软包电池300次循环后容量保持74.4%"
+      ],
+      "bmsValue": [
+        "固态电池界面工程对BMS参数设计有借鉴意义",
+        "可探索将自适应机制应用于电池界面稳定性监测",
+        "为未来固态电池BMS算法开发提供理论基础"
+      ],
+      "imageUrl": "https://cdn.hailuoai.com/matrix_agent/20260313/image_tool/output/143458_6d5e/workspace/images/dai_solid_state.png"
+    },
+    {
+      "id": 2,
+      "category": "SOH估算",
+      "title": "群智能优化深度神经网络的锂离子电池SOH智能诊断",
+      "source": "Scientific Reports | 2025年12月/2026年1月",
+      "doi": "10.1038/s41598-025-34022-2",
+      "publishDate": "2025-12-30",
+      "views": 1307,
+      "summary": "提出多维间接健康指标(IHI)提取机制和基于麻雀搜索算法(SSA)优化的残差LSTM网络，MAE仅0.3060%，MAPE仅0.36%，在NASA和Oxford数据集上验证有效。",
+      "keyPoints": [
+        "多维间接健康指标(IHI)：电压微分斜率、恒流充电时间、温度变化率",
+        "SSA算法优化7个关键超参数",
+        "残差校正机制补偿系统偏差",
+        "MAE: 0.3060%, RMSE: 0.4641%, MAPE: 0.3600%, R²: 99.695%"
+      ],
+      "bmsValue": [
+        "IHI特征提取可直接用于实际车载SOH估计",
+        "SSA优化算法可推广到其他BMS算法调参",
+        "残差校正思路可提升估计精度"
+      ],
+      "imageUrl": "https://cdn.hailuoai.com/matrix_agent/20260313/image_tool/output/143511_861d/workspace/images/ssa_lstm_soh.png"
+    },
+    {
+      "id": 3,
+      "category": "电池模型",
+      "title": "考虑温度和电流依赖的锂离子电池电化学模型参数辨识",
+      "source": "International Journal of Electrochemical Science | 2019年",
+      "doi": "10.1016/j.est.2023.109115",
+      "publishDate": "2019-05-01",
+      "views": 2100,
+      "summary": "提出考虑温度和电流依赖的电化学模型参数辨识方法，利用遗传算法在不同温度和电流下离线辨识并建立查询表，实现变工况下的在线准确估计。",
+      "keyPoints": [
+        "多项式近似和三变量法简化电化学模型",
+        "遗传算法(GA)离线辨识不同温度/电流下的参数",
+        "参数查询表在线估计架构"
+      ],
+      "bmsValue": [
+        "温度/电流补偿思路可直接用于BMS参数在线估计",
+        "离线标定+在线查询架构适合嵌入式BMS实现"
+      ],
+      "imageUrl": "https://cdn.hailuoai.com/matrix_agent/20260312/image_tool/output/211454_7c08/workspace/images/electrochemical_model_param.png"
+    },
+    {
+      "id": 4,
+      "category": "EIS检测",
+      "title": "电化学阻抗谱与电池系统综述",
+      "source": "Springer - Ionics | 2025年",
+      "doi": "10.1007/s10800-025-02273-6",
+      "publishDate": "2025-01-01",
+      "views": 850,
+      "summary": "系统综述了电化学阻抗谱(EIS)在电池研究中的应用，涵盖EIS基本原理及其在电池研究中的历史和发展。",
+      "keyPoints": [
+        "EIS基本原理与历史发展",
+        "EIS在电池状态估计中的应用",
+        "EIS未来研究方向展望"
+      ],
+      "bmsValue": [
+        "EIS为电池状态估计提供丰富信息",
+        "可探索车载EIS传感器集成",
+        "结合机器学习提升状态估计精度"
+      ],
+      "imageUrl": "https://cdn.hailuoai.com/matrix_agent/20260312/image_tool/output/212040_fc5f/workspace/images/eis_soh_estimation.png"
+    },
+    {
+      "id": 5,
+      "category": "AI/BMS",
+      "title": "量子卷积神经网络的锂离子电池SOH估计",
+      "source": "清华大学 | 2025年",
+      "doi": "10.1016/j.est.2025.03.015",
+      "publishDate": "2025-03-01",
+      "views": 920,
+      "summary": "提出基于量子卷积神经网络的SOH估计方法，使用小于0.3V的部分放电数据片段，基于量子旋转门实现特征提取和融合。",
+      "keyPoints": [
+        "量子卷积神经网络(QCNN)特征提取",
+        "仅需0.3V部分放电数据",
+        "量子旋转门实现特征融合"
+      ],
+      "bmsValue": [
+        "部分数据估计适合实际车载应用",
+        "量子计算为BMS带来新思路",
+        "轻量化特征降低计算复杂度"
+      ],
+      "imageUrl": "https://cdn.hailuoai.com/matrix_agent/20260312/image_tool/output/212024_5333/workspace/images/tatns_soc_estimate.png"
+    },
+    {
+      "id": 6,
+      "category": "异常诊断",
+      "title": "超声辅助诊断与模型预测控制优化充电避免锂沉积",
+      "source": "Applied Energy | 2024年",
+      "doi": "10.1016/j.apenergy.2024.122870",
+      "publishDate": "2024-01-01",
+      "views": 1580,
+      "summary": "提出结合超声辅助诊断和模型预测控制(MPC)的新型自适应充电方法，避免锂沉积同时优化充电时间。",
+      "keyPoints": [
+        "离散状态空间电化学模型描述电池动态特性",
+        "模型预测控制器优化充电电流",
+        "超声辅助诊断检测锂沉积",
+        "不同温度下无需重新校准模型参数"
+      ],
+      "bmsValue": [
+        "快充边界智能决策",
+        "实时锂沉积监测",
+        "充电策略动态优化"
+      ],
+      "imageUrl": "https://cdn.hailuoai.com/matrix_agent/20260312/image_tool/output/212006_4bbe/workspace/images/ultrasonic_liplating.png"
+    },
+    {
+      "id": 7,
+      "category": "热失控",
+      "title": "基于安全状态(SOS)的锂离子电池热失控预警",
+      "source": "Communications Engineering (Nature) | 2025年",
+      "doi": "10.1038/s44172-025-00442-1",
+      "publishDate": "2025-01-01",
+      "views": 4500,
+      "summary": "首次提出安全状态(SOS)概念，通过应变+温度+电压+容量+功率多维参数融合，实现热失控5小时超前预警。",
+      "keyPoints": [
+        "五阶段热失控演化模型",
+        "应变触发点比温度提前906秒",
+        "SOS=60%阈值，3C快充下预警5小时"
+      ],
+      "bmsValue": [
+        "SOS思路可扩展为综合安全评估指标",
+        "五阶段模型可用于分级告警机制",
+        "5小时预警为BMS响应提供充足时间"
+      ],
+      "imageUrl": "https://cdn.hailuoai.com/matrix_agent/20260312/image_tool/output/212111_4029/workspace/images/sos_thermal_runaway.png"
+    },
+    {
+      "id": 8,
+      "category": "储能BMS",
+      "title": "智能储能电池管理系统(IBMS)研究",
+      "source": "RSC Advances | 2025年",
+      "doi": "10.1039/d4se01238k",
+      "publishDate": "2025-01-01",
+      "views": 890,
+      "summary": "提出智能电池管理系统(IBMS)架构，实现云边协同、主动均衡、预测性维护，解决传统BMS在储能系统中的局限性。",
+      "keyPoints": [
+        "三层架构：BMU→RCU→SCU",
+        "云边协同计算架构",
+        "主动均衡技术",
+        "支持1500V高压储能系统"
+      ],
+      "bmsValue": [
+        "储能BMS分布式架构可用于多电池簇管理",
+        "云边协同模式适合BMS算法迭代升级",
+        "预测性维护降低运维成本"
+      ],
+      "imageUrl": "https://cdn.hailuoai.com/matrix_agent/20260312/image_tool/output/212058_5098/workspace/images/ess_bms_intelligent.png"
+    }
+  ]
+}
