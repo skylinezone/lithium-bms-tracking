@@ -17,7 +17,9 @@ interface Paper {
 
 interface Data {
   updateDate: string;
-  papers: Paper[];
+  currentPapers?: Paper[];
+  papers?: Paper[];
+  history?: History[];
 }
 
 interface History {
@@ -140,8 +142,9 @@ function App() {
     );
   }
 
-  const { papers, updateDate } = data;
-  const displayPapers = filterAndSortPapers(papers);
+  const { currentPapers, papers, updateDate } = data;
+  const allPapers = currentPapers || papers || [];
+  const displayPapers = filterAndSortPapers(allPapers);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -235,7 +238,7 @@ function App() {
             <div className="text-sm text-gray-500">当前结果</div>
           </div>
           <div className="bg-white rounded-lg p-4 shadow-sm">
-            <div className="text-2xl font-bold text-green-600">{papers.length}</div>
+            <div className="text-2xl font-bold text-green-600">{allPapers.length}</div>
             <div className="text-sm text-gray-500">文献总数</div>
           </div>
           <div className="bg-white rounded-lg p-4 shadow-sm">
