@@ -1,75 +1,15 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<!doctype html>
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>锂电前沿文献追踪</title>
-  <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
-    h1 { color: #1a73e8; border-bottom: 2px solid #1a73e8; padding-bottom: 10px; }
-    .paper { background: white; padding: 20px; margin: 15px 0; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    .category { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 4px 12px; border-radius: 16px; font-size: 12px; margin-bottom: 10px; }
-    .title { font-size: 18px; font-weight: bold; margin: 10px 0; }
-    .source { color: #666; font-size: 14px; margin-bottom: 10px; }
-    .summary { background: #f8f9fa; padding: 12px; border-left: 4px solid #34a853; margin: 10px 0; }
-    .key-points { margin: 10px 0; }
-    .key-points li { margin: 5px 0; }
-    .bms-value { background: #e8f0fe; padding: 12px; border-radius: 8px; margin: 10px 0; }
-    .bms-value li { margin: 5px 0; }
-    img { max-width: 100%; height: auto; border-radius: 8px; margin: 15px 0; }
-    .date { text-align: center; color: #666; margin-top: 30px; }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script type="module" crossorigin src="./assets/index-BdBd-XW4.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-LAeOeJlK.css">
 </head>
+
 <body>
-  <h1>🔋 锂电前沿文献追踪 | 2026年3月13日</h1>
-  <p>数据已更新。刷新页面查看最新内容。</p>
-  
-  <!-- 方向1 -->
-  <div class="paper">
-    <span class="category">新材料体系</span>
-    <div class="title">自适应界面实现无外压固态锂金属电池</div>
-    <div class="source">Nature Sustainability | 2025年10月</div>
-    <div class="summary">首次提出动态自适应界面(DAI)概念，通过固体电解质中预置阴离子的可控迁移形成自适应界面，使锂金属负极在零外压条件下稳定运行，2400次循环后容量保持率达90.7%。</div>
-    <ul class="key-points">
-      <li>动态自适应界面(DAI)解决锂金属与固体电解质界面接触问题</li>
-      <li>预置碘离子(I-)在电场驱动下迁移形成富碘自适应界面</li>
-      <li>1.25 mA/cm²电流密度下2400次循环容量保持90.7%</li>
-      <li>零外压软包电池300次循环后容量保持74.4%</li>
-    </ul>
-    <div class="bms-value">
-      <strong>对BMS算法的借鉴：</strong>
-      <ul>
-        <li>固态电池界面工程对BMS参数设计有借鉴意义</li>
-        <li>可探索将自适应机制应用于电池界面稳定性监测</li>
-        <li>为未来固态电池BMS算法开发提供理论基础</li>
-      </ul>
-    </div>
-    <img src="https://cdn.hailuoai.com/matrix_agent/20260313/image_tool/output/143458_6d5e/workspace/images/dai_solid_state.png" alt="固态电池">
-  </div>
-
-  <!-- 方向2 -->
-  <div class="paper">
-    <span class="category">SOH估算</span>
-    <div class="title">群智能优化深度神经网络的锂离子电池SOH智能诊断</div>
-    <div class="source">Scientific Reports | 2025年12月/2026年1月</div>
-    <div class="summary">提出多维间接健康指标(IHI)提取机制和基于麻雀搜索算法(SSA)优化的残差LSTM网络，MAE仅0.3060%，MAPE仅0.36%，在NASA和Oxford数据集上验证有效。</div>
-    <ul class="key-points">
-      <li>多维间接健康指标(IHI)：电压微分斜率、恒流充电时间，温度变化率</li>
-      <li>SSA算法优化7个关键超参数</li>
-      <li>残差校正机制补偿系统偏差</li>
-      <li>MAE: 0.3060%, RMSE: 0.4641%, MAPE: 0.3600%, R²: 99.695%</li>
-    </ul>
-    <div class="bms-value">
-      <strong>对BMS算法的借鉴：</strong>
-      <ul>
-        <li>IHI特征提取可直接用于实际车载SOH估计</li>
-        <li>SSA优化算法可推广到其他BMS算法调参</li>
-        <li>残差校正思路可提升估计精度</li>
-      </ul>
-    </div>
-    <img src="https://cdn.hailuoai.com/matrix_agent/20260313/image_tool/output/143511_861d/workspace/images/ssa_lstm_soh.png" alt="SOH估计">
-  </div>
-
-  <div class="date">每日更新 | 数据来源：Nature, ScienceDirect, Springer等</div>
+  <div id="root"></div>
 </body>
+
 </html>
