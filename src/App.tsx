@@ -72,7 +72,7 @@ function App() {
   const [showHistory, setShowHistory] = useState(false);
 
   useEffect(() => {
-    fetch('/data.json')
+    fetch('./data.json')
       .then(res => res.json())
       .then(setData)
       .catch(console.error)
