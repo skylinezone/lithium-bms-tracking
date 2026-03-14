@@ -1,43 +1,78 @@
 # 锂电文献追踪系统 - 运维手册
 
-## 📋 问题总结
+## 📋 问题与解决方案记录
 
-### 2026-03-14 发生的问题
+### 2026-03-14 (第1次追踪)
 
-| 问题 | 原因 | 后果 |
-|------|------|------|
-| 14日数据丢失 | 每次运行 `pnpm build` 会覆盖 dist/data.json | 用户看不到新论文 |
-| GitHub Pages不更新 | 项目使用 **docs 目录**作为源，但我多次只更新了 dist 目录 | 网页显示旧内容 |
-| 数据被覆盖 | 误以为写入 dist/data.json 即可，其实 Vite build 会从 public 目录复制覆盖 | 丢失更新 |
-| 验证不足 | 每次推送后没有验证 GitHub 上的最终数据 | 问题延迟发现 |
+| 问题描述 | 原因 | 解决方案 |
+|---------|------|---------|
+| GitHub Pages没有更新 | 以为只要更新dist目录即可 | 确认GitHub Pages使用docs目录作为源 |
+| 推送后用户看不到新内容 | 只推送到dist，没有同步到docs | 学会使用cp -r dist docs |
+| 看到MiniMax的部署地址 | 错误使用了deploy工具 | 应该用git push到GitHub |
+| 搜索不到最新论文 | 搜索关键词不够精准 | 使用更精准的学术搜索词 |
+| Footer显示"下午2点"而非"上午10点" | 写死在代码里 | 修改App.tsx中的Footer文字 |
 
 ---
 
-## ✅ 正确更新流程
+### 2026-03-14 下午 (修复历史记录功能)
 
-### 关键原则
+| 问题描述 | 原因 | 解决方案 |
+|---------|------|---------|
+| 文献总数显示错误(8篇而非16篇) | 只计算了currentPapers，没算history | 添加totalPapers计算：allPapers + history |
+| 历史记录点击无反应 | history面板只有列表，没有点击事件 | 重写History Panel，添加点击查看功能 |
+| 历史记录里只有3月12日空数据 | sampleHistory写死为空数组 | 修改代码从data.history加载 |
+
+---
+
+### 2026-03-14 傍晚 (重建页面)
+
+| 问题描述 | 原因 | 解决方案 |
+|---------|------|---------|
+| 网页变成空白页面 | .gitignore忽略了docs导致没推送 | 使用git add -A强制添加 |
+| 部署后仍是空白 | 构建的index.html内容为空 | 使用rm -rf docs && cp -r dist docs重新复制 |
+| 14日数据丢失 | 运行pnpm build覆盖了data.json | 不再运行build，直接写docs/data.json |
+
+---
+
+### 2026-03-14 晚上 (最终修复)
+
+| 问题描述 | 原因 | 解决方案 |
+|---------|------|---------|
+| 14日数据只有8篇，历史13日也看不到 | build覆盖了data.json | 直接写入docs/data.json，不再build |
+| 确认docs目录是正确源 | 多次尝试后发现 | 永远只修改docs目录 |
+
+---
+
+## ✅ 核心原则
+
+### 1. 目录职责
 - **docs/** = GitHub Pages 部署目录 ✅ （唯一正确的目标目录）
 - **dist/** = Vite 构建产物（会被覆盖，不要依赖）
+- **永远不要运行 pnpm build 如果只需要更新 data.json**
 
-### 标准操作步骤
+### 2. 更新流程（必须遵循）
 
 ```
-步骤1: 搜索论文数据 → 获取新论文列表
-步骤2: 直接写入 docs/data.json （不运行build）
-步骤3: 提交推送: git add docs/data.json → commit → push
-步骤4: 验证 GitHub raw 文件内容
+标准流程（只改数据，不改代码）:
+1. 搜索论文数据
+2. 直接写入 docs/data.json （不运行build）
+3. 验证: curl "https://raw.githubusercontent.com/.../docs/data.json" | head -3
+4. 提交推送: git add docs/data.json && git commit -m "Update: YYYY-MM-DD" && git push
+
+需要改代码+数据时:
+1. 搜索论文
+2. 搜索/下载图片到 public/images/
+3. pnpm build
+4. rm -rf docs && cp -r dist docs
+5. git add -A && commit && push
 ```
 
-### 验证命令
+### 3. 验证必做
+每次推送后必须验证GitHub上的实际内容：
 ```bash
-# 查看GitHub上的updateDate
 curl -s "https://raw.githubusercontent.com/skylinezone/lithium-bms-tracking/main/docs/data.json" | head -3
 ```
-
-### GitHub Pages 地址
-```
-https://skylinezone.github.io/lithium-bms-tracking/
-```
+确认 updateDate 为正确日期才算成功。
 
 ---
 
@@ -45,26 +80,26 @@ https://skylinezone.github.io/lithium-bms-tracking/
 
 ```json
 {
-  "updateDate": "YYYY-MM-DD",           // 当前更新日期
-  "currentPapers": [                     // 今日论文（8篇）
+  "updateDate": "YYYY-MM-DD",
+  "currentPapers": [
     {
       "id": 1,
-      "category": "新材料体系",           // 8个类别之一
-      "title": "标题",
-      "source": "来源 | 日期",
+      "category": "新材料体系/SOH估算/电池模型/EIS检测/AI/BMS/异常诊断/热失控/储能BMS",
+      "title": "论文标题",
+      "source": "期刊名 | 日期",
       "doi": "DOI链接",
       "publishDate": "YYYY-MM-DD",
       "views": 1000,
-      "summary": "摘要",
-      "keyPoints": ["要点1", "要点2"],
-      "bmsValue": ["BMS价值1"],
-      "imageUrl": "./images/xxx.jpg"     // 本地图片路径
+      "summary": "摘要（150字内）",
+      "keyPoints": ["要点1", "要点2", "要点3"],
+      "bmsValue": ["BMS价值1", "BMS价值2"],
+      "imageUrl": "./images/xxx.jpg"
     }
   ],
-  "history": [                           // 历史记录
+  "history": [
     {
       "date": "YYYY-MM-DD",
-      "papers": [...]                    // 当日论文列表
+      "papers": [...]
     }
   ]
 }
@@ -74,56 +109,34 @@ https://skylinezone.github.io/lithium-bms-tracking/
 
 ## 🖼️ 图片管理
 
-### 图片存放位置
-- 本地：`/workspace/lithium-tracking/public/images/`
-- GitHub：`docs/images/`
+- 本地路径：`/workspace/lithium-tracking/public/images/`
+- GitHub路径：`docs/images/`
+- 更新图片必须重新build并复制到docs
 
-### 更新图片步骤
-```bash
-# 1. 搜索并下载图片到 imgs/
-# 2. 复制到 public/images/
-cp /workspace/imgs/*.jpg /workspace/lithium-tracking/public/images/
+---
 
-# 3. 构建（会复制public到dist）
-pnpm build
+## 📞 GitHub Pages 地址
 
-# 4. 复制dist到docs（关键！）
-rm -rf docs && cp -r dist docs
-
-# 5. 提交推送
-git add -A && git commit -m "Update with images" && git push
+```
+https://skylinezone.github.io/lithium-bms-tracking/
 ```
 
 ---
 
-## 🔧 定时任务
+## 🔧 紧急回滚
 
-- **执行时间**: 每日早上 10:00 (Asia/Shanghai)
-- **任务内容**: 锂电文献每日追踪（8个方向）
-- **预期结果**: 
-  - 8篇新论文（currentPapers）
-  - 昨日论文自动进入历史（history）
-  - 每日数据完整保存
-
----
-
-## ⚠️ 注意事项
-
-1. **永远不要依赖 dist 目录** - 它会被 Vite build 覆盖
-2. **永远只修改 docs 目录** - 这是 GitHub Pages 的源
-3. **每次推送后必验证** - 用 curl 检查 GitHub 上的实际内容
-4. **不要运行不必要的 build** - 如果只改 data.json，不需要重新 build
-
----
-
-## 📞 紧急回滚
-
-如果发布出错且无法快速修复：
 ```bash
-# 查看之前的稳定版本
+# 查看历史
 git log --oneline -10
 
-# 回滚到指定版本
-git reset --hard <commit-hash>
+# 回滚
+git reset --hard <commit>
 git push --force
 ```
+
+---
+
+## 📝 更新日志
+
+- 2026-03-14: 创建初始文档，记录首次追踪遇到的所有问题
+- 持续更新中...
