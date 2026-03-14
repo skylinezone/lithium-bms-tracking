@@ -47,12 +47,7 @@ const categories = [
 ];
 
 // 示例历史数据
-const sampleHistory: History[] = [
-  {
-    date: "2026-03-12",
-    papers: []
-  }
-];
+const sampleHistory: History[] = [];
 
 // 示例评论
 const sampleComments: Comment[] = [];
@@ -76,7 +71,12 @@ function App() {
   useEffect(() => {
     fetch('./data.json')
       .then(res => res.json())
-      .then(setData)
+      .then(data => {
+        setData(data);
+        if (data.history) {
+          setHistory(data.history);
+        }
+      })
       .catch(console.error)
       .finally(() => setLoading(false));
   }, []);
@@ -434,7 +434,7 @@ function App() {
       {/* Footer */}
       <footer className="bg-gray-800 text-gray-400 py-8 mt-12">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <p>🔋 锂电前沿文献追踪 | 每日下午2点更新</p>
+          <p>🔋 锂电前沿文献追踪 | 每日早上10点更新</p>
           <p className="text-sm mt-2">文献来源：Nature, ScienceDirect, Springer, 汽车工程等</p>
           <p className="text-sm mt-2">只展示2025年及以后的最新文献</p>
         </div>
