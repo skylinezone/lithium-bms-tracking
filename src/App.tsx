@@ -67,6 +67,7 @@ function App() {
   const [newComment, setNewComment] = useState("");
   const [newQuality, setNewQuality] = useState(5);
   const [showHistory, setShowHistory] = useState(false);
+  const [selectedHistory, setSelectedHistory] = useState<History | null>(null);
 
   useEffect(() => {
     fetch('./data.json')
@@ -145,6 +146,9 @@ function App() {
   const { currentPapers, papers, updateDate } = data;
   const allPapers = currentPapers || papers || [];
   const displayPapers = filterAndSortPapers(allPapers);
+  
+  // 计算总论文数：当前论文 + 历史论文
+  const totalPapers = allPapers.length + (history.reduce((sum, h) => sum + h.papers.length, 0));
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -238,7 +242,7 @@ function App() {
             <div className="text-sm text-gray-500">当前结果</div>
           </div>
           <div className="bg-white rounded-lg p-4 shadow-sm">
-            <div className="text-2xl font-bold text-green-600">{allPapers.length}</div>
+            <div className="text-2xl font-bold text-green-600">{totalPapers}</div>
             <div className="text-sm text-gray-500">文献总数</div>
           </div>
           <div className="bg-white rounded-lg p-4 shadow-sm">
@@ -294,20 +298,60 @@ function App() {
 
       {/* History Panel */}
       {showHistory && (
-        <div className="fixed inset-0 bg-black/50 z-50" onClick={() => setShowHistory(false)}>
-          <div className="bg-white max-w-md w-full h-full overflow-y-auto" onClick={e => e.stopPropagation()}>
+        <div className="fixed inset-0 bg-black/50 z-50" onClick={() => { setShowHistory(false); setSelectedHistory(null); }}>
+          <div className="bg-white max-w-4xl w-full h-full overflow-y-auto" onClick={e => e.stopPropagation()}>
             <div className="p-4 border-b flex justify-between items-center">
-              <h2 className="font-semibold">历史推送</h2>
-              <button onClick={() => setShowHistory(false)} className="text-gray-500">✕</button>
+              <h2 className="font-semibold">{selectedHistory ? `${selectedHistory.date} 历史推送` : '历史推送'}</h2>
+              <button onClick={() => { setShowHistory(false); setSelectedHistory(null); }} className="text-gray-500">✕</button>
             </div>
-            <div className="p-4">
-              {history.map(h => (
-                <div key={h.date} className="py-3 border-b">
-                  <div className="font-medium">{h.date}</div>
-                  <div className="text-sm text-gray-500">{h.papers.length} 篇文献</div>
+            
+            {!selectedHistory ? (
+              // 历史日期列表
+              <div className="p-4">
+                {history.length === 0 ? (
+                  <div className="text-center py-8 text-gray-500">暂无历史记录</div>
+                ) : (
+                  history.map(h => (
+                    <div 
+                      key={h.date} 
+                      className="py-3 border-b cursor-pointer hover:bg-gray-50"
+                      onClick={() => setSelectedHistory(h)}
+                    >
+                      <div className="font-medium">{h.date}</div>
+                      <div className="text-sm text-gray-500">{h.papers.length} 篇文献</div>
+                    </div>
+                  ))
+                )}
+              </div>
+            ) : (
+              // 选中的历史论文列表
+              <div className="p-4">
+                <button 
+                  onClick={() => setSelectedHistory(null)}
+                  className="mb-4 text-blue-600 hover:underline"
+                >
+                  ← 返回历史列表
+                </button>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {selectedHistory.papers.map(paper => (
+                    <div 
+                      key={paper.id}
+                      className="bg-white rounded-lg shadow-sm p-4 cursor-pointer hover:shadow-md"
+                      onClick={() => setSelectedPaper(paper)}
+                    >
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="px-2 py-1 bg-blue-100 text-blue-600 text-xs rounded-full">
+                          {paper.category}
+                        </span>
+                        <span className="text-xs text-gray-400">{paper.publishDate}</span>
+                      </div>
+                      <h3 className="font-semibold mb-2 line-clamp-2">{paper.title}</h3>
+                      <p className="text-sm text-gray-500 line-clamp-2">{paper.summary}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            )}
           </div>
         </div>
       )}
