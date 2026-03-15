@@ -289,3 +289,46 @@ curl -s "https://raw.githubusercontent.com/skylinezone/lithium-bms-tracking/main
 | 历史数据被删除 | 多次重建data.json导致数据丢失 | 从workspace原始markdown文件恢复数据 |
 | DOI需要验证 | 部分AI生成DOI是假的 | 手动验证DOI真实性（搜索确认） |
 | 数据来源 | lithium_tracking_20260315.md | 保留原始markdown文件作为数据备份 |
+
+---
+
+## 🚨 根本性问题：学术论文信息无法获取
+
+### 问题描述
+- 网络搜索无法返回真实的学术论文DOI和详情
+- 搜索结果被百度知道、知乎等无关内容淹没
+- 之前追踪文件中的DOI大部分是AI编造的，无法验证
+- 即使尝试多次，结果仍然一样
+
+### 影响
+- 所有之前的推送内容（3月12日-15日）的DOI链接都是假的
+- 文献内容是AI根据关键词"生成"的，不是真实论文
+
+### 可能的解决方案
+1. **用户手动提供**：如果用户有真实论文DOI，可直接添加
+2. **使用学术搜索API**：如Semantic Scholar API、OpenAlex等
+3. **使用文献管理工具**：如Zotero、ResearchGate等
+4. **手动查找**：在Google Scholar手动搜索后提供真实链接
+
+### 维护手册数据来源原则
+- **禁止使用AI编造的DOI**
+- **只使用用户确认的真实论文**
+- **宁可少放也不要放假数据**
+
+
+### 2026-03-15 (第六次 - 验证论文真实性)
+
+| 方向 | 论文标题 | DOI | 验证状态 |
+|-----|---------|-----|---------|
+| 新材料体系 | All-solid-state Li–S batteries | nature.com/s41586-024-08298-9 | ✅ 已验证 |
+| SOH估算 | Generative learning assisted SOH | nature.com/s41467-024-54454-0 | ✅ 已验证 |
+| 电池模型 | Physics-Based Battery Model Parametrisation | iopscience.org/10.1149/1945-7111/add41b | ✅ 已验证 |
+| EIS检测 | Online multi-scenario impedance spectra | x-mol.com (Cell Reports) | ✅ 已验证 |
+| AI/BMS | TATNS for SOC prediction | nature.com/s41598-025-32347-6 | ✅ 已验证 |
+| 异常诊断 | Adaptive internal short-circuit detection | sciencedirect.com/s2352152X24004584 | ✅ 已验证 |
+| 热失控 | T-RUNSAFE thermal runaway | nature.com/s41598-025-20886-x | ✅ 已验证 |
+| 储能BMS | Mobile BESS optimal scheduling | sciencedirect.com/s2352152X20314523 | ✅ 已验证 |
+
+**搜索技巧**：
+- 使用 site:nature.com 或 site:sciencedirect.com 限定来源
+- 搜索DOI时直接搜索完整DOI格式如 "10.1038/s41586-024-08298-9"
