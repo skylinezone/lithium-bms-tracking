@@ -2,6 +2,18 @@
 
 ## 📋 问题与解决方案记录
 
+### 2026-03-15 (第二次 - 网页显示与数据问题)
+
+| 问题描述 | 原因 | 解决方案 |
+|---------|------|---------|
+| 登陆显示"没有找到匹配的文献" | currentPapers被错误清空 | 修复data.json结构，确保currentPapers有数据 |
+| 只显示当天论文，历史论文不显示 | displayPapers只包含currentPapers | 修改为显示 allCurrentPapers + allHistoryPapers |
+| 3月14日数据丢失 | 没有保存追踪报告到workspace | 重建data.json，重新搜索3月14日论文 |
+| 文献太多需要分页 | 一页显示太多影响体验 | 添加分页功能，每页8篇 |
+| 覆盖方向写死为8 | hardcode在代码里 | 改为动态计算: new Set(allPapers.map(p => p.category)).size |
+
+---
+
 ### 2026-03-15 (网页未更新)
 
 | 问题描述 | 原因 | 解决方案 |
