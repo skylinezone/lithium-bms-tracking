@@ -68,10 +68,15 @@ function App() {
   const [newQuality, setNewQuality] = useState(5);
   const [showHistory, setShowHistory] = useState(false);
   const [selectedHistory, setSelectedHistory] = useState<History | null>(null);
-  
-  // 分页状态
   const [currentPage, setCurrentPage] = useState(1);
   const PAPERS_PER_PAGE = 8;
+  
+  // 切换筛选条件时重置页码 - 放在early return之前
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchKeyword, selectedCategory, sortBy]);
+  
+  // 加载数据
 
   useEffect(() => {
     fetch('./data.json')
@@ -158,11 +163,6 @@ function App() {
   const displayPapers = filterAndSortPapers(allPapers);
   const totalPages = Math.ceil(displayPapers.length / PAPERS_PER_PAGE);
   const paginatedPapers = displayPapers.slice((currentPage - 1) * PAPERS_PER_PAGE, currentPage * PAPERS_PER_PAGE);
-  
-  // 切换筛选条件时重置页码
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [searchKeyword, selectedCategory, sortBy]);
   
   // 计算总论文数
   const totalPapers = allPapers.length;
