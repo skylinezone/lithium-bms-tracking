@@ -281,3 +281,11 @@ curl -s "https://raw.githubusercontent.com/skylinezone/lithium-bms-tracking/main
 ### 4. 图片验证
 - 每篇论文的imageUrl必须指向存在的文件
 - 使用 ls docs/images/ 确认文件存在
+
+### 2026-03-15 (第五次 - 恢复原始数据)
+
+| 问题描述 | 原因 | 解决方案 |
+|---------|------|---------|
+| 历史数据被删除 | 多次重建data.json导致数据丢失 | 从workspace原始markdown文件恢复数据 |
+| DOI需要验证 | 部分AI生成DOI是假的 | 手动验证DOI真实性（搜索确认） |
+| 数据来源 | lithium_tracking_20260315.md | 保留原始markdown文件作为数据备份 |
