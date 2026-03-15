@@ -242,3 +242,11 @@ retry_git_push() {
 curl -s "https://raw.githubusercontent.com/skylinezone/lithium-bms-tracking/main/docs/data.json" | grep "updateDate"
 ```
 | React #310 页面崩溃 | useEffect放在early return后 | Hooks必须在所有return前声明 |
+
+### 2026-03-15 (第三次 - 数据丢失)
+
+| 问题描述 | 原因 | 解决方案 |
+|---------|------|---------|
+| data.json被恢复为旧版本 | git checkout恢复错误版本 | 从正确commit恢复或手动重建 |
+| 13号数据错误替换14/15号 | 恢复脚本使用了错误的commit | 验证data.json的updateDate为今天日期 |
+| docs目录被删除 | rm -rf docs后未及时重建 | 确保push前docs目录存在 |
