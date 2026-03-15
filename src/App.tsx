@@ -68,6 +68,10 @@ function App() {
   const [newQuality, setNewQuality] = useState(5);
   const [showHistory, setShowHistory] = useState(false);
   const [selectedHistory, setSelectedHistory] = useState<History | null>(null);
+  
+  // 分页状态
+  const [currentPage, setCurrentPage] = useState(1);
+  const PAPERS_PER_PAGE = 8;
 
   useEffect(() => {
     fetch('./data.json')
@@ -144,11 +148,24 @@ function App() {
   }
 
   const { currentPapers, papers, updateDate } = data;
-  const allPapers = currentPapers || papers || [];
-  const displayPapers = filterAndSortPapers(allPapers);
   
-  // 计算总论文数：当前论文 + 历史论文
-  const totalPapers = allPapers.length + (history.reduce((sum, h) => sum + h.papers.length, 0));
+  // 获取所有论文：当前论文 + 所有历史论文
+  const allCurrentPapers = currentPapers || papers || [];
+  const allHistoryPapers = history.flatMap(h => h.papers);
+  const allPapers = [...allCurrentPapers, ...allHistoryPapers];
+  
+  // 分页
+  const displayPapers = filterAndSortPapers(allPapers);
+  const totalPages = Math.ceil(displayPapers.length / PAPERS_PER_PAGE);
+  const paginatedPapers = displayPapers.slice((currentPage - 1) * PAPERS_PER_PAGE, currentPage * PAPERS_PER_PAGE);
+  
+  // 切换筛选条件时重置页码
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchKeyword, selectedCategory, sortBy]);
+  
+  // 计算总论文数
+  const totalPapers = allPapers.length;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -246,7 +263,7 @@ function App() {
             <div className="text-sm text-gray-500">文献总数</div>
           </div>
           <div className="bg-white rounded-lg p-4 shadow-sm">
-            <div className="text-2xl font-bold text-purple-600">8</div>
+            <div className="text-2xl font-bold text-purple-600">{new Set(allPapers.map(p => p.category)).size}</div>
             <div className="text-sm text-gray-500">覆盖方向</div>
           </div>
           <div className="bg-white rounded-lg p-4 shadow-sm">
@@ -261,7 +278,7 @@ function App() {
 
         {/* Paper Grid */}
         <div className="grid md:grid-cols-2 gap-6">
-          {displayPapers.map(paper => (
+          {paginatedPapers.map(paper => (
             <div 
               key={paper.id}
               className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-pointer overflow-hidden"
@@ -292,6 +309,29 @@ function App() {
         {displayPapers.length === 0 && (
           <div className="text-center py-12 text-gray-500">
             没有找到匹配的文献，请尝试其他关键词
+          </div>
+        )}
+        
+        {/* 分页控件 */}
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center gap-2 mt-8 pb-8">
+            <button
+              onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+              disabled={currentPage === 1}
+              className="px-4 py-2 bg-white border rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+            >
+              上一页
+            </button>
+            <span className="px-4 py-2">
+              第 {currentPage} / {totalPages} 页
+            </span>
+            <button
+              onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+              disabled={currentPage === totalPages}
+              className="px-4 py-2 bg-white border rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+            >
+              下一页
+            </button>
           </div>
         )}
       </main>

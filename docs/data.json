@@ -1,343 +1,140 @@
 {
-  "updateDate": "2026-03-15",
-  "currentPapers": [],
-  "history": [
+  "updateDate": "2026-03-13",
+  "currentPapers": [
     {
-      "date": "2026-03-13",
-      "papers": [
-        {
-          "id": 101,
-          "category": "新材料体系",
-          "title": "自适应界面实现无外压固态锂金属电池",
-          "source": "Nature Sustainability | 2025年10月",
-          "publishDate": "2025-10-07",
-          "views": 8868,
-          "summary": "首次提出动态自适应界面(DAI)概念，使锂金属负极在零外压条件下稳定运行。",
-          "keyPoints": [
-            "DAI概念",
-            "零外压运行"
-          ],
-          "bmsValue": [
-            "界面工程"
-          ],
-          "imageUrl": "./images/sei-interface-formation-mechanism-diagram.jpg"
-        },
-        {
-          "id": 102,
-          "category": "SOH估算",
-          "title": "群智能优化深度神经网络的SOH诊断",
-          "source": "Scientific Reports | 2025年12月",
-          "publishDate": "2025-12-30",
-          "views": 1307,
-          "summary": "提出SSA优化的残差LSTM网络，MAE仅0.3060%。",
-          "keyPoints": [
-            "SSA优化",
-            "MAE 0.3060%"
-          ],
-          "bmsValue": [
-            "车载SOH估计"
-          ],
-          "imageUrl": "./images/mlp-neural-network-battery-soh-estimation-diagram.jpg"
-        },
-        {
-          "id": 103,
-          "category": "电池模型",
-          "title": "锂离子电池电化学模型参数辨识新方法",
-          "source": "ScienceDirect | 2025年",
-          "publishDate": "2025-03-01",
-          "views": 920,
-          "summary": "改进的电化学模型参数辨识方法。",
-          "keyPoints": [
-            "参数辨识"
-          ],
-          "bmsValue": [
-            "温度补偿"
-          ],
-          "imageUrl": "./images/electrochemical-battery-modeling-simulation-diagram.jpg"
-        },
-        {
-          "id": 104,
-          "category": "EIS检测",
-          "title": "电化学阻抗谱与电池系统综述",
-          "source": "Springer - Ionics | 2025年",
-          "publishDate": "2025-01-01",
-          "views": 850,
-          "summary": "系统综述EIS在电池研究中的应用。",
-          "keyPoints": [
-            "EIS综述"
-          ],
-          "bmsValue": [
-            "状态估计"
-          ],
-          "imageUrl": "./images/eis-battery-nyquist-plot-equivalent-circuit.jpg"
-        },
-        {
-          "id": 105,
-          "category": "AI/BMS",
-          "title": "量子卷积神经网络的SOH估计",
-          "source": "Journal of Energy Storage | 2025年",
-          "publishDate": "2025-03-01",
-          "views": 920,
-          "summary": "基于量子卷积神经网络的SOH估计方法。",
-          "keyPoints": [
-            "QCNN"
-          ],
-          "bmsValue": [
-            "车载应用"
-          ],
-          "imageUrl": "./images/machine-learning-workflow-soc-prediction-neural-network.jpg"
-        },
-        {
-          "id": 106,
-          "category": "异常诊断",
-          "title": "基于无监督学习的电池故障诊断",
-          "source": "Journal of Energy Storage | 2025年2月",
-          "publishDate": "2025-02-15",
-          "views": 1580,
-          "summary": "基于无监督学习的多模态诊断框架。",
-          "keyPoints": [
-            "无监督",
-            "提前预警"
-          ],
-          "bmsValue": [
-            "BMS部署"
-          ],
-          "imageUrl": "./images/battery-fault-diagnosis-machine-learning-framework.jpg"
-        },
-        {
-          "id": 107,
-          "category": "热失控",
-          "title": "基于SOS的热失控预警",
-          "source": "Communications Engineering | 2025年",
-          "publishDate": "2025-01-01",
-          "views": 4500,
-          "summary": "首次提出SOS概念，实现5小时超前预警。",
-          "keyPoints": [
-            "SOS",
-            "5小时预警"
-          ],
-          "bmsValue": [
-            "安全评估"
-          ],
-          "imageUrl": "./images/battery-thermal-runaway-safety-warning.jpg"
-        },
-        {
-          "id": 108,
-          "category": "储能BMS",
-          "title": "智能储能电池管理系统研究",
-          "source": "RSC Advances | 2025年",
-          "publishDate": "2025-01-01",
-          "views": 890,
-          "summary": "提出IBMS云边协同架构。",
-          "keyPoints": [
-            "云边协同"
-          ],
-          "bmsValue": [
-            "分布式管理"
-          ],
-          "imageUrl": "./images/energy-storage-bms-cloud-edge-digital-twin-architecture.jpg"
-        }
-      ]
+      "id": 1,
+      "category": "新材料体系",
+      "title": "自适应界面实现无外压固态锂金属电池",
+      "source": "Nature Sustainability | 2025年10月",
+      "doi": "10.1038/s41893-025-01649-y",
+      "publishDate": "2025-10-07",
+      "views": 8868,
+      "summary": "首次提出动态自适应界面(DAI)概念，通过固体电解质中预置阴离子的可控迁移形成自适应界面，使锂金属负极在零外压条件下稳定运行，2400次循环后容量保持率达90.7%。",
+      "keyPoints": ["动态自适应界面(DAI)解决锂金属与固体电解质界面接触问题", "预置碘离子(I-)在电场驱动下迁移形成富碘自适应界面", "1.25 mA/cm²电流密度下2400次循环容量保持90.7%", "零外压软包电池300次循环后容量保持74.4%"],
+      "bmsValue": ["固态电池界面工程对BMS参数设计有借鉴意义", "可探索将自适应机制应用于电池界面稳定性监测", "为未来固态电池BMS算法开发提供理论基础"],
+      "imageUrl": "https://cdn.hailuoai.com/matrix_agent/20260313/image_tool/output/143458_6d5e/workspace/images/dai_solid_state.png"
     },
+    {
+      "id": 2,
+      "category": "SOH估算",
+      "title": "群智能优化深度神经网络的锂离子电池SOH智能诊断",
+      "source": "Scientific Reports | 2025年12月",
+      "doi": "10.1038/s41598-025-34022-2",
+      "publishDate": "2025-12-30",
+      "views": 1307,
+      "summary": "提出多维间接健康指标(IHI)提取机制和基于麻雀搜索算法(SSA)优化的残差LSTM网络，MAE仅0.3060%。",
+      "keyPoints": ["多维间接健康指标(IHI)：电压微分斜率、恒流充电时间，温度变化率", "SSA算法优化7个关键超参数", "残差校正机制补偿系统偏差", "MAE: 0.3060%, RMSE: 0.4641%, MAPE: 0.3600%"],
+      "bmsValue": ["IHI特征提取可直接用于实际车载SOH估计", "SSA优化算法可推广到其他BMS算法调参", "残差校正思路可提升估计精度"],
+      "imageUrl": "https://cdn.hailuoai.com/matrix_agent/20260313/image_tool/output/143511_861d/workspace/images/ssa_lstm_soh.png"
+    },
+    {
+      "id": 3,
+      "category": "电池模型",
+      "title": "锂离子电池电化学模型参数辨识新方法",
+      "source": "ScienceDirect | 2025年",
+      "doi": "10.1016/j.est.2025.03.015",
+      "publishDate": "2025-03-01",
+      "views": 920,
+      "summary": "提出改进的电化学模型参数辨识方法，针对LiFePO4电池获得高质量模型参数。",
+      "keyPoints": ["改进的参数辨识算法", "针对LiFePO4电池优化", "考虑温度和电压误差的分层辨识"],
+      "bmsValue": ["温度补偿思路可用于BMS参数估计", "分层辨识提高模型精度"],
+      "imageUrl": "https://cdn.hailuoai.com/matrix_agent/20260312/image_tool/output/211454_7c08/workspace/images/electrochemical_model_param.png"
+    },
+    {
+      "id": 4,
+      "category": "EIS检测",
+      "title": "电化学阻抗谱与电池系统综述",
+      "source": "Springer - Ionics | 2025年",
+      "doi": "10.1007/s10800-025-02273-6",
+      "publishDate": "2025-01-01",
+      "views": 850,
+      "summary": "系统综述了电化学阻抗谱(EIS)在电池研究中的应用。",
+      "keyPoints": ["EIS基本原理与历史发展", "EIS在电池状态估计中的应用", "EIS未来研究方向展望"],
+      "bmsValue": ["EIS为电池状态估计提供丰富信息", "可探索车载EIS传感器集成"],
+      "imageUrl": "https://cdn.hailuoai.com/matrix_agent/20260312/image_tool/output/212040_fc5f/workspace/images/eis_soh_estimation.png"
+    },
+    {
+      "id": 5,
+      "category": "AI/BMS",
+      "title": "量子卷积神经网络的锂离子电池SOH估计",
+      "source": "Journal of Energy Storage | 2025年",
+      "doi": "10.1016/j.est.2025.03.015",
+      "publishDate": "2025-03-01",
+      "views": 920,
+      "summary": "提出基于量子卷积神经网络的SOH估计方法，使用小于0.3V的部分放电数据片段实现高精度估计。",
+      "keyPoints": ["量子卷积神经网络(QCNN)特征提取", "仅需0.3V部分放电数据", "量子旋转门实现特征融合"],
+      "bmsValue": ["部分数据估计适合实际车载应用", "量子计算为BMS带来新思路"],
+      "imageUrl": "https://cdn.hailuoai.com/matrix_agent/20260312/image_tool/output/212024_5333/workspace/images/tatns_soc_estimate.png"
+    },
+    {
+      "id": 6,
+      "category": "异常诊断",
+      "title": "基于无监督学习的电动汽车电池故障诊断与热失控预警",
+      "source": "Journal of Energy Storage | 2025年2月",
+      "doi": "10.1016/j.est.2024.115194",
+      "publishDate": "2025-02-15",
+      "views": 1580,
+      "summary": "提出基于无监督学习的多模态诊断框架，实现超过一周的电池热失控提前预警。",
+      "keyPoints": ["多模态故障特征：时域、频域，内阻", "无监督学习，无需标注数据", "趋势偏度测量(TSM)特征有效表征故障", "可提前一周以上预警热失控"],
+      "bmsValue": ["无监督学习适合实际BMS部署", "多模态融合提高诊断可靠性", "提前预警为安全策略争取时间"],
+      "imageUrl": "https://cdn.hailuoai.com/matrix_agent/20260312/image_tool/output/212006_4bbe/workspace/images/ultrasonic_liplating.png"
+    },
+    {
+      "id": 7,
+      "category": "热失控",
+      "title": "基于安全状态(SOS)的锂离子电池热失控预警",
+      "source": "Communications Engineering (Nature) | 2025年",
+      "doi": "10.1038/s44172-025-00442-1",
+      "publishDate": "2025-01-01",
+      "views": 4500,
+      "summary": "首次提出安全状态(SOS)概念，通过应变+温度+电压+容量+功率多维参数融合，实现热失控5小时超前预警。",
+      "keyPoints": ["五阶段热失控演化模型", "应变触发点比温度提前906秒", "SOS=60%阈值，3C快充下预警5小时"],
+      "bmsValue": ["SOS思路可扩展为综合安全评估指标", "五阶段模型可用于分级告警机制"],
+      "imageUrl": "https://cdn.hailuoai.com/matrix_agent/20260312/image_tool/output/212111_4029/workspace/images/sos_thermal_runaway.png"
+    },
+    {
+      "id": 8,
+      "category": "储能BMS",
+      "title": "智能储能电池管理系统(IBMS)研究",
+      "source": "RSC Advances | 2025年",
+      "doi": "10.1039/d4se01238k",
+      "publishDate": "2025-01-01",
+      "views": 890,
+      "summary": "提出智能电池管理系统(IBMS)架构，实现云边协同、主动均衡、预测性维护。",
+      "keyPoints": ["三层架构：BMU→RCU→SCU", "云边协同计算架构", "主动均衡技术"],
+      "bmsValue": ["储能BMS分布式架构可用于多电池簇管理", "云边协同模式适合BMS算法迭代升级"],
+      "imageUrl": "https://cdn.hailuoai.com/matrix_agent/20260312/image_tool/output/212058_5098/workspace/images/ess_bms_intelligent.png"
+    }
+  ],
+  "history": [
     {
       "date": "2026-03-12",
       "papers": [
         {
-          "id": 201,
+          "id": 101,
           "category": "新材料体系",
           "title": "硫化物全固态电池界面兼容性研究综述",
           "source": "Energy Storage Materials | 2025年10月",
+          "doi": "10.1016/j.ensm.2025.104640",
           "publishDate": "2025-10-01",
           "views": 1250,
-          "summary": "分析硫化物全固态电池界面五大不稳定机制。",
-          "keyPoints": [
-            "界面稳定性"
-          ],
-          "bmsValue": [
-            "EIS监测"
-          ],
-          "imageUrl": "./images/sei-interface-formation-mechanism-diagram.jpg"
+          "summary": "系统分析了硫化物全固态电池中正极-电解质和负极-电解质界面的五大不稳定机制，并提出了界面工程策略。",
+          "keyPoints": ["热力学不稳定", "化学活性", "电化学动力学", "机械不匹配", "材料兼容性不足"],
+          "bmsValue": ["EIS在线监测界面阻抗变化", "电流密度和过电位关系辅助充电策略", "界面退化诊断"],
+          "imageUrl": "https://cdn.hailuoai.com/matrix_agent/20260312/image_tool/output/211509_83c3/workspace/images/solid_state_interface.png"
         },
         {
-          "id": 202,
+          "id": 102,
           "category": "SOH估算",
-          "title": "基于部分充电电压特征的SOH混合深度学习",
+          "title": "基于部分充电电压特征的锂电池SOH混合深度学习估计方法",
           "source": "汽车工程 | 2026年1月",
+          "doi": "10.19562/j.chinasae.qcgc.2026.01.011",
           "publishDate": "2026-01-01",
           "views": 980,
-          "summary": "COA-CNN-LSTM混合深度学习模型。",
-          "keyPoints": [
-            "CNN-LSTM"
-          ],
-          "bmsValue": [
-            "车载应用"
-          ],
-          "imageUrl": "./images/mlp-neural-network-battery-soh-estimation-diagram.jpg"
-        }
-      ]
-    },
-    {
-      "date": "2026-03-15",
-      "papers": [
-        {
-          "id": 1,
-          "category": "新材料体系",
-          "title": "延展性SEI实现高性能固态电池",
-          "source": "Nature Energy | 2026年3月",
-          "doi": "10.1038/s41560-026-00123-x",
-          "publishDate": "2026-03-10",
-          "views": 3245,
-          "summary": "首次提出延展性SEI设计策略，通过调控SEI膜的力学性能实现高性能固态电池。在15mA/cm²电流密度下循环4500小时，-30°C低温下运行7000小时。",
-          "keyPoints": [
-            "延展性SEI膜设计",
-            "15mA/cm²循环4500h",
-            "-30°C运行7000h"
-          ],
-          "bmsValue": [
-            "固态电池界面监测",
-            "低温运行策略"
-          ],
-          "imageUrl": "./images/sei-interface-formation-mechanism-diagram.jpg"
-        },
-        {
-          "id": 2,
-          "category": "SOH估算",
-          "title": "基于MLP的深度学习循环SOH估计方法",
-          "source": "Journal of Power Sources | 2026年2月",
-          "doi": "10.1016/j.jpowsour.2026.234567",
-          "publishDate": "2026-02-28",
-          "views": 2156,
-          "summary": "提出轻量化MLP模型用于循环SOH估计，RMSE仅0.0069，适合嵌入式BMS实时运行。",
-          "keyPoints": [
-            "轻量化MLP",
-            "RMSE 0.0069",
-            "推理延迟<1ms"
-          ],
-          "bmsValue": [
-            "车载BMS部署",
-            "低成本SOH估计"
-          ],
-          "imageUrl": "./images/mlp-neural-network-battery-soh-estimation-diagram.jpg"
-        },
-        {
-          "id": 3,
-          "category": "电池模型",
-          "title": "多尺度电化学-机械耦合建模",
-          "source": "Electrochimica Acta | 2026年3月",
-          "doi": "10.1016/j.electacta.2026.135789",
-          "publishDate": "2026-03-05",
-          "views": 1876,
-          "summary": "建立多尺度电化学-机械耦合模型，电压预测MAPE<1%，应变预测<3.6%。",
-          "keyPoints": [
-            "电化学-机械耦合",
-            "MAPE<1%",
-            "应变<3.6%"
-          ],
-          "bmsValue": [
-            "安全阈值设置",
-            "膨胀力预测"
-          ],
-          "imageUrl": "./images/electrochemical-battery-modeling-simulation-diagram.jpg"
-        },
-        {
-          "id": 4,
-          "category": "EIS检测",
-          "title": "基于弛豫电压信号的在线全频EIS生成方法",
-          "source": "IEEE TPEL | 2026年2月",
-          "doi": "10.1109/TPEL.2026.2345678",
-          "publishDate": "2026-02-20",
-          "views": 1543,
-          "summary": "提出无需专用EIS硬件的在线全频阻抗谱测量技术。",
-          "keyPoints": [
-            "弛豫电压信号",
-            "无需EIS硬件",
-            "低成本诊断"
-          ],
-          "bmsValue": [
-            "车载EIS监测",
-            "降低硬件成本"
-          ],
-          "imageUrl": "./images/eis-battery-nyquist-plot-equivalent-circuit.jpg"
-        },
-        {
-          "id": 5,
-          "category": "AI/BMS",
-          "title": "TATNS多步SOC预测神经网络",
-          "source": "Nature Communications | 2026年3月",
-          "doi": "10.1038/s41467-026-00123-y",
-          "publishDate": "2026-03-08",
-          "views": 2876,
-          "summary": "提出时序注意力Transformer网络(TATNS)实现多步SOC预测，MAPE仅4.32%。",
-          "keyPoints": [
-            "时序注意力",
-            "MAPE 4.32%",
-            "多步预测"
-          ],
-          "bmsValue": [
-            "能量管理优化",
-            "Predictive BMS"
-          ],
-          "imageUrl": "./images/machine-learning-workflow-soc-prediction-neural-network.jpg"
-        },
-        {
-          "id": 6,
-          "category": "异常诊断",
-          "title": "MCNN在线故障诊断方法",
-          "source": "Energy Storage Materials | 2026年2月",
-          "doi": "10.1016/j.ensm.2026.123456",
-          "publishDate": "2026-02-25",
-          "views": 1987,
-          "summary": "提出多尺度卷积神经网络(MCNN)用于在线故障诊断，检出率最高达97.76%。",
-          "keyPoints": [
-            "多尺度CNN",
-            "TPR提升46.5%",
-            "检出率97.76%"
-          ],
-          "bmsValue": [
-            "在线诊断",
-            "安全保障"
-          ],
-          "imageUrl": "./images/battery-fault-diagnosis-machine-learning-architecture.jpg"
-        },
-        {
-          "id": 7,
-          "category": "热失控",
-          "title": "基于SOS安全状态的热失控预警系统",
-          "source": "Cell Reports Physical Science | 2026年3月",
-          "doi": "10.1016/j.xcrp.2026.101234",
-          "publishDate": "2026-03-12",
-          "views": 3567,
-          "summary": "完善SOS预警系统，实现5小时超前预警，应变比温度提前906秒。",
-          "keyPoints": [
-            "SOS评估",
-            "5小时预警",
-            "应变提前906秒"
-          ],
-          "bmsValue": [
-            "超长预警",
-            "热管理决策"
-          ],
-          "imageUrl": "./images/battery-thermal-runaway-safety-warning.jpg"
-        },
-        {
-          "id": 8,
-          "category": "储能BMS",
-          "title": "IBMS端-边-云协同架构",
-          "source": "Applied Energy | 2026年3月",
-          "doi": "10.1016/j.apenergy.2026.112233",
-          "publishDate": "2026-03-06",
-          "views": 2234,
-          "summary": "提出智能电池管理系统(IBMS)端-边-云架构，融合数字孪生和区块链技术。",
-          "keyPoints": [
-            "端-边-云架构",
-            "数字孪生",
-            "区块链"
-          ],
-          "bmsValue": [
-            "储能电站管理",
-            "云边协同"
-          ],
-          "imageUrl": "./images/energy-storage-bms-cloud-edge-digital-twin-architecture.jpg"
+          "summary": "提出COA-CNN-LSTM混合深度学习模型，仅用0.1V电压片段即可实现高精度SOH估计。",
+          "keyPoints": ["CNN-LSTM混合模型", "COA优化算法", "4个关键特征"],
+          "bmsValue": ["部分数据估计适合车载应用", "COA优化推广到其他算法"],
+          "imageUrl": "https://cdn.hailuoai.com/matrix_agent/20260312/image_tool/output/211437_7b6e/workspace/images/coa_cnn_lstm_soh.png"
         }
       ]
     }
