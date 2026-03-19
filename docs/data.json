@@ -22,7 +22,7 @@
         "寿命预测模型：200次循环稳定性数据可训练锂金属负极寿命预测模型，用于电动汽车BMS中的剩余寿命（RUL）估算",
         "低温充电管理：该结构在-20°C下仍可稳定工作，可为寒冷地区电动汽车的BMS低温充电策略提供设计参考"
       ],
-      "imageUrl": "./images/li_metal_anode_3d_nanofiber_conformal_plating.jpg"
+      "imageUrl": "./images/li_metal_anode_3d_nanofiber_framework_sem_dendrite_suppression.jpg"
     },
     {
       "id": 2,
@@ -45,7 +45,7 @@
         "热管理策略：氟-rich界面的高温稳定性为BMS热管理阈值设定提供依据，可在更高温度（60-80°C）下安全运行",
         "寿命监测：LRMO正极的氧氧化还原特性可用于BMS中的电解液健康状态（EOV）监测，通过界面阻抗变化评估电解液分解程度"
       ],
-      "imageUrl": "./images/solid_electrolyte_polymer_600wh_kg.jpg"
+      "imageUrl": "./images/solid-state-battery-fluorinated-polymer-electrolyte-solvation-structure.jpg"
     },
     {
       "id": 3,
@@ -68,7 +68,7 @@
         "自加热效应管理：多硫化物溶解产生的额外化学反应热是低温下Li-S电池自加热的原因，BMS可据此修正热模型参数",
         "循环寿命预测：500次循环数据结合COF隔膜的吸附容量衰减趋势，可建立Li-S电池专用寿命预测模型"
       ],
-      "imageUrl": "./images/li_s_battery_cof_separator.jpg"
+      "imageUrl": "./images/li-s-battery-polysulfide-adsorption-mechanism-diagram.jpg"
     },
     {
       "id": 4,
@@ -91,7 +91,7 @@
         "SOH精确估算：硅负极的膨胀/收缩与SOH高度相关，BMS可通过测量膨胀应力或阻抗谱精确估算硅基电池的SOH",
         "低温运行BMS：-30°C运行能力需要BMS在低温下自动切换充电曲线（降低充电电流），防止析锂并优化低温功率输出"
       ],
-      "imageUrl": "./images/silicon_anode_amprius_sicore.jpg"
+      "imageUrl": "./images/silicon_nanowire_anode_sem_battery_performance.jpg"
     },
     {
       "id": 5,
@@ -114,7 +114,7 @@
         "充电策略优化：了解单晶NMC的应变演化机制后，可在BMS中设置充电截止电压微调策略，抑制深度充电时的晶格膨胀",
         "热稳定性评估：氧释放延迟效应与热失控触发温度直接相关，BMS可据此建立正极热稳定性预测模型，在温度异常时提前干预"
       ],
-      "imageUrl": "./images/single_crystal_nmc_nanotechnology.jpg"
+      "imageUrl": "./images/single-crystal-nmc-cathode-microscopy-analysis.jpg"
     },
     {
       "id": 6,
@@ -137,7 +137,7 @@
         "预测性维护：5小时预警窗口使运维人员有充足时间响应，可与云平台联动自动派发检修工单",
         "数字孪生融合：SOS模型参数可输入电池数字孪生系统，实时对比实测数据与模型预测偏差，持续校准热模型参数"
       ],
-      "imageUrl": "./images/battery_safety_sos_warning.jpg"
+      "imageUrl": "./images/battery_safety_3.png"
     },
     {
       "id": 7,
@@ -160,7 +160,7 @@
         "充电桩协同：4C快充需要充电桩与BMS实时通信，BMS向充电桩发送允许最大电流值，防止过载",
         "析锂可逆修复：充电后采用小电流涓流补电（0.05C，30min），可将已析出的锂重新溶解，BMS可将此策略编程为维护模式"
       ],
-      "imageUrl": "./images/fast_charging_3d_collector.jpg"
+      "imageUrl": "./images/3d_copper_nanowire_current_collector_fabrication.jpg"
     },
     {
       "id": 8,
@@ -183,7 +183,7 @@
         "寿命终止判断：建立回收价值评估模型，结合SOH阈值（建议SOH<70%时进入回收流程），自动触发回收申请",
         "材料溯源系统：BMS数据云可记录电池从生产到回收的全生命周期数据，为回收企业的材料分选提供数据支持"
       ],
-      "imageUrl": "./images/battery_recycling_direct_regeneration.jpg"
+      "imageUrl": "./images/battery-cathode-direct-regeneration-spontaneous-lithiation.jpg"
     }
   ],
   "history": [
