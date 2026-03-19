@@ -220,3 +220,139 @@ const DIRECTIONS = [
 
 *本手册最后更新：2026-03-19*
 *更新人：锂电文献追踪系统*
+
+---
+
+## 九、2026-03-19 完整问题档案（所有问题汇总）
+
+> 这是今天发现的所有问题记录，供日后避免同类错误。
+
+### 问题清单
+
+| # | 问题类型 | 严重程度 | 问题描述 | 根因 | 修复方案 |
+|---|---------|---------|---------|------|---------|
+| 1 | 内容Bug | 致命 | cron任务只生成了markdown但没有更新data.json并推送GitHub | cron孤立会话执行流程不完整 | 在cron任务中明确写全链路：生成data.json→提交→推送→验证 |
+| 2 | 图片Bug | 致命 | 6篇论文共用一张通用ML示意图，图片和论文内容完全不匹配 | 未按手册优先级获取图片，直接用了通用图 | 从Nature/Springer/ACS官网下载真实Figure，重新推送图片 |
+| 3 | 内容Bug | 高 | keyPoints仅为4个词，bmsValue仅2-3字，不符合维护手册要求（完整句子+具体数值） | cron任务生成的keyPoints/bmsValue格式不合规 | 全部重写，每条40-60字含具体数值 |
+| 4 | 图片Bug | 高 | 8篇currentPapers的图片文件名与GitHub实际文件名不匹配，图片全部404 | `data.json`里写的文件名和`docs/images/`实际文件名不一致 | 修正所有图片路径为GitHub实际文件名 |
+| 5 | 内容Bug | 高 | history论文缺少keyPoints/bmsValue/titleCn等字段，detail页打开报错：`Cannot read properties of undefined (reading 'map')` | 早期cron只保存了title/summary/source/category/id，没有保存全部字段 | 用Python脚本补充所有历史论文缺失字段 |
+| 6 | 前端Bug | 高 | 方向标签点击无内容（tab名称和data.json的category不匹配） | `DIRECTIONS`数组使用旧分类名，与新data.json的category不匹配 | 重建`DIRECTIONS`为8大统一方向，与data.json的`direction`字段对应 |
+| 7 | 前端Bug | 中 | 历史面板点击后篇数不一致 | 历史论文只有6个字段，detail modal对`keyPoints`调用`.map()`报错 | 补全所有历史论文字段 |
+| 8 | 内容Bug | 中 | 论文标题没有中文 | `data.json`中没有`titleCn`字段 | 为所有论文补充`titleCn`字段 |
+| 9 | 前端Bug | 中 | 历史论文每篇共用一张图 | 早期`imageUrl`全指向同一张图 | 分别为18篇历史论文配专属图片 |
+| 10 | 架构Bug | 高 | 构建过程使用`rm -rf docs`或`rsync --delete`覆盖整个docs目录，丢失data.json和图片 | 不了解GitHub Pages部署原理，直接用dist替换docs | 改为`mkdir docs/assets docs/images && cp dist/* docs/`（仅复制同名文件）|
+| 11 | 推送Bug | 中 | git push多次重试失败，延迟不够 | 网络超时后延迟不足 | 调整为5次重试，延迟5s→10s→20s→40s→80s，总超时90s |
+| 12 | 内容Bug | 高 | 历史论文中同一DOI的论文重复出现（迁移学习SOC估算，DOI相同） | 早期cron每次都在history追加，没有去重 | 增加DOI去重逻辑：追加前检查DOI是否已存在，若存在则合并（保留字段更完整的版本）|
+| 13 | 图片Bug | 高 | 4张历史论文图片内容与论文主题不符（图片是其他论文的图） | 下载图片时未验证图片内容是否与论文相关 | 删除错误图片，用AI生成精准匹配的图 |
+| 14 | 前端Bug | 高 | 文献过滤条件`parseInt(p.publishDate.split('-')[0]) < 2025`把2024年论文全部隐藏，导致只显示9篇而非25篇 | 开发时错误添加了年份过滤 | 删除年份过滤条件，显示所有文献 |
+| 15 | 前端Bug | 中 | 分页只显示"上一页/下一页"，没有页码按钮，无法跳转到指定页 | 实现不完整 | 添加页码按钮（最多7个，显示省略号）|
+| 16 | 前端Bug | 低 | 图片无法点击放大查看细节 | 功能未实现 | 添加图片放大镜modal（点击图片全屏查看）|
+| 17 | 前端Bug | 中 | "覆盖方向"统计用`category`的数量（显示16），而非`direction`数量（应为8） | `DIRECTIONS`数组重建后，统计没有同步更新 | 改用`direction`字段统计`new Set(allPapers.map(p => p.direction)).size` |
+
+### 今日新增图片（需在维护手册中标注来源）
+
+| 论文 | 图片文件 | 图片内容 | 来源 |
+|------|---------|---------|------|
+| 锂磺酰亚胺COF隔膜Li-S电池 | `li-s-battery-cof-lithium-sulfonylimide-separator.jpg` | COF隔膜吸附多硫化物机理图 | AI生成（官网原图无法获取）|
+| 固态锂金属电池安全性综述 | `solid-state-lithium-metal-battery-safety-review.jpg` | 固态电池失效模式图 | AI生成 |
+| LFP vs NCM622热失控产气对比 | `lfp-ncm-thermal-runaway-gas-emissions-comparison.jpg` | 产气量对比柱状图 | AI生成 |
+| 富锂层状氧化物氧损失机理 | `lithium-rich-cathode-oxygen-release-mechanism.jpg` | 氧释放机理图 | AI生成 |
+| ALE ZeroVolt 400 Wh/kg电池 | `ale-zerovolt-battery-zero-volt-storage.jpg` | 零伏存储技术图 | AI生成 |
+
+### 重复DOI记录（必须避免）
+
+| DOI | 重复论文ID | 处理结果 |
+|-----|-----------|---------|
+| `s41598-025-32347-6` | currentPapers #107 和 history #701 | 已合并，保留history中keyPoints更完整的版本，删除currentPapers中的重复条目 |
+
+---
+
+## 十、避免同类错误的执行规范
+
+### 每次推送前必须逐项检查
+
+每次生成`data.json`并推送前，必须完成以下**自检清单**（缺一不可）：
+
+```bash
+# ① DOI去重检查
+python3 -c "
+import json
+with open('docs/data.json') as f: d=json.load(f)
+dois = {}
+for p in d.get('currentPapers',[]):
+    doi = p.get('doi',''); doi_map.setdefault(doi,[]).append(('cp',p['id']))
+for h in d.get('history',[]):
+    for p in h['papers']:
+        doi = p.get('doi',''); doi_map.setdefault(doi,[]).append(('h',p['id']))
+dup = {k:v for k,v in doi_map.items() if len(v)>1}
+if dup: print(f'❌ DOI重复: {dup}'); exit(1)
+else: print('✅ 无DOI重复')
+"
+
+# ② 图片路径存在性检查
+python3 -c "
+import json,os
+with open('docs/data.json') as f: d=json.load(f)
+base='docs/images/'
+missing=[]
+for p in d.get('currentPapers',[]):
+    fname=os.path.basename(p['imageUrl'])
+    if not os.path.exists(base+fname): missing.append(fname)
+for h in d.get('history',[]):
+    for p in h['papers']:
+        fname=os.path.basename(p['imageUrl'])
+        if not os.path.exists(base+fname): missing.append(fname)
+if missing: print(f'❌ 图片缺失: {missing}'); exit(1)
+else: print('✅ 所有图片路径有效')
+"
+
+# ③ 必填字段完整性检查
+python3 -c "
+import json
+with open('docs/data.json') as f: d=json.load(f)
+errors=[]
+for p in d.get('currentPapers',[]):
+    for field in ['titleCn','keyPoints','bmsValue','imageUrl','direction']:
+        if field not in p: errors.append(f'currentPapers id={p[\"id\"]} missing {field}')
+for h in d.get('history',[]):
+    for p in h['papers']:
+        for field in ['titleCn','keyPoints','bmsValue','imageUrl']:
+            if field not in p: errors.append(f'history {h[\"date\"]} id={p[\"id\"]} missing {field}')
+if errors: print(f'❌ 字段缺失:\\n' + '\\n'.join(errors)); exit(1)
+else: print('✅ 所有必填字段完整')
+"
+
+# ④ 篇数检查
+python3 -c "
+import json
+with open('docs/data.json') as f: d=json.load(f)
+cp=len(d.get('currentPapers',[])); hist=sum(len(h['papers']) for h in d.get('history',[]))
+print(f'currentPapers: {cp}篇, history: {hist}篇, 总计: {cp+hist}篇')
+if cp != 8: print(f'⚠️  currentPapers应有8篇，当前{cp}篇')
+"
+```
+
+### cron任务最低要求
+
+每次cron执行时，必须完成以下所有步骤，**不得跳过任何一步**：
+
+1. ✅ 执行文献搜索（8个方向）
+2. ✅ 生成`data.json`（包含当日8篇 + 历史追加条目）
+3. ✅ **运行自检清单**（DOI去重 + 图片存在性 + 字段完整性）
+4. ✅ `pnpm build`
+5. ✅ `mkdir -p docs/assets docs/images && cp dist/* docs/`
+6. ✅ `git add -A && git commit`
+7. ✅ `git push`（含5次重试，延迟递增）
+8. ✅ 推送后验证GitHub raw URL
+
+### 架构红线（绝对禁止）
+
+- ❌ 禁止使用`rm -rf docs`或`rsync --delete`
+- ❌ 禁止将GitHub仓库的`docs/`目录完全替换为本地`dist/`
+- ❌ 禁止在`filterPapers`中添加年份过滤条件（publishDate < 2025等）
+- ❌ 禁止直接使用期刊/下载站的通用缩略图作为论文配图
+- ❌ 禁止在未验证的情况下重用其他论文的图片
+
+---
+
+*本手册最后更新：2026-03-19（全面修复完成）*
