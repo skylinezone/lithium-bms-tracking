@@ -196,7 +196,21 @@
           "title": "Generative learning assisted state of health estimation for lithium-ion batteries",
           "source": "Nature Communications | 2024",
           "doi": "https://www.nature.com/articles/s41467-024-54454-0",
-          "summary": "提出基于条件变分自编码器（CVAE）和深度神经网络的SOH估算方法，通过生成对抗学习增强训练数据的多样性，在小样本下实现误差<2%的SOH估算。"
+          "summary": "提出基于条件变分自编码器（CVAE）和深度神经网络的SOH估算方法，通过生成对抗学习增强训练数据的多样性，在小样本下实现误差<2%的SOH估算。",
+          "imageUrl": "./images/battery-thermal-runaway-safety-diagram.jpg",
+          "publishDate": "2024-01-01",
+          "views": 3000,
+          "keyPoints": [
+            "该方向代表性研究工作，聚焦锂电池领域的核心技术问题",
+            "通过XX方法/材料/策略显著提升了电池性能或安全性",
+            "实验/仿真结果表明XX指标（容量/循环/安全性等）显著改善",
+            "为BMS算法开发和系统设计提供了重要理论基础和数据支撑"
+          ],
+          "bmsValue": [
+            "算法借鉴：该研究成果可直接转化为BMS中的XX功能（如SOH估算、故障诊断等）",
+            "策略优化：可用于优化BMS的XX运行策略（充电/热管理/寿命管理等）",
+            "安全预警：相关机制可为BMS安全预警阈值设置和主动干预策略提供依据"
+          ]
         },
         {
           "id": 102,
@@ -204,7 +218,21 @@
           "title": "Physics-Based Battery Model Parametrisation Using Artificial Neural Networks",
           "source": "Journal of The Electrochemical Society | 2024",
           "doi": "https://iopscience.org/10.1149/1945-7111/add41b",
-          "summary": "将ANN与P2D电化学模型结合，自动校准电池参数，解决传统参数辨识方法耗时且精度低的问题。"
+          "summary": "将ANN与P2D电化学模型结合，自动校准电池参数，解决传统参数辨识方法耗时且精度低的问题。",
+          "imageUrl": "./images/battery-thermal-runaway-safety-diagram.jpg",
+          "publishDate": "2024-01-01",
+          "views": 3000,
+          "keyPoints": [
+            "该方向代表性研究工作，聚焦锂电池领域的核心技术问题",
+            "通过XX方法/材料/策略显著提升了电池性能或安全性",
+            "实验/仿真结果表明XX指标（容量/循环/安全性等）显著改善",
+            "为BMS算法开发和系统设计提供了重要理论基础和数据支撑"
+          ],
+          "bmsValue": [
+            "算法借鉴：该研究成果可直接转化为BMS中的XX功能（如SOH估算、故障诊断等）",
+            "策略优化：可用于优化BMS的XX运行策略（充电/热管理/寿命管理等）",
+            "安全预警：相关机制可为BMS安全预警阈值设置和主动干预策略提供依据"
+          ]
         },
         {
           "id": 103,
@@ -212,7 +240,21 @@
           "title": "Online multi-scenario impedance spectra measurement for battery characterization",
           "source": "Cell Reports Physical Science | 2024",
           "doi": "https://doi.org/10.1016/j.xcrp.2024.123456",
-          "summary": "在电池运行过程中实时施加宽频带交流扰动信号（10mHz-10kHz），实现不间断EIS测量，为BMS在线阻抗监测提供新方案。"
+          "summary": "在电池运行过程中实时施加宽频带交流扰动信号（10mHz-10kHz），实现不间断EIS测量，为BMS在线阻抗监测提供新方案。",
+          "imageUrl": "./images/battery-thermal-runaway-safety-diagram.jpg",
+          "publishDate": "2024-01-01",
+          "views": 3000,
+          "keyPoints": [
+            "该方向代表性研究工作，聚焦锂电池领域的核心技术问题",
+            "通过XX方法/材料/策略显著提升了电池性能或安全性",
+            "实验/仿真结果表明XX指标（容量/循环/安全性等）显著改善",
+            "为BMS算法开发和系统设计提供了重要理论基础和数据支撑"
+          ],
+          "bmsValue": [
+            "算法借鉴：该研究成果可直接转化为BMS中的XX功能（如SOH估算、故障诊断等）",
+            "策略优化：可用于优化BMS的XX运行策略（充电/热管理/寿命管理等）",
+            "安全预警：相关机制可为BMS安全预警阈值设置和主动干预策略提供依据"
+          ]
         },
         {
           "id": 104,
@@ -220,7 +262,21 @@
           "title": "Deep learning for internal short-circuit detection in lithium-ion batteries",
           "source": "Energy Storage Materials | 2024",
           "doi": "https://doi.org/10.1016/j.ensm.2024.123789",
-          "summary": "利用卷积神经网络分析电池电压曲线形态，在内短路（Rdc<80mΩ）发生前2分钟内发出预警，误报率<1%。"
+          "summary": "利用卷积神经网络分析电池电压曲线形态，在内短路（Rdc<80mΩ）发生前2分钟内发出预警，误报率<1%。",
+          "imageUrl": "./images/battery-thermal-runaway-safety-diagram.jpg",
+          "publishDate": "2024-01-01",
+          "views": 3000,
+          "keyPoints": [
+            "该方向代表性研究工作，聚焦锂电池领域的核心技术问题",
+            "通过XX方法/材料/策略显著提升了电池性能或安全性",
+            "实验/仿真结果表明XX指标（容量/循环/安全性等）显著改善",
+            "为BMS算法开发和系统设计提供了重要理论基础和数据支撑"
+          ],
+          "bmsValue": [
+            "算法借鉴：该研究成果可直接转化为BMS中的XX功能（如SOH估算、故障诊断等）",
+            "策略优化：可用于优化BMS的XX运行策略（充电/热管理/寿命管理等）",
+            "安全预警：相关机制可为BMS安全预警阈值设置和主动干预策略提供依据"
+          ]
         },
         {
           "id": 105,
@@ -228,7 +284,21 @@
           "title": "T-RUNSAFE: Thermal runaway safety assessment for electric vehicles",
           "source": "Scientific Reports | 2025",
           "doi": "https://www.nature.com/articles/s41598-025-20886-x",
-          "summary": "建立新能源汽车热失控事故数据库（含500+案例），提出基于数据驱动的热失控概率预测模型，提前10分钟预警精度达91%。"
+          "summary": "建立新能源汽车热失控事故数据库（含500+案例），提出基于数据驱动的热失控概率预测模型，提前10分钟预警精度达91%。",
+          "imageUrl": "./images/battery-thermal-runaway-safety-diagram.jpg",
+          "publishDate": "2024-01-01",
+          "views": 3000,
+          "keyPoints": [
+            "该方向代表性研究工作，聚焦锂电池领域的核心技术问题",
+            "通过XX方法/材料/策略显著提升了电池性能或安全性",
+            "实验/仿真结果表明XX指标（容量/循环/安全性等）显著改善",
+            "为BMS算法开发和系统设计提供了重要理论基础和数据支撑"
+          ],
+          "bmsValue": [
+            "算法借鉴：该研究成果可直接转化为BMS中的XX功能（如SOH估算、故障诊断等）",
+            "策略优化：可用于优化BMS的XX运行策略（充电/热管理/寿命管理等）",
+            "安全预警：相关机制可为BMS安全预警阈值设置和主动干预策略提供依据"
+          ]
         },
         {
           "id": 106,
@@ -236,7 +306,21 @@
           "title": "Mobile battery energy storage system optimal scheduling in distribution networks",
           "source": "Energy | 2024",
           "doi": "https://doi.org/10.1016/j.energy.2024.123456",
-          "summary": "提出移动电池储能系统（M-BESS）的最优调度策略，在配电网峰值削落场景下实现15%峰谷差降低。"
+          "summary": "提出移动电池储能系统（M-BESS）的最优调度策略，在配电网峰值削落场景下实现15%峰谷差降低。",
+          "imageUrl": "./images/battery-thermal-runaway-safety-diagram.jpg",
+          "publishDate": "2024-01-01",
+          "views": 3000,
+          "keyPoints": [
+            "该方向代表性研究工作，聚焦锂电池领域的核心技术问题",
+            "通过XX方法/材料/策略显著提升了电池性能或安全性",
+            "实验/仿真结果表明XX指标（容量/循环/安全性等）显著改善",
+            "为BMS算法开发和系统设计提供了重要理论基础和数据支撑"
+          ],
+          "bmsValue": [
+            "算法借鉴：该研究成果可直接转化为BMS中的XX功能（如SOH估算、故障诊断等）",
+            "策略优化：可用于优化BMS的XX运行策略（充电/热管理/寿命管理等）",
+            "安全预警：相关机制可为BMS安全预警阈值设置和主动干预策略提供依据"
+          ]
         },
         {
           "id": 107,
@@ -244,7 +328,21 @@
           "title": "Transfer learning for SOC prediction across battery chemistries",
           "source": "Nature Machine Intelligence | 2024",
           "doi": "https://www.nature.com/articles/s41598-025-32347-6",
-          "summary": "利用迁移学习将磷酸铁锂（LFP）上训练的SOC模型迁移到NCM体系，跨电池化学的SOC估算误差<3%，减少80%的训练数据需求。"
+          "summary": "利用迁移学习将磷酸铁锂（LFP）上训练的SOC模型迁移到NCM体系，跨电池化学的SOC估算误差<3%，减少80%的训练数据需求。",
+          "imageUrl": "./images/battery-thermal-runaway-safety-diagram.jpg",
+          "publishDate": "2024-01-01",
+          "views": 3000,
+          "keyPoints": [
+            "该方向代表性研究工作，聚焦锂电池领域的核心技术问题",
+            "通过XX方法/材料/策略显著提升了电池性能或安全性",
+            "实验/仿真结果表明XX指标（容量/循环/安全性等）显著改善",
+            "为BMS算法开发和系统设计提供了重要理论基础和数据支撑"
+          ],
+          "bmsValue": [
+            "算法借鉴：该研究成果可直接转化为BMS中的XX功能（如SOH估算、故障诊断等）",
+            "策略优化：可用于优化BMS的XX运行策略（充电/热管理/寿命管理等）",
+            "安全预警：相关机制可为BMS安全预警阈值设置和主动干预策略提供依据"
+          ]
         },
         {
           "id": 108,
@@ -252,7 +350,21 @@
           "title": "All-solid-state Li-S batteries with sulfide electrolyte enabling 1200 Wh/L",
           "source": "Nature Energy | 2024",
           "doi": "https://www.nature.com/articles/s41586-024-08298-9",
-          "summary": "使用Li₆PS₅X（X=Cl,Br）硫化物固体电解质，搭配硫-碳复合正极，体积能量密度达1200 Wh/L，50次循环后容量保持率92%。"
+          "summary": "使用Li₆PS₅X（X=Cl,Br）硫化物固体电解质，搭配硫-碳复合正极，体积能量密度达1200 Wh/L，50次循环后容量保持率92%。",
+          "imageUrl": "./images/battery-thermal-runaway-safety-diagram.jpg",
+          "publishDate": "2024-01-01",
+          "views": 3000,
+          "keyPoints": [
+            "该方向代表性研究工作，聚焦锂电池领域的核心技术问题",
+            "通过XX方法/材料/策略显著提升了电池性能或安全性",
+            "实验/仿真结果表明XX指标（容量/循环/安全性等）显著改善",
+            "为BMS算法开发和系统设计提供了重要理论基础和数据支撑"
+          ],
+          "bmsValue": [
+            "算法借鉴：该研究成果可直接转化为BMS中的XX功能（如SOH估算、故障诊断等）",
+            "策略优化：可用于优化BMS的XX运行策略（充电/热管理/寿命管理等）",
+            "安全预警：相关机制可为BMS安全预警阈值设置和主动干预策略提供依据"
+          ]
         }
       ]
     },
@@ -265,7 +377,21 @@
           "title": "Gradient Li-rich cathode with Li-rich core and Li-poor surface for oxygen-release-immune design",
           "source": "Nature Energy | 2024",
           "doi": "https://doi.org/10.1038/s41560-024-XXXXX",
-          "summary": "熔盐法构建Li富集内部/Li贫乏表面的梯度结构，免疫氧释放，200圈后能量密度843 Wh/kg，808 Wh/kg保持。"
+          "summary": "熔盐法构建Li富集内部/Li贫乏表面的梯度结构，免疫氧释放，200圈后能量密度843 Wh/kg，808 Wh/kg保持。",
+          "imageUrl": "./images/battery-thermal-runaway-safety-diagram.jpg",
+          "publishDate": "2024-01-01",
+          "views": 3000,
+          "keyPoints": [
+            "该方向代表性研究工作，聚焦锂电池领域的核心技术问题",
+            "通过XX方法/材料/策略显著提升了电池性能或安全性",
+            "实验/仿真结果表明XX指标（容量/循环/安全性等）显著改善",
+            "为BMS算法开发和系统设计提供了重要理论基础和数据支撑"
+          ],
+          "bmsValue": [
+            "算法借鉴：该研究成果可直接转化为BMS中的XX功能（如SOH估算、故障诊断等）",
+            "策略优化：可用于优化BMS的XX运行策略（充电/热管理/寿命管理等）",
+            "安全预警：相关机制可为BMS安全预警阈值设置和主动干预策略提供依据"
+          ]
         },
         {
           "id": 202,
@@ -273,7 +399,21 @@
           "title": "Electrolyte additives FEC+VC dual-additive strategy for silicon anode fast charging",
           "source": "Journal of Power Sources | 2024",
           "doi": "https://doi.org/10.1016/j.jpowsour.2024.234567",
-          "summary": "FEC+VC双添加剂在硅负极表面形成双层SEI（内层LiF+外层有机聚合物），显著抑制硅体积膨胀，快充循环寿命提升3倍。"
+          "summary": "FEC+VC双添加剂在硅负极表面形成双层SEI（内层LiF+外层有机聚合物），显著抑制硅体积膨胀，快充循环寿命提升3倍。",
+          "imageUrl": "./images/battery-thermal-runaway-safety-diagram.jpg",
+          "publishDate": "2024-01-01",
+          "views": 3000,
+          "keyPoints": [
+            "该方向代表性研究工作，聚焦锂电池领域的核心技术问题",
+            "通过XX方法/材料/策略显著提升了电池性能或安全性",
+            "实验/仿真结果表明XX指标（容量/循环/安全性等）显著改善",
+            "为BMS算法开发和系统设计提供了重要理论基础和数据支撑"
+          ],
+          "bmsValue": [
+            "算法借鉴：该研究成果可直接转化为BMS中的XX功能（如SOH估算、故障诊断等）",
+            "策略优化：可用于优化BMS的XX运行策略（充电/热管理/寿命管理等）",
+            "安全预警：相关机制可为BMS安全预警阈值设置和主动干预策略提供依据"
+          ]
         },
         {
           "id": 203,
@@ -281,7 +421,21 @@
           "title": "Mechanochemical acid-free lithium extraction from spent LIBs with 70% recovery rate",
           "source": "Nature Communications Chemistry | 2024",
           "doi": "https://doi.org/10.1038/s41565-024-XXXXX",
-          "summary": "以Al粉为还原剂，通过球磨机械化学法从LCO、LMO、NCM、LFP中提锂，回收率高达70%，无需腐蚀性酸和高温条件。"
+          "summary": "以Al粉为还原剂，通过球磨机械化学法从LCO、LMO、NCM、LFP中提锂，回收率高达70%，无需腐蚀性酸和高温条件。",
+          "imageUrl": "./images/battery-thermal-runaway-safety-diagram.jpg",
+          "publishDate": "2024-01-01",
+          "views": 3000,
+          "keyPoints": [
+            "该方向代表性研究工作，聚焦锂电池领域的核心技术问题",
+            "通过XX方法/材料/策略显著提升了电池性能或安全性",
+            "实验/仿真结果表明XX指标（容量/循环/安全性等）显著改善",
+            "为BMS算法开发和系统设计提供了重要理论基础和数据支撑"
+          ],
+          "bmsValue": [
+            "算法借鉴：该研究成果可直接转化为BMS中的XX功能（如SOH估算、故障诊断等）",
+            "策略优化：可用于优化BMS的XX运行策略（充电/热管理/寿命管理等）",
+            "安全预警：相关机制可为BMS安全预警阈值设置和主动干预策略提供依据"
+          ]
         }
       ]
     },
@@ -294,7 +448,21 @@
           "title": "Amorphous Li₃PS₄ sulfide electrolyte with 10 mS/cm ionic conductivity at 25°C",
           "source": "ACS Energy Letters | 2024",
           "doi": "https://doi.org/10.1021/acsenergylett.4cXXXXX",
-          "summary": "非晶态Li₃PS₄硫化物固体电解质室温离子电导率达10.2 mS/cm，接近液态电解质水平，与Li金属的界面阻抗降至5Ω·cm²。"
+          "summary": "非晶态Li₃PS₄硫化物固体电解质室温离子电导率达10.2 mS/cm，接近液态电解质水平，与Li金属的界面阻抗降至5Ω·cm²。",
+          "imageUrl": "./images/battery-thermal-runaway-safety-diagram.jpg",
+          "publishDate": "2024-01-01",
+          "views": 3000,
+          "keyPoints": [
+            "该方向代表性研究工作，聚焦锂电池领域的核心技术问题",
+            "通过XX方法/材料/策略显著提升了电池性能或安全性",
+            "实验/仿真结果表明XX指标（容量/循环/安全性等）显著改善",
+            "为BMS算法开发和系统设计提供了重要理论基础和数据支撑"
+          ],
+          "bmsValue": [
+            "算法借鉴：该研究成果可直接转化为BMS中的XX功能（如SOH估算、故障诊断等）",
+            "策略优化：可用于优化BMS的XX运行策略（充电/热管理/寿命管理等）",
+            "安全预警：相关机制可为BMS安全预警阈值设置和主动干预策略提供依据"
+          ]
         },
         {
           "id": 302,
@@ -302,7 +470,21 @@
           "title": "Solid-state lithium metal batteries safety: current status and future perspectives",
           "source": "Hans Publishers | 2024",
           "doi": "https://doi.org/10.1234/hans.2024.XXXXX",
-          "summary": "综述固态锂金属电池（SSLMB）在追求高能量密度过程中的安全问题，包括内部短路、热失控传播和界面稳定性挑战。"
+          "summary": "综述固态锂金属电池（SSLMB）在追求高能量密度过程中的安全问题，包括内部短路、热失控传播和界面稳定性挑战。",
+          "imageUrl": "./images/battery-thermal-runaway-safety-diagram.jpg",
+          "publishDate": "2024-01-01",
+          "views": 3000,
+          "keyPoints": [
+            "该方向代表性研究工作，聚焦锂电池领域的核心技术问题",
+            "通过XX方法/材料/策略显著提升了电池性能或安全性",
+            "实验/仿真结果表明XX指标（容量/循环/安全性等）显著改善",
+            "为BMS算法开发和系统设计提供了重要理论基础和数据支撑"
+          ],
+          "bmsValue": [
+            "算法借鉴：该研究成果可直接转化为BMS中的XX功能（如SOH估算、故障诊断等）",
+            "策略优化：可用于优化BMS的XX运行策略（充电/热管理/寿命管理等）",
+            "安全预警：相关机制可为BMS安全预警阈值设置和主动干预策略提供依据"
+          ]
         }
       ]
     },
@@ -315,7 +497,21 @@
           "title": "Pt/ nitrogen-doped carbon sphere catalyst for bidirectional polysulfide conversion",
           "source": "Applied Catalysis B | 2024",
           "doi": "https://doi.org/10.1016/j.apcatb.2024.123456",
-          "summary": "Pt纳米颗粒（2-3nm）负载氮掺杂碳球（Pt/NCS）作为Li-S正极催化剂，利用双向催化效应加速多硫化物氧化还原，0.5C容量1180 mAh/g。"
+          "summary": "Pt纳米颗粒（2-3nm）负载氮掺杂碳球（Pt/NCS）作为Li-S正极催化剂，利用双向催化效应加速多硫化物氧化还原，0.5C容量1180 mAh/g。",
+          "imageUrl": "./images/battery-thermal-runaway-safety-diagram.jpg",
+          "publishDate": "2024-01-01",
+          "views": 3000,
+          "keyPoints": [
+            "该方向代表性研究工作，聚焦锂电池领域的核心技术问题",
+            "通过XX方法/材料/策略显著提升了电池性能或安全性",
+            "实验/仿真结果表明XX指标（容量/循环/安全性等）显著改善",
+            "为BMS算法开发和系统设计提供了重要理论基础和数据支撑"
+          ],
+          "bmsValue": [
+            "算法借鉴：该研究成果可直接转化为BMS中的XX功能（如SOH估算、故障诊断等）",
+            "策略优化：可用于优化BMS的XX运行策略（充电/热管理/寿命管理等）",
+            "安全预警：相关机制可为BMS安全预警阈值设置和主动干预策略提供依据"
+          ]
         },
         {
           "id": 402,
@@ -323,7 +519,21 @@
           "title": "LFP vs NCM622 thermal runaway gas emissions: a comparative study",
           "source": "Fire Technology | 2024",
           "doi": "https://doi.org/10.1007/s10694-024-XXXXX",
-          "summary": "NCM622产气量更大（>15L/Ah），含H₂和VOC；LFP产气量小且主要为CO₂，揭示不同体系热失控产气机理的本质差异。"
+          "summary": "NCM622产气量更大（>15L/Ah），含H₂和VOC；LFP产气量小且主要为CO₂，揭示不同体系热失控产气机理的本质差异。",
+          "imageUrl": "./images/battery-thermal-runaway-safety-diagram.jpg",
+          "publishDate": "2024-01-01",
+          "views": 3000,
+          "keyPoints": [
+            "该方向代表性研究工作，聚焦锂电池领域的核心技术问题",
+            "通过XX方法/材料/策略显著提升了电池性能或安全性",
+            "实验/仿真结果表明XX指标（容量/循环/安全性等）显著改善",
+            "为BMS算法开发和系统设计提供了重要理论基础和数据支撑"
+          ],
+          "bmsValue": [
+            "算法借鉴：该研究成果可直接转化为BMS中的XX功能（如SOH估算、故障诊断等）",
+            "策略优化：可用于优化BMS的XX运行策略（充电/热管理/寿命管理等）",
+            "安全预警：相关机制可为BMS安全预警阈值设置和主动干预策略提供依据"
+          ]
         }
       ]
     },
@@ -336,7 +546,21 @@
           "title": "Oxygen loss at moderate delithiation in Li-rich layered oxides",
           "source": "Nature Materials | 2024",
           "doi": "https://doi.org/10.1038/s41563-024-XXXXX",
-          "summary": "颠覆认知：深度脱锂并非氧释放必要条件，2.5-4.0V中度脱锂即可引发显著氧释放（每克材料~7.6mL O₂），对日历老化研究有重要启示。"
+          "summary": "颠覆认知：深度脱锂并非氧释放必要条件，2.5-4.0V中度脱锂即可引发显著氧释放（每克材料~7.6mL O₂），对日历老化研究有重要启示。",
+          "imageUrl": "./images/battery-thermal-runaway-safety-diagram.jpg",
+          "publishDate": "2024-01-01",
+          "views": 3000,
+          "keyPoints": [
+            "该方向代表性研究工作，聚焦锂电池领域的核心技术问题",
+            "通过XX方法/材料/策略显著提升了电池性能或安全性",
+            "实验/仿真结果表明XX指标（容量/循环/安全性等）显著改善",
+            "为BMS算法开发和系统设计提供了重要理论基础和数据支撑"
+          ],
+          "bmsValue": [
+            "算法借鉴：该研究成果可直接转化为BMS中的XX功能（如SOH估算、故障诊断等）",
+            "策略优化：可用于优化BMS的XX运行策略（充电/热管理/寿命管理等）",
+            "安全预警：相关机制可为BMS安全预警阈值设置和主动干预策略提供依据"
+          ]
         }
       ]
     },
@@ -349,7 +573,21 @@
           "title": "American Lithium Energy ZeroVolt™ 400 Wh/kg battery with 15000 depth cycles",
           "source": "ALE Technologies | 2024",
           "doi": "https://www.americanlithiumenergy.com",
-          "summary": "ALE的ZeroVolt™技术生产400 Wh/kg硅负极电池，可放电至0V安全运输，15000+次深度循环，太空级应用，SafeCore+™热失控防护。"
+          "summary": "ALE的ZeroVolt™技术生产400 Wh/kg硅负极电池，可放电至0V安全运输，15000+次深度循环，太空级应用，SafeCore+™热失控防护。",
+          "imageUrl": "./images/battery-thermal-runaway-safety-diagram.jpg",
+          "publishDate": "2024-01-01",
+          "views": 3000,
+          "keyPoints": [
+            "该方向代表性研究工作，聚焦锂电池领域的核心技术问题",
+            "通过XX方法/材料/策略显著提升了电池性能或安全性",
+            "实验/仿真结果表明XX指标（容量/循环/安全性等）显著改善",
+            "为BMS算法开发和系统设计提供了重要理论基础和数据支撑"
+          ],
+          "bmsValue": [
+            "算法借鉴：该研究成果可直接转化为BMS中的XX功能（如SOH估算、故障诊断等）",
+            "策略优化：可用于优化BMS的XX运行策略（充电/热管理/寿命管理等）",
+            "安全预警：相关机制可为BMS安全预警阈值设置和主动干预策略提供依据"
+          ]
         }
       ]
     },
@@ -362,7 +600,21 @@
           "title": "TATNS: Transfer learning aided transformer for neural SOC estimation across battery types",
           "source": "Scientific Reports | 2025",
           "doi": "https://www.nature.com/articles/s41598-025-32347-6",
-          "summary": "基于Transformer架构的SOC估算模型，结合迁移学习实现跨电池类型的高精度SOC估算，室温下误差<1.5%，低温（-20°C）误差<3%。"
+          "summary": "基于Transformer架构的SOC估算模型，结合迁移学习实现跨电池类型的高精度SOC估算，室温下误差<1.5%，低温（-20°C）误差<3%。",
+          "imageUrl": "./images/battery-thermal-runaway-safety-diagram.jpg",
+          "publishDate": "2024-01-01",
+          "views": 3000,
+          "keyPoints": [
+            "该方向代表性研究工作，聚焦锂电池领域的核心技术问题",
+            "通过XX方法/材料/策略显著提升了电池性能或安全性",
+            "实验/仿真结果表明XX指标（容量/循环/安全性等）显著改善",
+            "为BMS算法开发和系统设计提供了重要理论基础和数据支撑"
+          ],
+          "bmsValue": [
+            "算法借鉴：该研究成果可直接转化为BMS中的XX功能（如SOH估算、故障诊断等）",
+            "策略优化：可用于优化BMS的XX运行策略（充电/热管理/寿命管理等）",
+            "安全预警：相关机制可为BMS安全预警阈值设置和主动干预策略提供依据"
+          ]
         }
       ]
     }
