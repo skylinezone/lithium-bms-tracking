@@ -31,7 +31,7 @@ cron触发
 
 每次 cron 执行完毕，必须逐项确认：
 
-- [ ] `docs/data.json` 的 `updateDate` 为今日日期
+- [ ] **不要在 App.tsx 中按年份过滤文献**（2025-03-19曾因 `publishDate < 2025` 过滤导致16篇2024年论文被隐藏，仅显示10篇，应显示全部26篇）
 - [ ] `currentPapers` 有 8 篇，每篇包含：
   - [ ] `titleCn`（中文标题，必填）
   - [ ] `keyPoints`（5条，每条40-60字，含具体数值）

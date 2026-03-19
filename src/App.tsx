@@ -85,7 +85,7 @@ export default function App() {
   const filterPapers = useCallback((list: Paper[]): Paper[] => {
     let f = list.filter(p => {
       if (!p.publishDate) return false;
-      if (parseInt(p.publishDate.split('-')[0]) < 2025) return false;
+      // 不按年份过滤，显示所有文献（包括2024年发表的经典研究）
       if (search) {
         const kw = search.toLowerCase();
         if (!p.titleCn.toLowerCase().includes(kw) &&
@@ -582,7 +582,7 @@ export default function App() {
             ⑤AI/机器学习 · ⑥电池异常诊断 · ⑦热失控 · ⑧非乘用车场景
           </p>
           <p className="text-xs mt-1 opacity-60">
-            数据来源：Nature · ScienceDirect · Springer · ACS · Wiley等 · 仅展示2025年以后的文献
+            数据来源：Nature · ScienceDirect · Springer · ACS · Wiley等
           </p>
         </div>
       </footer>
