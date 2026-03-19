@@ -23,7 +23,8 @@
         "寿命预测建模：200次循环数据为BMS剩余寿命（RUL）估算提供真实标注数据",
         "低温充电管理：亲锂位点降低成核过电位，在-20°C下仍可稳定沉积，支持寒冷地区电动车BMS低温充电策略"
       ],
-      "imageUrl": "./images/li_metal_anode_3d_nanofiber_framework_sem_dendrite_suppression.jpg"
+      "imageUrl": "./images/li_metal_anode_3d_nanofiber_framework_sem_dendrite_suppression.jpg",
+      "direction": "新材料体系"
     },
     {
       "id": 2,
@@ -47,7 +48,8 @@
         "热管理阈值优化：氟-rich界面在高温（60-80°C）下的稳定性为BMS热管理阈值扩展提供依据",
         "电解液健康监测：LRMO氧氧化还原特性可通过EIS监测，用于评估电解液分解程度的EOH估算"
       ],
-      "imageUrl": "./images/solid-state-battery-fluorinated-polymer-electrolyte-solvation-structure.jpg"
+      "imageUrl": "./images/solid-state-battery-fluorinated-polymer-electrolyte-solvation-structure.jpg",
+      "direction": "新材料体系"
     },
     {
       "id": 3,
@@ -71,7 +73,8 @@
         "自加热效应管理：多硫化物溶解热是低温Li-S自加热主因，BMS热模型参数需据此修正",
         "循环寿命预测：500次循环数据结合COF吸附容量衰减趋势，可建立Li-S电池专用SOH预测模型"
       ],
-      "imageUrl": "./images/li-s-battery-polysulfide-adsorption-mechanism-diagram.jpg"
+      "imageUrl": "./images/li-s-battery-polysulfide-adsorption-mechanism-diagram.jpg",
+      "direction": "新材料体系"
     },
     {
       "id": 4,
@@ -95,7 +98,8 @@
         "SOH精确估算：硅负极膨胀收缩与SOH高度相关，BMS可通过测量膨胀应力或EIS阻抗谱精确估算硅基电池SOH",
         "低温充电策略：-30°C运行时自动切换低电流曲线（限制0.2C），防止析锂同时保护电池寿命"
       ],
-      "imageUrl": "./images/silicon_nanowire_anode_sem_battery_performance.jpg"
+      "imageUrl": "./images/silicon_nanowire_anode_sem_battery_performance.jpg",
+      "direction": "新材料体系"
     },
     {
       "id": 5,
@@ -119,7 +123,8 @@
         "充电策略精细化：深度充电时晶格膨胀显著，BMS可设置充电截止电压微调策略抑制晶格过度膨胀",
         "热稳定性预测：氧释放延迟效应与热失控触发温度直接相关，BMS据此建立正极热稳定性预测模型"
       ],
-      "imageUrl": "./images/single-crystal-nmc-cathode-microscopy-analysis.jpg"
+      "imageUrl": "./images/single-crystal-nmc-cathode-microscopy-analysis.jpg",
+      "direction": "新材料体系"
     },
     {
       "id": 6,
@@ -143,7 +148,8 @@
         "预测性维护：5小时预警窗口使运维人员充足响应，可与云平台联动自动派发检修工单",
         "数字孪生融合：SOS模型参数可输入电池数字孪生系统，持续校准热模型参数，提升预测精度"
       ],
-      "imageUrl": "./images/battery_safety_3.png"
+      "imageUrl": "./images/battery_safety_3.png",
+      "direction": "热失控"
     },
     {
       "id": 7,
@@ -167,7 +173,8 @@
         "充电桩协同：4C快充需充电桩与BMS实时通信，BMS向充电桩发送允许最大电流值，防止过载",
         "析锂可逆修复：充电后采用0.05C涓流补电30分钟可将已析出锂重新溶解，BMS维护模式可编程实现"
       ],
-      "imageUrl": "./images/3d_copper_nanowire_current_collector_fabrication.jpg"
+      "imageUrl": "./images/3d_copper_nanowire_current_collector_fabrication.jpg",
+      "direction": "新材料体系"
     },
     {
       "id": 8,
@@ -191,7 +198,8 @@
         "寿命终止判断：建立回收价值评估模型，当SOH低于70%时自动触发回收申请流程",
         "全生命周期数据溯源：BMS云端记录从生产到回收全生命周期数据，为回收企业材料分选提供数据支持"
       ],
-      "imageUrl": "./images/battery-cathode-direct-regeneration-spontaneous-lithiation.jpg"
+      "imageUrl": "./images/battery-cathode-direct-regeneration-spontaneous-lithiation.jpg",
+      "direction": "新材料体系"
     }
   ],
   "history": [
@@ -220,7 +228,8 @@
             "增量学习更新：生成式框架支持增量训练，BMS可在车辆运行中持续更新SOH模型",
             "异常老化检测：DNN残差分析可识别异常老化模式，提前预警电池故障"
           ],
-          "imageUrl": "./images/generative_learning_vae_soh_estimation_battery.jpg"
+          "imageUrl": "./images/generative_learning_vae_soh_estimation_battery.jpg",
+          "direction": "SOH估算"
         },
         {
           "id": 102,
@@ -244,7 +253,8 @@
             "在线参数更新：车辆运行中自动更新模型参数，保持模型精度，延长使用寿命",
             "老化轨迹预测：学习参数退化轨迹，支持RUL预测和剩余价值评估"
           ],
-          "imageUrl": "./images/physics-based-p2d-electrochemical-battery-model-diagram.jpg"
+          "imageUrl": "./images/physics-based-p2d-electrochemical-battery-model-diagram.jpg",
+          "direction": "先进电池模型"
         },
         {
           "id": 103,
@@ -268,7 +278,8 @@
             "SOH实时跟踪：EIS特征参数与SOH高度相关，可实现无增益SOH估计",
             "充电状态优化：根据阻抗相位角动态调整充电电流，优化快充策略并抑制析锂"
           ],
-          "imageUrl": "./images/electrochemical-impedance-spectroscopy-eis-battery-measurement-method.jpg"
+          "imageUrl": "./images/electrochemical-impedance-spectroscopy-eis-battery-measurement-method.jpg",
+          "direction": "EIS检测"
         },
         {
           "id": 104,
@@ -292,7 +303,8 @@
             "充电安全监控：过充是内短路主要诱因之一，模型可与充电管理联动实现主动保护",
             "故障追溯分析：记录电压曲线片段供事后分析，还原内短路发生过程和诱因"
           ],
-          "imageUrl": "./images/lithium_ion_battery_isc_detection_deep_learning_eis.jpg"
+          "imageUrl": "./images/lithium_ion_battery_isc_detection_deep_learning_eis.jpg",
+          "direction": "电池异常诊断"
         },
         {
           "id": 105,
@@ -316,7 +328,8 @@
             "云端联动预警：BMS将实时数据上传云端，云端模型提前预警并向用户推送维护建议",
             "消防联动接口：热失控预警信号可同步推送至消防系统，实现快速应急响应"
           ],
-          "imageUrl": "./images/battery-thermal-runaway-mechanism-analysis.jpg"
+          "imageUrl": "./images/battery-thermal-runaway-mechanism-analysis.jpg",
+          "direction": "热失控"
         },
         {
           "id": 106,
@@ -340,7 +353,8 @@
             "调度指令接收：移动储能BMS接收调度中心指令，自主规划最优运行策略",
             "梯次利用管理：退役动力电池作移动储能时，BMS需识别SOH并限制运行窗口防止过放"
           ],
-          "imageUrl": "./images/lithium-ion-battery-digitalization-hybrid-modeling.jpg"
+          "imageUrl": "./images/lithium-ion-battery-digitalization-hybrid-modeling.jpg",
+          "direction": "非乘用车场景"
         },
         {
           "id": 107,
@@ -364,7 +378,8 @@
             "多电池并联管理：当车辆采用不同化学体系电池包并联时，迁移学习可提供统一SOC估算框架",
             "终身模型更新：车辆运行中持续收集数据，对模型进行增量迁移学习，保持SOC精度"
           ],
-          "imageUrl": "./images/lithium_ion_battery_soh_estimation_neural_network_diagram.jpg"
+          "imageUrl": "./images/lithium_ion_battery_soh_estimation_neural_network_diagram.jpg",
+          "direction": "AI/机器学习"
         },
         {
           "id": 108,
@@ -388,7 +403,8 @@
             "寿命模型更新：固态电池循环衰减机制与液态不同，需建立专用的固态电池SOH预测模型",
             "安全边界扩展：固态电池可承受更高工作温度（可达60°C），BMS可据此扩展充电温区"
           ],
-          "imageUrl": "./images/all-solid-state-lithium-sulfur-battery-schematic-diagram.jpg"
+          "imageUrl": "./images/all-solid-state-lithium-sulfur-battery-schematic-diagram.jpg",
+          "direction": "新材料体系"
         }
       ]
     },
@@ -417,7 +433,8 @@
             "热管理优化：氧释放被抑制使热稳定性提升，BMS可适当放宽低温充电限制",
             "循环寿命追踪：高梯度结构正极衰减模式与普通正极不同，SOH模型需专门校准"
           ],
-          "imageUrl": "./images/li-rich-gradient-cathode-oxygen-release-suppression.jpg"
+          "imageUrl": "./images/li-rich-gradient-cathode-oxygen-release-suppression.jpg",
+          "direction": "新材料体系"
         },
         {
           "id": 202,
@@ -441,7 +458,8 @@
             "充电末端策略：双层SEI在高压（4.2V以上）下的稳定性为充电截止电压优化提供依据",
             "硅负极保护策略：FEC+VC添加剂配方可作为BMS充电保护策略的参考依据，用于防止硅负极过充"
           ],
-          "imageUrl": "./images/sei-layer-formation-mechanism-battery-anode.jpg"
+          "imageUrl": "./images/sei-layer-formation-mechanism-battery-anode.jpg",
+          "direction": "新材料体系"
         },
         {
           "id": 203,
@@ -465,7 +483,8 @@
             "梯次利用筛选：回收率70%的数据为SOH低于70%进入回收流程的判断阈值提供参考",
             "材料溯源：BMS云数据记录正极材料类型和锂含量，为回收工艺参数优化提供数据支持"
           ],
-          "imageUrl": "./images/battery-cathode-direct-regeneration-lithiation-recycling.jpg"
+          "imageUrl": "./images/battery-cathode-direct-regeneration-lithiation-recycling.jpg",
+          "direction": "新材料体系"
         }
       ]
     },
@@ -494,7 +513,8 @@
             "高温运行BMS：热分解温度大于200°C为高温BMS运行阈值设置提供更大安全裕度",
             "制造兼容性：R2R工艺加工性为固态电池与BMS的联合制造提供工艺基础"
           ],
-          "imageUrl": "./images/solid-state-battery-polymer-electrolyte-solvation-structure.jpg"
+          "imageUrl": "./images/solid-state-battery-polymer-electrolyte-solvation-structure.jpg",
+          "direction": "新材料体系"
         },
         {
           "id": 302,
@@ -518,7 +538,8 @@
             "热失控预警：热失控传播速度特性要求BMS将预警阈值设置得更灵敏",
             "充电管理：锂枝晶生长速率与充电电流直接相关，BMS应实施自适应充电电流限制"
           ],
-          "imageUrl": "./images/li_metal_anode_3d_nanofiber_framework_sem_dendrite_suppression.jpg"
+          "imageUrl": "./images/li_metal_anode_3d_nanofiber_framework_sem_dendrite_suppression.jpg",
+          "direction": "新材料体系"
         }
       ]
     },
@@ -547,7 +568,8 @@
             "充电策略优化：了解Li2S分解过电位后，可设置更合理的充电截止电压防止过充",
             "寿命预测：催化剂活性衰减可作为Li-S电池SOH退化的指示因子"
           ],
-          "imageUrl": "./images/li-s-battery-polysulfide-adsorption-mechanism-diagram.jpg"
+          "imageUrl": "./images/li-s-battery-polysulfide-adsorption-mechanism-diagram.jpg",
+          "direction": "新材料体系"
         },
         {
           "id": 402,
@@ -571,7 +593,8 @@
             "热失控预警阈值：基于产气阶段分析，可设置更精细的分级预警（CO2积聚预警、H2爆炸预警等）",
             "通风系统联动：BMS可在检测到特定气体浓度阈值时自动启动强制通风"
           ],
-          "imageUrl": "./images/battery-thermal-runaway-mechanism-analysis.jpg"
+          "imageUrl": "./images/battery-thermal-runaway-mechanism-analysis.jpg",
+          "direction": "热失控"
         }
       ]
     },
@@ -600,7 +623,8 @@
             "最优存储SoC建议：BMS可建议用户将车辆长时间停放时保持SoC在20-40%区间，减少正极氧损失",
             "充电管理优化：避免将电池长时间保持在中压区间（40-60% SoC），可减少氧损失并延长正极寿命"
           ],
-          "imageUrl": "./images/single-crystal-nmc-cathode-microscopy-analysis.jpg"
+          "imageUrl": "./images/single-crystal-nmc-cathode-microscopy-analysis.jpg",
+          "direction": "新材料体系"
         }
       ]
     },
@@ -629,7 +653,8 @@
             "超长寿命管理：15000次循环数据可用于建立超长寿命电池的SOH预测模型",
             "热失控防护：BMS可集成SafeCore+预警信号，在热失控前兆出现时自动执行保护动作"
           ],
-          "imageUrl": "./images/silicon_nanowire_anode_sem_battery_performance.jpg"
+          "imageUrl": "./images/silicon_nanowire_anode_sem_battery_performance.jpg",
+          "direction": "新材料体系"
         }
       ]
     },
@@ -658,7 +683,8 @@
             "跨车型复用：一个通用SOC模型可适配多种车型，减少主机厂的BMS标定工作量",
             "实时推理：BMS嵌入式芯片上运行，响应时间小于50ms，满足实时估算需求"
           ],
-          "imageUrl": "./images/lithium_ion_battery_soh_estimation_neural_network_diagram.jpg"
+          "imageUrl": "./images/lithium_ion_battery_soh_estimation_neural_network_diagram.jpg",
+          "direction": "AI/机器学习"
         }
       ]
     }
