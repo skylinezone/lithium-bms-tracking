@@ -73,7 +73,7 @@
         "自加热效应管理：多硫化物溶解热是低温Li-S自加热主因，BMS热模型参数需据此修正",
         "循环寿命预测：500次循环数据结合COF吸附容量衰减趋势，可建立Li-S电池专用SOH预测模型"
       ],
-      "imageUrl": "./images/li-s-battery-polysulfide-adsorption-mechanism-diagram.jpg",
+      "imageUrl": "./images/li-s-battery-cof-lithium-sulfonylimide-separator.jpg",
       "direction": "新材料体系"
     },
     {
