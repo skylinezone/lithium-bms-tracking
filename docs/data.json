@@ -538,7 +538,7 @@
             "热失控预警：热失控传播速度特性要求BMS将预警阈值设置得更灵敏",
             "充电管理：锂枝晶生长速率与充电电流直接相关，BMS应实施自适应充电电流限制"
           ],
-          "imageUrl": "./images/li_metal_anode_3d_nanofiber_framework_sem_dendrite_suppression.jpg",
+          "imageUrl": "./images/solid-state-lithium-metal-battery-safety-review.jpg",
           "direction": "新材料体系"
         }
       ]
@@ -593,7 +593,7 @@
             "热失控预警阈值：基于产气阶段分析，可设置更精细的分级预警（CO2积聚预警、H2爆炸预警等）",
             "通风系统联动：BMS可在检测到特定气体浓度阈值时自动启动强制通风"
           ],
-          "imageUrl": "./images/battery-thermal-runaway-mechanism-analysis.jpg",
+          "imageUrl": "./images/lfp-ncm-thermal-runaway-gas-emissions-comparison.jpg",
           "direction": "热失控"
         }
       ]
@@ -623,7 +623,7 @@
             "最优存储SoC建议：BMS可建议用户将车辆长时间停放时保持SoC在20-40%区间，减少正极氧损失",
             "充电管理优化：避免将电池长时间保持在中压区间（40-60% SoC），可减少氧损失并延长正极寿命"
           ],
-          "imageUrl": "./images/single-crystal-nmc-cathode-microscopy-analysis.jpg",
+          "imageUrl": "./images/lithium-rich-cathode-oxygen-release-mechanism.jpg",
           "direction": "新材料体系"
         }
       ]
@@ -653,40 +653,14 @@
             "超长寿命管理：15000次循环数据可用于建立超长寿命电池的SOH预测模型",
             "热失控防护：BMS可集成SafeCore+预警信号，在热失控前兆出现时自动执行保护动作"
           ],
-          "imageUrl": "./images/silicon_nanowire_anode_sem_battery_performance.jpg",
+          "imageUrl": "./images/ale-zerovolt-battery-zero-volt-storage.jpg",
           "direction": "新材料体系"
         }
       ]
     },
     {
       "date": "2026-03-12",
-      "papers": [
-        {
-          "id": 701,
-          "category": "AI/BMS",
-          "titleCn": "迁移学习辅助Transformer实现跨电池类型SOC估算",
-          "title": "TATNS: Transfer learning aided transformer for neural SOC estimation across battery types",
-          "source": "Scientific Reports | 2025",
-          "doi": "https://www.nature.com/articles/s41598-025-32347-6",
-          "publishDate": "2025-01-20",
-          "views": 7800,
-          "summary": "基于Transformer架构的SOC估算模型，结合迁移学习实现跨电池类型的高精度SOC估算，室温下误差小于1.5%，低温（-20°C）误差小于3%。",
-          "keyPoints": [
-            "基于Transformer自注意力机制架构，捕捉电池充放电曲线中的长程依赖关系",
-            "结合迁移学习策略，将LFP电池上训练的模型迁移到NCM等其他化学体系",
-            "室温下SOC估算误差小于1.5%，低温（-20°C）下误差小于3%",
-            "模型参数少于传统DNN约40%，推理速度更快，适合嵌入式BMS部署",
-            "跨温度和老化程度鲁棒，初始SoC估计（SoCinit）误差小于2.5%"
-          ],
-          "bmsValue": [
-            "低温SOC精确估算：-20°C下误差小于3%使电动车在寒冷环境下仍能精确显示剩余里程",
-            "跨车型复用：一个通用SOC模型可适配多种车型，减少主机厂的BMS标定工作量",
-            "实时推理：BMS嵌入式芯片上运行，响应时间小于50ms，满足实时估算需求"
-          ],
-          "imageUrl": "./images/lithium_ion_battery_soh_estimation_neural_network_diagram.jpg",
-          "direction": "AI/机器学习"
-        }
-      ]
+      "papers": []
     }
   ]
 }
