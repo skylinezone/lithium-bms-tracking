@@ -48,7 +48,7 @@ export default function App() {
   const [selectedPaper, setSelectedPaper] = useState<Paper | null>(null);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
-  const [sortBy, setSortBy] = useState<"date" | "views">("date");
+  const [sortBy, setSortBy] = useState<"relevance" | "date" | "views">("relevance");
   const [showComment, setShowComment] = useState(false);
   const [showHandbook, setShowHandbook] = useState(false);
   const [newComment, setNewComment] = useState("");
@@ -95,23 +95,53 @@ export default function App() {
     ...history.flatMap(h => h.papers.map(normalize)),
   ];
 
+  // ---- 模糊搜索评分 ----
+  const scorePaper = (p: Paper, kw: string): number => {
+    if (!kw) return 1;
+    const k = kw.toLowerCase();
+    const tokens = k.split(/\s+/).filter(Boolean);
+
+    // 字段权重
+    const w: [string, number][] = [
+      [p.titleCn.toLowerCase(), 3],
+      [p.title.toLowerCase(), 2.5],
+      [p.summary.toLowerCase(), 2],
+      [(p.keyPoints || []).join(' ').toLowerCase(), 1.5],
+      [(p.bmsValue || []).join(' ').toLowerCase(), 1.2],
+      [p.direction.toLowerCase(), 1],
+      [p.source.toLowerCase(), 0.5],
+    ];
+
+    let score = 0;
+    for (const [text, weight] of w) {
+      for (const tok of tokens) {
+        if (text.includes(tok)) {
+          score += weight * (tok.length / Math.max(text.length, 1));
+          // 完整词组匹配额外加分
+          if (text.includes(k)) score += weight * 2;
+        }
+      }
+    }
+    return score;
+  };
+
   const filterPapers = useCallback((list: Paper[]): Paper[] => {
     let f = list.filter(p => {
       if (!p.publishDate) return false;
-      // 不按年份过滤，显示所有文献（包括2024年发表的经典研究）
-      if (search) {
-        const kw = search.toLowerCase();
-        if (!p.titleCn.toLowerCase().includes(kw) &&
-            !p.title.toLowerCase().includes(kw) &&
-            !p.summary.toLowerCase().includes(kw) &&
-            !p.direction.toLowerCase().includes(kw)) return false;
-      }
       if (selectedDirection !== "全部" && p.direction !== selectedDirection) return false;
-      return true;
+      if (!search.trim()) return true;
+      return scorePaper(p, search.trim()) > 0;
     });
-    f.sort((a, b) => sortBy === "date"
-      ? new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
-      : b.views - a.views);
+
+    // 排序
+    if (search.trim() && sortBy === 'relevance') {
+      // 相关度：按搜索评分降序，彻底无关（score=0）在搜索时已过滤
+      f.sort((a, b) => scorePaper(b, search.trim()) - scorePaper(a, search.trim()));
+    } else if (sortBy === 'date') {
+      f.sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
+    } else {
+      f.sort((a, b) => b.views - a.views);
+    }
     return f;
   }, [search, selectedDirection, sortBy]);
 
@@ -198,21 +228,34 @@ export default function App() {
           <div className="flex-1 relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
             <input value={search} onChange={e => setSearch(e.target.value)}
-              placeholder="搜索标题、摘要、方向..."
+              placeholder="输入任意关键词，模糊匹配文献标题、摘要、要点..."
               className="w-full pl-9 pr-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
           <div className="flex gap-2">
-            <select value={sortBy} onChange={e => setSortBy(e.target.value as "date" | "views")}
-              className="px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-              <option value="date">按时间</option>
-              <option value="views">按热度</option>
-            </select>
+            <div className="flex border rounded-lg overflow-hidden text-xs">
+              {([['relevance','🔥 相关度'],['date','📅 日期'],['views','👁 热度']] as [typeof sortBy, string][]).map(([val, label]) => (
+                <button key={val} onClick={() => setSortBy(val)}
+                  className={`px-3 py-2 transition-colors ${
+                    sortBy === val ? 'bg-blue-600 text-white' : 'bg-white text-gray-600 hover:bg-blue-50'
+                  }`}>
+                  {label}
+                </button>
+              ))}
+            </div>
             <button onClick={() => setShowHistory(h => !h)}
               className="flex items-center gap-1.5 px-3 py-2 border rounded-lg text-sm hover:bg-gray-50">
               <Calendar size={15} />历史
             </button>
           </div>
         </div>
+        {search && (
+          <div className="max-w-6xl mx-auto px-4 pb-2.5 flex items-center gap-2">
+            <span className="text-xs text-blue-600 bg-blue-50 px-2 py-1 rounded-full">
+              🔍 搜索 "<strong>{search}</strong>" 找到 <strong>{filtered.length}</strong> 篇相关文献
+              {sortBy === 'relevance' ? ' · 按相关度排序' : sortBy === 'date' ? ' · 按发表日期排序' : ' · 按引用热度排序'}
+            </span>
+          </div>
+        )}
       </div>
 
       {/* 8方向 Tabs */}
