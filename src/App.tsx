@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Search, SortAsc, Calendar, MessageCircle, X } from 'lucide-react';
+import { Search, SortAsc, Calendar, MessageCircle, X, BookOpen } from 'lucide-react';
+import FeedbackHandbook from './components/FeedbackHandbook';
+import { saveFeedback, getAllFeedback, StarRating, Toast } from './lib/feedback';
 
 interface Paper {
   id: number;
@@ -48,8 +50,11 @@ export default function App() {
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState<"date" | "views">("date");
   const [showComment, setShowComment] = useState(false);
+  const [showHandbook, setShowHandbook] = useState(false);
   const [newComment, setNewComment] = useState("");
-  const [newQuality, setNewQuality] = useState(5);
+  const [newQuality, setNewQuality] = useState(7);
+  const [feedbackCount, setFeedbackCount] = useState(0);
+  const [toast, setToast] = useState('');
   const [showHistory, setShowHistory] = useState(false);
   const [selectedHist, setSelectedHist] = useState<{ date: string; papers: Paper[] } | null>(null);
   const [page, setPage] = useState(1);
@@ -69,6 +74,14 @@ export default function App() {
       })
       .catch(console.error)
       .finally(() => setLoading(false));
+  }, []);
+
+  // 同步反馈数量 badge
+  useEffect(() => {
+    const updateCount = () => setFeedbackCount(getAllFeedback().length);
+    updateCount();
+    window.addEventListener('feedback:refresh', updateCount);
+    return () => window.removeEventListener('feedback:refresh', updateCount);
   }, []);
 
   const normalize = (p: Paper): Paper => ({
@@ -141,19 +154,41 @@ export default function App() {
   if (loading) return <div className="min-h-screen flex items-center justify-center bg-gray-50"><div className="text-xl text-gray-500">加载中...</div></div>;
   if (!data) return <div className="min-h-screen flex items-center justify-center"><div className="text-xl text-red-500">数据加载失败</div></div>;
 
+  if (showHandbook) {
+    return (
+      <FeedbackHandbook
+        onBack={() => {
+          setShowHandbook(false);
+          setFeedbackCount(getAllFeedback().length);
+        }}
+      />
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-8 px-4">
-        <div className="max-w-6xl mx-auto flex justify-between items-start">
+        <div className="max-w-6xl mx-auto flex justify-between items-start gap-3">
           <div>
             <h1 className="text-3xl font-bold mb-1">🔋 锂电前沿文献追踪</h1>
             <p className="text-blue-100 text-sm">BMS算法前瞻研究 · 每日更新</p>
           </div>
-          <button onClick={() => setShowComment(true)}
-            className="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors text-sm">
-            <MessageCircle size={16} />反馈
-          </button>
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <button onClick={() => setShowHandbook(true)}
+              className="flex items-center gap-1.5 bg-white/20 hover:bg-white/30 px-3 py-2 rounded-lg transition-colors text-sm relative">
+              <BookOpen size={15} />手册
+              {feedbackCount > 0 && (
+                <span className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                  {feedbackCount > 99 ? '99+' : feedbackCount}
+                </span>
+              )}
+            </button>
+            <button onClick={() => setShowComment(true)}
+              className="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors text-sm">
+              <MessageCircle size={16} />反馈
+            </button>
+          </div>
         </div>
       </header>
 
@@ -561,17 +596,31 @@ export default function App() {
               <label className="block text-sm font-medium mb-1.5">您的建议</label>
               <textarea value={newComment} onChange={e => setNewComment(e.target.value)}
                 placeholder="请提出您的宝贵建议..."
-                className="w-full h-28 p-2.5 border rounded-lg text-sm resize-none" />
+                className="w-full h-28 p-2.5 border rounded-lg text-sm resize-none focus:outline-none focus:ring-2 focus:ring-blue-400" />
             </div>
             <div className="flex gap-2">
               <button onClick={() => setShowComment(false)}
                 className="flex-1 py-2 border rounded-lg text-sm hover:bg-gray-50">取消</button>
-              <button onClick={() => { if (!newComment.trim()) return; setShowComment(false); alert('感谢您的反馈！'); }}
-                className="flex-1 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700">提交</button>
+              <button
+                onClick={() => {
+                  if (!newComment.trim() && newQuality < 5) return;
+                  saveFeedback({ rating: newQuality, comment: newComment.trim(), pageContext: `今日文献追踪 ${data?.updateDate || ''}` });
+                  setNewComment('');
+                  setNewQuality(7);
+                  setShowComment(false);
+                  setFeedbackCount(getAllFeedback().length);
+                  setToast('✅ 感谢您的反馈，已收录！');
+                  setTimeout(() => setToast(''), 3500);
+                }}
+                className="flex-1 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700 font-medium">
+                提交反馈
+              </button>
             </div>
           </div>
         </div>
       )}
+
+      {toast && <Toast message={toast} onClose={() => setToast('')} />}
 
       {/* Footer */}
       <footer className="bg-gray-800 text-gray-400 py-7 mt-10">
@@ -584,6 +633,10 @@ export default function App() {
           <p className="text-xs mt-1 opacity-60">
             数据来源：Nature · ScienceDirect · Springer · ACS · Wiley等
           </p>
+          <button onClick={() => setShowHandbook(true)}
+            className="mt-3 text-xs text-blue-400 hover:text-blue-300 underline-offset-2 hover:underline">
+            📒 反馈建议手册（{feedbackCount} 条）
+          </button>
         </div>
       </footer>
     </div>
