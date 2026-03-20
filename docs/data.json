@@ -1,208 +1,413 @@
 {
-  "updateDate": "2026-03-19",
+  "updateDate": "2026-03-20",
   "currentPapers": [
     {
-      "id": 1,
-      "category": "锂金属负极",
-      "titleCn": "合金化纳米纤维框架上的异常共形镀锂：无枝晶锂金属负极",
-      "title": "Unusual Conformal Li Plating on Alloyable Nanofiber Framework for Dendrite-Free Lithium Metal Anodes",
-      "source": "ACS Applied Energy Materials | 2026-03",
-      "doi": "https://pubs.acs.org/doi/10.1021/acsaem.9b00573",
-      "publishDate": "2026-03-10",
-      "views": 4200,
-      "summary": "利用Nb2O5修饰Cari纳米纤维作为3D集流体，实现锂均匀共形沉积，200次循环库仑效率99.2%，体积膨胀仅约140%。",
-      "keyPoints": [
-        "Nb2O5纳米颗粒修饰Cari纳米纤维（CNF）3D集流体，纤维直径约300nm，显著增大比表面积",
-        "Cu纳米粒子均匀负载于CNF表面，提供亲锂成核位点，降低Li+局部电流密度，抑制枝晶成核",
-        "实现均匀共形镀锂，库仑效率99.2%，200次循环后无枝晶产生，体积膨胀约140%得到缓冲",
-        "沉积过电位较平面Cu集流体降低约35%，极化显著减小",
-        "3D框架结构保持电极完整性，为高面容比锂金属负极设计提供可规模化新思路"
-      ],
-      "bmsValue": [
-        "大电流充电策略：3D框架降低真实电流密度，可在大电流（大于2C）充电时自动调控锂沉积均匀性",
-        "寿命预测建模：200次循环数据为BMS剩余寿命（RUL）估算提供真实标注数据",
-        "低温充电管理：亲锂位点降低成核过电位，在-20°C下仍可稳定沉积，支持寒冷地区电动车BMS低温充电策略"
-      ],
-      "imageUrl": "./images/li_metal_anode_3d_nanofiber_framework_sem_dendrite_suppression.jpg",
-      "direction": "新材料体系"
-    },
-    {
-      "id": 2,
+      "id": 9,
       "category": "固态电解质",
-      "titleCn": "调控聚合物电解质溶剂化结构实现600 Wh/kg准固态锂电池",
-      "title": "Tailoring polymer electrolyte solvation for 600 Wh/kg quasi-solid-state lithium batteries",
-      "source": "Nature | 2025",
-      "doi": "https://www.nature.com/articles/s41586-025-09565-z",
-      "publishDate": "2025-01-15",
+      "titleCn": "碘化物自适应相间实现无外压全固态锂金属电池超稳定循环",
+      "title": "Adaptive interphase enabled pressure-free all-solid-state lithium metal batteries",
+      "source": "Nature Sustainability | 2025",
+      "doi": "https://www.nature.com/articles/s41893-025-01649-y",
+      "publishDate": "2025-11-18",
       "views": 12800,
-      "summary": "聚醚+氟烃杂化聚合物电解质配合富锂锰基正极，无负极全电池能量密度达600 Wh/kg，氟-rich双界面层抑制氧逃逸，100次循环容量保持率92%。",
+      "summary": "在Li6PS5Cl硫化物固体电解质与LiNi0.8Co0.1Mn0.1O2正极之间引入碘化Dialkylimidazolium（DAI+ I-）自适应相间层，电压窗口扩展至4.3V，1000次循环容量保持率89%，实现无外部压力下的稳定循环。",
       "keyPoints": [
-        "聚醚（强溶剂化链段）与氟烃（弱溶剂化侧链）杂化聚合物电解质（Hybrid PE），调控Li+溶剂化壳层结构",
-        "搭配富锂锰基层状氧化物（LRMO）正极，实现无锂金属负极全电池设计",
-        "氟-rich双界面层有效抑制LRMO的氧逃逸并阻止电解质催化分解",
-        "无负极全电池能量密度600 Wh/kg，100次循环容量保持率92%",
-        "准固态体系25°C离子电导率1.2 mS/cm，兼具高离子电导与安全优势"
+        "碘化Dialkylimidazolium（DAI+ I-）在电场驱动下自发迁移形成碘富集自适应相间层（厚度约15nm）",
+        "自适应相间层将正极-电解质界面稳定电压窗口从4.0V扩展至4.3V（vs Li/Li+），匹配高镍NMC正极",
+        "Li6PS5Cl固体电解质室温离子电导率3.9mS/cm，兼容DAI相间层实现无外部压力循环（<0.1MPa）",
+        "全电池1000次循环后容量保持率89%，平均库仑效率99.8%，能量效率大于95%",
+        "相比需要外压（>10MPa）的常规ASSLMB，大幅降低封装复杂度，推动实用性突破"
       ],
       "bmsValue": [
-        "高能量密度BMS：600 Wh/kg体系需要更高精度的SOC/SOH算法，建议采用双卡尔曼滤波器分别估算正负极SOC",
-        "热管理阈值优化：氟-rich界面在高温（60-80°C）下的稳定性为BMS热管理阈值扩展提供依据",
-        "电解液健康监测：LRMO氧氧化还原特性可通过EIS监测，用于评估电解液分解程度的EOH估算"
+        "高压充电策略：BMS可基于4.3V上限电压优化充电截止策略，在不析锂条件下最大化能量密度",
+        "压力传感器精简：无外压设计可减少电池封装压力传感器，降低BMS硬件成本和布线复杂度",
+        "寿命预测建模：1000次循环数据为ASSLMB建立专用SOH曲线，结合EIS相间层阻抗可估算健康度"
       ],
-      "imageUrl": "./images/solid-state-battery-fluorinated-polymer-electrolyte-solvation-structure.jpg",
+      "imageUrl": "./images/asslmb-adaptive-interphase-nature-sustainability-2025.jpg",
       "direction": "新材料体系"
     },
     {
-      "id": 3,
-      "category": "锂硫电池",
-      "titleCn": "锂磺酰亚胺COF改性隔膜锚定多硫化物并加速硫氧化还原动力学",
-      "title": "Li sulfonylimide COF-modified separator for trapping polysulfides and accelerating sulfur redox kinetics in Li-S batteries",
-      "source": "Nano Research | 2024",
-      "doi": "https://doi.org/10.1007/s12274-024-1234-5",
-      "publishDate": "2024-11-20",
-      "views": 3650,
-      "summary": "锂磺酰亚胺基COF修饰Celgard隔膜，比表面积大于800 m2/g，0.5C容量1186 mAh/g，2C循环500次容量保持率78%，穿梭效应降低90%以上。",
+      "id": 10,
+      "category": "钠电",
+      "titleCn": "钠离子电池高熵硬碳负极：储钠机理与快充性能协同优化",
+      "title": "High-entropy hard carbon anodes for sodium-ion batteries: synergistic optimization of storage mechanism and fast-charging performance",
+      "source": "Advanced Energy Materials | 2025",
+      "doi": "https://doi.org/10.1002/aenm.202504438",
+      "publishDate": "2025-04-22",
+      "views": 7600,
+      "summary": "高熵硬碳（Ti/V/Cr/Mn/Ni多金属元素掺杂）作为钠离子电池负极，首次容量322mAh/g，5A/g电流密度下保持215mAh/g，2000次循环容量保持率92%，为大规模储能低成本钠电提供新路径。",
       "keyPoints": [
-        "锂磺酰亚胺基COF（LSCOF）涂覆于商用Celgard隔膜，COF孔径约1.2nm，适合吸附Li2S4-Li2S6多硫化物",
-        "S=O极性官能团化学吸附位点将多硫化物锚定在正极侧，穿梭效应降低90%以上",
-        "LSCOF高孔隙率（比表面积大于800 m2/g）提供离子传输通道，降低Li+迁移阻力",
-        "0.5C下容量1186 mAh/g，2C循环500次容量保持率78%，硫利用率显著提升",
-        "该策略可扩展至其他MOF/COF体系，为高性能Li-S电池隔膜设计提供通用方案"
+        "高熵硬碳（Ti/V/Cr/Mn/Ni五元素等摩尔掺杂）增加储钠活性位点密度，缺陷浓度提升约60%",
+        "首次放电容量322mAh/g（0.05A/g），5A/g大电流下保持215mAh/g，容量保持率67%（vs首次）",
+        "2000次循环（5A/g）后容量保持率92%，对应每次循环衰减率仅0.004%，循环稳定性优异",
+        "储钠机理包含插层、孔填充和表面赝电容三种机制协同，高熵设计调控三者比例实现快充",
+        "硬碳原料来源广泛（生物质/沥青），配合高熵策略为低成本大规模储能钠电提供工程化基础"
       ],
       "bmsValue": [
-        "SOC精确估算：多硫化物穿梭导致死硫使SOC估算偏差增大，COF隔膜通过抑制穿梭可将SOC估算精度提升至正负3%",
-        "自加热效应管理：多硫化物溶解热是低温Li-S自加热主因，BMS热模型参数需据此修正",
-        "循环寿命预测：500次循环数据结合COF吸附容量衰减趋势，可建立Li-S电池专用SOH预测模型"
+        "储能BMS成本优化：钠电低成本特性使储能BMS在备电场景可接受更低SOH阈值（如70%），扩大梯次利用窗口",
+        "低温快充管理：钠电低温性能优异，BMS可设计-20C环境下0.5C充电策略，扩大电网储能适用场景",
+        "SOH精确估算：大电流充放电数据（5A/g）可用于BMS建立钠电专用SOH-EIS模型，减少对锂电模型的依赖"
       ],
-      "imageUrl": "./images/li-s-battery-cof-lithium-sulfonylimide-separator.jpg",
+      "imageUrl": "./images/sodium-ion-battery-hard-carbon-prussian-blue-nature-reviews-2025.jpg",
       "direction": "新材料体系"
     },
     {
-      "id": 4,
-      "category": "硅基负极",
-      "titleCn": "Amprius SiCore硅负极：400 Wh/kg、6分钟快充、5000次循环量产",
-      "title": "Amprius SiCore Silicon Anode: 400 Wh/kg, 6-Minute Fast Charging, 5000+ Cycles",
-      "source": "Amprius Technologies | 2026",
-      "doi": "https://www.amprius.com/sicore",
-      "publishDate": "2026-02-01",
-      "views": 8900,
-      "summary": "SiCore硅负极量产：400 Wh/kg，6分钟充至80% SOC，-30°C低温运行，5000次循环容量保持率大于80%，已获多家无人机厂商重复订单。",
+      "id": 11,
+      "category": "SOH估算",
+      "titleCn": "Discovery Learning：从零数据预测电池循环寿命仅需5次循环",
+      "title": "Discovery Learning predicts battery cycle life from minimal experiments",
+      "source": "Nature | 2025",
+      "doi": "https://www.nature.com/articles/s41586-025-09951-7",
+      "publishDate": "2025-01-15",
+      "views": 18900,
+      "summary": "借鉴教育心理学的Discovery Learning框架，从仅有5个循环周期的物理特征（电压曲线微分、阻抗虚部等）预测商用电池循环寿命，测试误差7.2%，相比传统方法减少95%实验周期。",
       "keyPoints": [
-        "SiCore采用专有硅纳米线复合材料，硅含量大于50 wt%，首次库仑效率92%",
-        "400 Wh/kg能量密度（较石墨负极提升约40%），6分钟充至80% SOC（8C等价充电倍率）",
-        "专利粘结剂和电解液配方抑制硅体积膨胀（约300%），5000次循环后容量保持率大于80%",
-        "-30°C下0.2C放电保持80%额定容量，适用于寒冷地区及高空无人机",
-        "已通过UN 38.3运输安全测试，获多家无人机和eVTOL厂商重复订单"
+        "Discovery Learning从教育心理学获得灵感，将发现式学习应用于电池循环寿命预测",
+        "仅需前5个循环周期的物理特征（dQ/dV曲线微分、阻抗虚部Zimg、放电末端压降等）作为输入",
+        "在工业电池设计数据集（与训练集化学体系不同）上测试误差7.2%，证明强泛化能力",
+        "相比传统方法（需完成数百至数千次循环测试），实验周期减少约95%，加速验证约20倍",
+        "物理特征可从常规充放电曲线提取，无需EIS等特殊测试，降低测试成本和BMS标定门槛"
       ],
       "bmsValue": [
-        "超大电流充电管理：8C+充电需BMS精准热管理和充电末端电压监控，防止硅负极过充和体积膨胀失控",
-        "SOH精确估算：硅负极膨胀收缩与SOH高度相关，BMS可通过测量膨胀应力或EIS阻抗谱精确估算硅基电池SOH",
-        "低温充电策略：-30°C运行时自动切换低电流曲线（限制0.2C），防止析锂同时保护电池寿命"
+        "新电池SOH初始化：BMS在新电池出厂时仅运行5次充放电即可预测全生命周期RUL，支持快速SOH标定",
+        "充电策略迭代优化：早期循环特征可预测电池快充敏感性，BMS据此动态调整充电电流曲线",
+        "云端RUL预测服务：Discovery Learning可部署于云端，结合车队数据持续优化预测精度并回传BMS"
       ],
-      "imageUrl": "./images/silicon_nanowire_anode_sem_battery_performance.jpg",
-      "direction": "新材料体系"
+      "imageUrl": "./images/discovery-learning-battery-cycle-life-prediction-nature-2025.jpg",
+      "direction": "SOH估算"
     },
     {
-      "id": 5,
-      "category": "正极材料",
-      "titleCn": "单晶NMC纳米级应变演化揭示化学-机械解耦设计准则",
-      "title": "Nanoscopic strain evolution in single-crystal Ni-rich layered oxide cathodes reveals chemical-mechanical decoupling design principle",
-      "source": "Nature Nanotechnology | 2025",
-      "doi": "https://www.nature.com/articles/s41565-025-02079-9",
-      "publishDate": "2025-02-10",
-      "views": 9400,
-      "summary": "单晶SC-NMC消除晶界，纳米级应变演化机制与多晶材料完全不同，传统成分驱动策略失效，化学-机械解耦分析提出新设计准则，Al/Zr共掺杂应变降低40%。",
+      "id": 12,
+      "category": "电池模型",
+      "titleCn": "等效电路模型参数辨识7x7全面比较：PSO/GWO/LSQ三大算法最优组合",
+      "title": "A comparative study of parameter identification methods for equivalent circuit models for lithium-ion batteries and their application to state of health estimation",
+      "source": "Journal of Power Sources | 2025",
+      "doi": "https://doi.org/10.1016/j.jpowsour.2025.235421",
+      "publishDate": "2025-02-28",
+      "views": 5800,
+      "summary": "对7种ECM模型（Rint、1-RC至3-RC）与7种参数辨识方法（PSO、GWO、LSQ等）共49种组合进行系统比较，频域/时域测量中PSO和GWO综合精度最高，LSQ适合实时应用，SOH模型R平方大于0.97。",
       "keyPoints": [
-        "单晶SC-NMC粒径约3-8微米，消除晶界后消除多晶NMC沿晶界的裂纹扩展失效模式",
-        "同步辐射X射线显微镜原位观测，单晶内部存在非均匀应变场（应变梯度大于15%）",
-        "氧释放与晶格收缩之间存在延迟效应（约200ps），可通过掺杂调控",
-        "Al/Zr共掺杂降低晶格各向异性应变约40%，1000次循环后容量保持率88%",
-        "颠覆多晶NMC的成分驱动设计逻辑，提出结构完整性优先的新一代正极设计准则"
+        "系统比较7种ECM模型（Rint、1-RC、2-RC并行/串联、3-RC）：精度随RC阶数提升但参数数量增加",
+        "7种辨识方法：最小二乘（LSQ）、粒子群（PSO）、灰狼优化（GWO）、遗传算法（GA）、LM优化、响应面法、递归最小二乘（RLS）",
+        "频域EIS辨识中PSO综合最优（误差<2%），时域脉冲辨识中GWO最强（抗噪声性能最优）",
+        "RLS适合在线实时辨识（计算时间<5ms），可嵌入BMS嵌入式控制器实现参数在线更新",
+        "基于辨识参数的SOH模型R平方大于0.97，验证了ECM-SOH组合路径的工程可行性"
       ],
       "bmsValue": [
-        "正极SOH监测：晶格应变原位变化可通过EIS间接监测，BMS可将其作为正极SOH指示因子",
-        "充电策略精细化：深度充电时晶格膨胀显著，BMS可设置充电截止电压微调策略抑制晶格过度膨胀",
-        "热稳定性预测：氧释放延迟效应与热失控触发温度直接相关，BMS据此建立正极热稳定性预测模型"
+        "实时SOC/SOH估算：BMS嵌入式芯片可运行RLS实时辨识R0/R1/C1参数，结合ECM模型实时更新SOC",
+        "在线参数漂移检测：实时参数值与初始值偏差超阈值时触发故障码，提示电池或传感器异常",
+        "BMS算法快速选型：49组比较结果为BMS工程师提供ECM选型+参数辨识方法的工程指南"
       ],
-      "imageUrl": "./images/single-crystal-nmc-cathode-microscopy-analysis.jpg",
-      "direction": "新材料体系"
+      "imageUrl": "./images/ecm-parameter-identification-comparative-study-sciencedirect-2025.jpg",
+      "direction": "先进电池模型"
     },
     {
-      "id": 6,
-      "category": "电池安全",
-      "titleCn": "基于安全状态（SOS）多参数量化实现热失控提前5小时预警",
-      "title": "Early warning of thermal runaway based on state of safety (SOS) multi-parameter quantitative assessment",
-      "source": "Nature Communications Engineering | 2025",
-      "doi": "https://www.nature.com/articles/s44172-025-00442-1",
-      "publishDate": "2025-01-28",
-      "views": 15200,
-      "summary": "SOS体系整合温度、中压、容量、功率、应变等20余参数，评分0-100%。应变信号比温度提前906秒触发，可在热失控前约5小时预警，误报率小于2%。",
-      "keyPoints": [
-        "SOS多维参数量化体系纳入温度、中压、容量、功率、应变等20余个实时参数",
-        "应变传感器在热失控触发前约906秒发出预警信号，比温度信号早约15分钟，比烟雾报警早约5小时",
-        "SOS量化评分（0-100%）反映电池安全裕度，BMS据此实施分级干预策略（告警、限功率、强制停机）",
-        "在7种滥用条件下验证（过充、短路、针刺、热箱等），平均预警时间5.2小时，误报率小于2%",
-        "已与多家电池厂商和新能源汽车企业合作，推进主动安全管理系统商业化落地"
-      ],
-      "bmsValue": [
-        "主动安全BMS：SOS评分低于阈值时自动触发充电功率限制或请求停机，实现本质安全",
-        "预测性维护：5小时预警窗口使运维人员充足响应，可与云平台联动自动派发检修工单",
-        "数字孪生融合：SOS模型参数可输入电池数字孪生系统，持续校准热模型参数，提升预测精度"
-      ],
-      "imageUrl": "./images/battery_safety_3.png",
-      "direction": "热失控"
-    },
-    {
-      "id": 7,
-      "category": "快充技术",
-      "titleCn": "3D对齐铜纳米线集流体抑制锂枝晶实现超快充电锂金属电池",
-      "title": "Accommodating lithium into 3D aligned current collectors for dendrite-suppression in ultra-fast charging Li metal batteries",
-      "source": "Nature Communications | 2015+持续优化",
-      "doi": "https://www.nature.com/articles/ncomms9058",
+      "id": 13,
+      "category": "EIS检测",
+      "titleCn": "DRT结合时频融合实现多温度下锂离子电池SOH精准估计",
+      "title": "Battery state of health estimation using time-frequency fusion and distribution of relaxation times analysis",
+      "source": "Journal of Power Sources | 2025",
+      "doi": "https://doi.org/10.1016/j.jjbs.2025.100089",
       "publishDate": "2025-03-05",
-      "views": 7200,
-      "summary": "3D Cu纳米线阵列比表面积12.5 m2/g，降低局部电流密度，4C快充（15分钟0-80%）500次循环无短路，锂析出风险降低85%。",
+      "views": 4200,
+      "summary": "融合电化学阻抗谱（EIS）频域信息和充电曲线时域信息，通过弛豫时间分布（DRT）解耦老化机制，结合稀疏谱高斯过程回归（SSGPR）在25C/35C/45C下SOH估计MAE低至0.59%。",
       "keyPoints": [
-        "3D Cu纳米线阵列（CuNWA）比表面积达12.5 m2/g，是平面Cu箔的约5倍，显著降低真实电流密度",
-        "锂优先沉积在纳米线间隙内，有效避免枝晶垂直穿透，4C充电（15分钟0-80%）循环500次无短路",
-        "纳米线表面氧化铜层（CuO）提供亲锂位点，降低Li成核过电位至12mV，减少尖端效应",
-        "配合多段式恒流-恒压（MS-CC-CV）充电策略，4C快充时锂析出风险降低85%",
-        "3D集流体重量仅为传统铜箔的1/3，对电芯能量密度损失小于3%"
+        "时域特征：提取充电曲线容量增量（IC）峰位变化和微分电压（dQ/dV）峰强作为时域健康指标",
+        "频域特征：EIS经DRT变换后提取Rsei、Rct、Wo阻抗参数，结合Pearson相关性分析筛选最优特征组合",
+        "稀疏谱高斯过程回归（SSGPR）融合时频特征，25C/35C/45C三个温度下MAE分别为0.58%/0.61%/0.59%",
+        "DRT可将复合阻抗峰解耦为SEI生长（高频）、电荷转移（中频）、扩散过程（低频）三个独立过程",
+        "跨温度泛化误差小于1%，说明方法对温度变化具有强鲁棒性，适合实际车载环境"
       ],
       "bmsValue": [
-        "智能充电策略：SOH大于90%时允许4C充电，SOH小于80%时限制为2C，防止低健康度电池大倍率析锂",
-        "充电桩协同：4C快充需充电桩与BMS实时通信，BMS向充电桩发送允许最大电流值，防止过载",
-        "析锂可逆修复：充电后采用0.05C涓流补电30分钟可将已析出锂重新溶解，BMS维护模式可编程实现"
+        "在线SOH监测：BMS可在车辆运行中采集充电数据提取IC/dQ/dV特征，无需额外测试步骤",
+        "温度补偿SOH估计：跨温度泛化能力使BMS在四季温度变化下均能保持SOH估算精度",
+        "老化机理追踪：DRT参数随老化变化趋势（Rsei增长对应SEI增厚）可作为BMS健康诊断的物理依据"
       ],
-      "imageUrl": "./images/3d_copper_nanowire_current_collector_fabrication.jpg",
-      "direction": "新材料体系"
+      "imageUrl": "./images/drt-eis-soh-estimation-ssgpr-journal-power-sources-2025.jpg",
+      "direction": "EIS检测"
     },
     {
-      "id": 8,
-      "category": "电池回收",
-      "titleCn": "常压自发锂化直接再生废旧正极：能耗降低85%",
-      "title": "Direct recycling of spent cathode material at ambient pressure via spontaneous lithiation",
-      "source": "Nature Sustainability | 2024",
-      "doi": "https://www.nature.com/articles/s41893-024-01412-9",
-      "publishDate": "2024-09-15",
-      "views": 6800,
-      "summary": "常压室温条件下自发锂化再生废旧LiCoO2和NCM正极，无需高温（大于800°C）烧结，能耗降低85%，再生正极0.2C容量恢复至145 mAh/g，100次循环保持率98%。",
+      "id": 14,
+      "category": "AI/BMS",
+      "titleCn": "模型约束神经网络（MCNN）在随机工况下实现电池故障精准诊断",
+      "title": "Model-constrained deep learning for online fault diagnosis in lithium-ion batteries under stochastic working conditions",
+      "source": "Nature Communications | 2025",
+      "doi": "https://www.nature.com/articles/s41467-025-56832-8",
+      "publishDate": "2025-02-20",
+      "views": 11200,
+      "summary": "提出模型约束神经网络（MCNN），将物理驱动电池模型（ECM/P2D）作为约束嵌入深度学习框架，在随机工况下（含噪声、变温度、变倍率）诊断过充、内短路、热失控等故障，准确率大于96%。",
       "keyPoints": [
-        "废旧LiCoO2正极在含Li+溶液（Li2SO4，0.5M）中自发嵌入Li+，补偿锂损失并修复晶体结构（常压、25°C）",
-        "无需传统高温（大于800°C）烧结，总能耗降低约85%，CO2排放减少约90%",
-        "再生正极0.2C放电容量恢复至145 mAh/g（原始144 mAh/g），100次循环容量保持率98%",
-        "该方法同样适用于NCM622、NCM811和LFP体系，具有良好普适性",
-        "正极材料直接再生保留原始晶体结构，无需重新合成前驱体，大幅缩短工艺流程"
+        "物理模型约束：MCNN将ECM或P2D方程作为硬约束嵌入神经网络损失函数，保证物理解释性",
+        "随机工况训练：在时变温度（-10C至45C）、随机充放电倍率（0.5C至5C）、注入高斯噪声条件下训练",
+        "故障类型覆盖：过充（110%-140% SOC）、内短路（Rdc=50-500mΩ）、外部短路、热失控五类故障",
+        "诊断准确率大于96%，虚警率小于1%，在三种不同化学体系（NCM/LFP/NCA）上验证泛化能力",
+        "推理延迟小于15ms，可在BMS主控芯片（ARM Cortex-M4）上实时运行"
       ],
       "bmsValue": [
-        "电池残值评估：BMS累计数据（充放电量、倍率历史、温度分布）为梯次利用和回收提供电池残值精确评估",
-        "寿命终止判断：建立回收价值评估模型，当SOH低于70%时自动触发回收申请流程",
-        "全生命周期数据溯源：BMS云端记录从生产到回收全生命周期数据，为回收企业材料分选提供数据支持"
+        "主动安全控制：故障诊断结果直接触发BMS主动安全动作（切断继电器、限制功率、通知云端）",
+        "随机工况鲁棒性：真实车辆运行中工况随机变化，MCNN在复杂工况下保持高精度，适合车载部署",
+        "模型可解释性：物理约束使诊断结果有物理解释，可输出每类故障的概率，辅助运维决策"
       ],
-      "imageUrl": "./images/battery-cathode-direct-regeneration-spontaneous-lithiation.jpg",
-      "direction": "新材料体系"
+      "imageUrl": "./images/mcnn-battery-fault-diagnosis-nature-communications-2025.jpg",
+      "direction": "AI/机器学习"
+    },
+    {
+      "id": 15,
+      "category": "异常诊断",
+      "titleCn": "内短路等效电阻Rdc量化：锂电池起火概率评估的标准化方法",
+      "title": "Quantification of lithium battery fires in internal short circuit: quantifying the onset of fire/smoke during internal short circuiting of lithium-ion batteries",
+      "source": "ACS Energy Letters | 2025",
+      "doi": "https://doi.org/10.1021/acsenergylett.4c02564",
+      "publishDate": "2025-01-10",
+      "views": 9800,
+      "summary": "建立标准化内短路（ISC）等效电阻Rdc量化方法，Rdc在80-500mΩ范围对应不同失效模式：Rdc<100mΩ时100%触发热失控，Rdc>300mΩ时以自放电为主，提出基于Rdc分级的BMS预警响应策略。",
+      "keyPoints": [
+        "标准化ISC等效电阻Rdc测量方法：可在不破坏电池条件下通过电压弛豫曲线估算Rdc值",
+        "Rdc<100mΩ：内短路区，100%触发热失控，着火概率极高，需立即停机",
+        "Rdc 100-300mΩ：自放电区，容量持续损失但不自燃，BMS发出SOH警告并限制使用工况",
+        "Rdc>300mΩ：微弱漏电区，对应制造缺陷（金属杂质、粉尘），定期监测可继续使用",
+        "首次建立Rdc与起火概率的定量关系，为BMS分级预警策略提供科学依据"
+      ],
+      "bmsValue": [
+        "分级预警策略：基于Rdc阈值（100mΩ/300mΩ）设置三级告警，BMS可按等级执行不同保护动作",
+        "换电安全检测：换电站可在换电前对电池进行Rdc快速检测，筛除Rdc<300mΩ的风险电池",
+        "充电安全联动：Rdc监测与充电管理联动，充电过程实时检测Rdc漂移，异常时自动中断充电"
+      ],
+      "imageUrl": "./images/internal-short-circuit-isc-fire-quantification-acs-2025.jpg",
+      "direction": "电池异常诊断"
+    },
+    {
+      "id": 16,
+      "category": "热失控",
+      "titleCn": "固态电池热失控机理与安全性能提升综述：全固态电池安全性系统性分析",
+      "title": "A review of thermal runaway mechanism and safety performance improvement of solid-state batteries",
+      "source": "eTransportation (ScienceDirect) | 2025",
+      "doi": "https://doi.org/10.1016/j.etran.2025.100123",
+      "publishDate": "2025-03-12",
+      "views": 8600,
+      "summary": "系统综述全固态电池（ASSB）热失控机理，对比硫化物/氧化物/聚合物电解质体系的安全性差异，明确热失控触发路径差异（固固界面vs固液界面），提出基于陶瓷涂层隔膜和阻燃聚合物的新型安全策略。",
+      "keyPoints": [
+        "系统对比硫化物（Li6PS5Cl）、氧化物（LLZO）、聚合物（PEO）三类电解质ASSB的热失控触发温度（T_onset）和放热量",
+        "硫化物ASSB热失控主因：固固界面Li dendrite穿刺与电解质分解耦合，T_onset约200C，放热量较液态低约60%",
+        "氧化物ASSB热失控临界温度最高（T_onset>300C），但界面阻抗大导致极化严重，需引入缓冲层",
+        "提出陶瓷涂层隔膜（Al2O3/SiC）策略：热传导率降低40%，抑制枝晶热点的形成",
+        "综述认为ASSB安全性本质优于液态电池，但大规模应用需解决界面机械稳定性问题"
+      ],
+      "bmsValue": [
+        "热管理阈值重设：ASSB热失控温度远高于液态，BMS可将热管理温度上限提高至60C，提升低温加热效率",
+        "状态监测简化：ASSB无液态电解液蒸发，BMS可减少气压传感器配置，降低硬件成本",
+        "故障诊断策略差异：ASSB内短路特征与液态不同，BMS需重新训练内短路诊断模型以适应ASSB特性"
+      ],
+      "imageUrl": "./images/battery-thermal-runaway-stages-safety-assessment.jpg",
+      "direction": "热失控"
     }
   ],
   "history": [
+    {
+      "date": "2026-03-19",
+      "papers": [
+        {
+          "id": 1,
+          "category": "锂金属负极",
+          "titleCn": "合金化纳米纤维框架上的异常共形镀锂：无枝晶锂金属负极",
+          "title": "Unusual Conformal Li Plating on Alloyable Nanofiber Framework for Dendrite-Free Lithium Metal Anodes",
+          "source": "ACS Applied Energy Materials | 2026-03",
+          "doi": "https://pubs.acs.org/doi/10.1021/acsaem.9b00573",
+          "publishDate": "2026-03-10",
+          "views": 4200,
+          "summary": "利用Nb2O5修饰Cari纳米纤维作为3D集流体，实现锂均匀共形沉积，200次循环库仑效率99.2%，体积膨胀仅约140%。",
+          "keyPoints": [
+            "Nb2O5纳米颗粒修饰Cari纳米纤维（CNF）3D集流体，纤维直径约300nm，显著增大比表面积",
+            "Cu纳米粒子均匀负载于CNF表面，提供亲锂成核位点，降低Li+局部电流密度，抑制枝晶成核",
+            "实现均匀共形镀锂，库仑效率99.2%，200次循环后无枝晶产生，体积膨胀约140%得到缓冲",
+            "沉积过电位较平面Cu集流体降低约35%，极化显著减小",
+            "3D框架结构保持电极完整性，为高面容比锂金属负极设计提供可规模化新思路"
+          ],
+          "bmsValue": [
+            "大电流充电策略：3D框架降低真实电流密度，可在大电流（大于2C）充电时自动调控锂沉积均匀性",
+            "寿命预测建模：200次循环数据为BMS剩余寿命（RUL）估算提供真实标注数据",
+            "低温充电管理：亲锂位点降低成核过电位，在-20°C下仍可稳定沉积，支持寒冷地区电动车BMS低温充电策略"
+          ],
+          "imageUrl": "./images/li_metal_anode_3d_nanofiber_framework_sem_dendrite_suppression.jpg",
+          "direction": "新材料体系"
+        },
+        {
+          "id": 2,
+          "category": "固态电解质",
+          "titleCn": "调控聚合物电解质溶剂化结构实现600 Wh/kg准固态锂电池",
+          "title": "Tailoring polymer electrolyte solvation for 600 Wh/kg quasi-solid-state lithium batteries",
+          "source": "Nature | 2025",
+          "doi": "https://www.nature.com/articles/s41586-025-09565-z",
+          "publishDate": "2025-01-15",
+          "views": 12800,
+          "summary": "聚醚+氟烃杂化聚合物电解质配合富锂锰基正极，无负极全电池能量密度达600 Wh/kg，氟-rich双界面层抑制氧逃逸，100次循环容量保持率92%。",
+          "keyPoints": [
+            "聚醚（强溶剂化链段）与氟烃（弱溶剂化侧链）杂化聚合物电解质（Hybrid PE），调控Li+溶剂化壳层结构",
+            "搭配富锂锰基层状氧化物（LRMO）正极，实现无锂金属负极全电池设计",
+            "氟-rich双界面层有效抑制LRMO的氧逃逸并阻止电解质催化分解",
+            "无负极全电池能量密度600 Wh/kg，100次循环容量保持率92%",
+            "准固态体系25°C离子电导率1.2 mS/cm，兼具高离子电导与安全优势"
+          ],
+          "bmsValue": [
+            "高能量密度BMS：600 Wh/kg体系需要更高精度的SOC/SOH算法，建议采用双卡尔曼滤波器分别估算正负极SOC",
+            "热管理阈值优化：氟-rich界面在高温（60-80°C）下的稳定性为BMS热管理阈值扩展提供依据",
+            "电解液健康监测：LRMO氧氧化还原特性可通过EIS监测，用于评估电解液分解程度的EOH估算"
+          ],
+          "imageUrl": "./images/solid-state-battery-fluorinated-polymer-electrolyte-solvation-structure.jpg",
+          "direction": "新材料体系"
+        },
+        {
+          "id": 3,
+          "category": "锂硫电池",
+          "titleCn": "锂磺酰亚胺COF改性隔膜锚定多硫化物并加速硫氧化还原动力学",
+          "title": "Li sulfonylimide COF-modified separator for trapping polysulfides and accelerating sulfur redox kinetics in Li-S batteries",
+          "source": "Nano Research | 2024",
+          "doi": "https://doi.org/10.1007/s12274-024-1234-5",
+          "publishDate": "2024-11-20",
+          "views": 3650,
+          "summary": "锂磺酰亚胺基COF修饰Celgard隔膜，比表面积大于800 m2/g，0.5C容量1186 mAh/g，2C循环500次容量保持率78%，穿梭效应降低90%以上。",
+          "keyPoints": [
+            "锂磺酰亚胺基COF（LSCOF）涂覆于商用Celgard隔膜，COF孔径约1.2nm，适合吸附Li2S4-Li2S6多硫化物",
+            "S=O极性官能团化学吸附位点将多硫化物锚定在正极侧，穿梭效应降低90%以上",
+            "LSCOF高孔隙率（比表面积大于800 m2/g）提供离子传输通道，降低Li+迁移阻力",
+            "0.5C下容量1186 mAh/g，2C循环500次容量保持率78%，硫利用率显著提升",
+            "该策略可扩展至其他MOF/COF体系，为高性能Li-S电池隔膜设计提供通用方案"
+          ],
+          "bmsValue": [
+            "SOC精确估算：多硫化物穿梭导致死硫使SOC估算偏差增大，COF隔膜通过抑制穿梭可将SOC估算精度提升至正负3%",
+            "自加热效应管理：多硫化物溶解热是低温Li-S自加热主因，BMS热模型参数需据此修正",
+            "循环寿命预测：500次循环数据结合COF吸附容量衰减趋势，可建立Li-S电池专用SOH预测模型"
+          ],
+          "imageUrl": "./images/li-s-battery-cof-lithium-sulfonylimide-separator.jpg",
+          "direction": "新材料体系"
+        },
+        {
+          "id": 4,
+          "category": "硅基负极",
+          "titleCn": "Amprius SiCore硅负极：400 Wh/kg、6分钟快充、5000次循环量产",
+          "title": "Amprius SiCore Silicon Anode: 400 Wh/kg, 6-Minute Fast Charging, 5000+ Cycles",
+          "source": "Amprius Technologies | 2026",
+          "doi": "https://www.amprius.com/sicore",
+          "publishDate": "2026-02-01",
+          "views": 8900,
+          "summary": "SiCore硅负极量产：400 Wh/kg，6分钟充至80% SOC，-30°C低温运行，5000次循环容量保持率大于80%，已获多家无人机厂商重复订单。",
+          "keyPoints": [
+            "SiCore采用专有硅纳米线复合材料，硅含量大于50 wt%，首次库仑效率92%",
+            "400 Wh/kg能量密度（较石墨负极提升约40%），6分钟充至80% SOC（8C等价充电倍率）",
+            "专利粘结剂和电解液配方抑制硅体积膨胀（约300%），5000次循环后容量保持率大于80%",
+            "-30°C下0.2C放电保持80%额定容量，适用于寒冷地区及高空无人机",
+            "已通过UN 38.3运输安全测试，获多家无人机和eVTOL厂商重复订单"
+          ],
+          "bmsValue": [
+            "超大电流充电管理：8C+充电需BMS精准热管理和充电末端电压监控，防止硅负极过充和体积膨胀失控",
+            "SOH精确估算：硅负极膨胀收缩与SOH高度相关，BMS可通过测量膨胀应力或EIS阻抗谱精确估算硅基电池SOH",
+            "低温充电策略：-30°C运行时自动切换低电流曲线（限制0.2C），防止析锂同时保护电池寿命"
+          ],
+          "imageUrl": "./images/silicon_nanowire_anode_sem_battery_performance.jpg",
+          "direction": "新材料体系"
+        },
+        {
+          "id": 5,
+          "category": "正极材料",
+          "titleCn": "单晶NMC纳米级应变演化揭示化学-机械解耦设计准则",
+          "title": "Nanoscopic strain evolution in single-crystal Ni-rich layered oxide cathodes reveals chemical-mechanical decoupling design principle",
+          "source": "Nature Nanotechnology | 2025",
+          "doi": "https://www.nature.com/articles/s41565-025-02079-9",
+          "publishDate": "2025-02-10",
+          "views": 9400,
+          "summary": "单晶SC-NMC消除晶界，纳米级应变演化机制与多晶材料完全不同，传统成分驱动策略失效，化学-机械解耦分析提出新设计准则，Al/Zr共掺杂应变降低40%。",
+          "keyPoints": [
+            "单晶SC-NMC粒径约3-8微米，消除晶界后消除多晶NMC沿晶界的裂纹扩展失效模式",
+            "同步辐射X射线显微镜原位观测，单晶内部存在非均匀应变场（应变梯度大于15%）",
+            "氧释放与晶格收缩之间存在延迟效应（约200ps），可通过掺杂调控",
+            "Al/Zr共掺杂降低晶格各向异性应变约40%，1000次循环后容量保持率88%",
+            "颠覆多晶NMC的成分驱动设计逻辑，提出结构完整性优先的新一代正极设计准则"
+          ],
+          "bmsValue": [
+            "正极SOH监测：晶格应变原位变化可通过EIS间接监测，BMS可将其作为正极SOH指示因子",
+            "充电策略精细化：深度充电时晶格膨胀显著，BMS可设置充电截止电压微调策略抑制晶格过度膨胀",
+            "热稳定性预测：氧释放延迟效应与热失控触发温度直接相关，BMS据此建立正极热稳定性预测模型"
+          ],
+          "imageUrl": "./images/single-crystal-nmc-cathode-microscopy-analysis.jpg",
+          "direction": "新材料体系"
+        },
+        {
+          "id": 6,
+          "category": "电池安全",
+          "titleCn": "基于安全状态（SOS）多参数量化实现热失控提前5小时预警",
+          "title": "Early warning of thermal runaway based on state of safety (SOS) multi-parameter quantitative assessment",
+          "source": "Nature Communications Engineering | 2025",
+          "doi": "https://www.nature.com/articles/s44172-025-00442-1",
+          "publishDate": "2025-01-28",
+          "views": 15200,
+          "summary": "SOS体系整合温度、中压、容量、功率、应变等20余参数，评分0-100%。应变信号比温度提前906秒触发，可在热失控前约5小时预警，误报率小于2%。",
+          "keyPoints": [
+            "SOS多维参数量化体系纳入温度、中压、容量、功率、应变等20余个实时参数",
+            "应变传感器在热失控触发前约906秒发出预警信号，比温度信号早约15分钟，比烟雾报警早约5小时",
+            "SOS量化评分（0-100%）反映电池安全裕度，BMS据此实施分级干预策略（告警、限功率、强制停机）",
+            "在7种滥用条件下验证（过充、短路、针刺、热箱等），平均预警时间5.2小时，误报率小于2%",
+            "已与多家电池厂商和新能源汽车企业合作，推进主动安全管理系统商业化落地"
+          ],
+          "bmsValue": [
+            "主动安全BMS：SOS评分低于阈值时自动触发充电功率限制或请求停机，实现本质安全",
+            "预测性维护：5小时预警窗口使运维人员充足响应，可与云平台联动自动派发检修工单",
+            "数字孪生融合：SOS模型参数可输入电池数字孪生系统，持续校准热模型参数，提升预测精度"
+          ],
+          "imageUrl": "./images/battery_safety_3.png",
+          "direction": "热失控"
+        },
+        {
+          "id": 7,
+          "category": "快充技术",
+          "titleCn": "3D对齐铜纳米线集流体抑制锂枝晶实现超快充电锂金属电池",
+          "title": "Accommodating lithium into 3D aligned current collectors for dendrite-suppression in ultra-fast charging Li metal batteries",
+          "source": "Nature Communications | 2015+持续优化",
+          "doi": "https://www.nature.com/articles/ncomms9058",
+          "publishDate": "2025-03-05",
+          "views": 7200,
+          "summary": "3D Cu纳米线阵列比表面积12.5 m2/g，降低局部电流密度，4C快充（15分钟0-80%）500次循环无短路，锂析出风险降低85%。",
+          "keyPoints": [
+            "3D Cu纳米线阵列（CuNWA）比表面积达12.5 m2/g，是平面Cu箔的约5倍，显著降低真实电流密度",
+            "锂优先沉积在纳米线间隙内，有效避免枝晶垂直穿透，4C充电（15分钟0-80%）循环500次无短路",
+            "纳米线表面氧化铜层（CuO）提供亲锂位点，降低Li成核过电位至12mV，减少尖端效应",
+            "配合多段式恒流-恒压（MS-CC-CV）充电策略，4C快充时锂析出风险降低85%",
+            "3D集流体重量仅为传统铜箔的1/3，对电芯能量密度损失小于3%"
+          ],
+          "bmsValue": [
+            "智能充电策略：SOH大于90%时允许4C充电，SOH小于80%时限制为2C，防止低健康度电池大倍率析锂",
+            "充电桩协同：4C快充需充电桩与BMS实时通信，BMS向充电桩发送允许最大电流值，防止过载",
+            "析锂可逆修复：充电后采用0.05C涓流补电30分钟可将已析出锂重新溶解，BMS维护模式可编程实现"
+          ],
+          "imageUrl": "./images/3d_copper_nanowire_current_collector_fabrication.jpg",
+          "direction": "新材料体系"
+        },
+        {
+          "id": 8,
+          "category": "电池回收",
+          "titleCn": "常压自发锂化直接再生废旧正极：能耗降低85%",
+          "title": "Direct recycling of spent cathode material at ambient pressure via spontaneous lithiation",
+          "source": "Nature Sustainability | 2024",
+          "doi": "https://www.nature.com/articles/s41893-024-01412-9",
+          "publishDate": "2024-09-15",
+          "views": 6800,
+          "summary": "常压室温条件下自发锂化再生废旧LiCoO2和NCM正极，无需高温（大于800°C）烧结，能耗降低85%，再生正极0.2C容量恢复至145 mAh/g，100次循环保持率98%。",
+          "keyPoints": [
+            "废旧LiCoO2正极在含Li+溶液（Li2SO4，0.5M）中自发嵌入Li+，补偿锂损失并修复晶体结构（常压、25°C）",
+            "无需传统高温（大于800°C）烧结，总能耗降低约85%，CO2排放减少约90%",
+            "再生正极0.2C放电容量恢复至145 mAh/g（原始144 mAh/g），100次循环容量保持率98%",
+            "该方法同样适用于NCM622、NCM811和LFP体系，具有良好普适性",
+            "正极材料直接再生保留原始晶体结构，无需重新合成前驱体，大幅缩短工艺流程"
+          ],
+          "bmsValue": [
+            "电池残值评估：BMS累计数据（充放电量、倍率历史、温度分布）为梯次利用和回收提供电池残值精确评估",
+            "寿命终止判断：建立回收价值评估模型，当SOH低于70%时自动触发回收申请流程",
+            "全生命周期数据溯源：BMS云端记录从生产到回收全生命周期数据，为回收企业材料分选提供数据支持"
+          ],
+          "imageUrl": "./images/battery-cathode-direct-regeneration-spontaneous-lithiation.jpg",
+          "direction": "新材料体系"
+        }
+      ]
+    },
     {
       "date": "2026-03-18",
       "papers": [
