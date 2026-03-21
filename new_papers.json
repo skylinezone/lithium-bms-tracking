@@ -1,0 +1,227 @@
+[
+  {
+    "id": 1001,
+    "category": "全固态锂硫",
+    "titleCn": "具有快速固-固硫反应的全固态锂电池",
+    "title": "All-solid-state Li-S batteries with fast solid-solid sulfur reaction",
+    "source": "Nature | 2025",
+    "doi": "https://doi.org/10.1038/s41586-024-08298-9",
+    "publishDate": "2025-01-15",
+    "views": 14200,
+    "summary": "北京大学庞全全团队利用LBPSI碘化硫代硼磷酸锂玻璃固体电解质实现超快SSSRR，I/I2/I3-可逆氧化还原作为表面氧化还原媒介，2C下硫容量1497mAh/g，20C仍保持784mAh/g。",
+    "keyPoints": [
+      "LBPSI (Li2S-B2S3-P2S5-I2) 玻璃固体电解质，同时作为超离子导体和表面氧化还原媒介促进固-固反应",
+      "I/I2/I3-可逆氧化还原在SE内部实现，消除了固-固两相边界的缓慢反应动力学限制",
+      "2C (30C) 充电时硫容量达1497mAh/g，20C高倍率下仍保持784mAh/g，远超传统ASSLSB",
+      "固体正极面孔径<1nm，比表面积约25m2/g，活性位点密度大幅提升",
+      "该机制为全固态锂硫的商业化提供了突破性路径，超快充电性能媲美液态电池"
+    ],
+    "bmsValue": [
+      "极速充电管理：BMS需支持脉冲电流检测，实时监测高倍率下的内阻变化（脉冲间隔<1s）",
+      "正极阻抗监测：I/I2/I3-氧化还原对可通过EIS高频区(10的四次方至10的五次方Hz)特征峰监测",
+      "SOC精准估算：硫正极高容量特性使SOC窗口更宽(1.7-3.0V)，BMS需重新标定放电末端电压阈值"
+    ],
+    "imageUrl": "./images/asslsb-fast-solid-solid-sulfur-reaction-nature-2025.jpg",
+    "direction": "新材料体系"
+  },
+  {
+    "id": 1002,
+    "category": "锂金属负极",
+    "titleCn": "锂金属/固体电解质界面高电流密度无枝晶镀锂",
+    "title": "High plating currents without dendrites at the interface between a lithium anode and solid electrolyte",
+    "source": "Nature Energy | 2025",
+    "doi": "https://doi.org/10.1038/s41560-025-01847-0",
+    "publishDate": "2025-09-04",
+    "views": 8700,
+    "summary": "通过将Li6PS5Cl固体电解质致密化至99%，Oxford大学实现9mA/cm2无枝晶镀锂，CCD从1mA/cm2提升至10mA/cm2，100次循环无短路，为实用化固态电池铺平道路。",
+    "keyPoints": [
+      "Li6PS5Cl (硫银锗矿) 固体电解质致密化至99%，气孔率<1%，最大孔径从2.3微米降至0.5微米",
+      "电流密度9mA/cm2下100次循环无锂枝晶产生，99%致密度CCD为9-10mA/cm2（83%致密度仅1mA/cm2）",
+      "微观机制：较小孔径+较短裂纹增加CCD，窄裂纹+低孔密度降低CCD，两者竞争决定最终CCD",
+      "最长裂纹：1.5微米 (高密度) vs 2.5微米 (低密度)；平均孔距：10微米 (高密度) vs 22微米 (低密度)",
+      "无需合金化或表面修饰，通过spark plasma sintering在400C/5min即可实现高致密度制备"
+    ],
+    "bmsValue": [
+      "大功率充电策略：9mA/cm2对应电动汽车约6-9C充电倍率，BMS需相应缩短脉冲检测周期",
+      "压力监测辅助诊断：孔隙率降低可通过电化学声学或应变传感器实时监测",
+      "安全快充区间：BMS可根据温度调整最大允许充电电流，温度>60C时建议降至5mA/cm2以下"
+    ],
+    "imageUrl": "./images/high-plating-currents-dendrite-free-nature-energy-2025.jpg",
+    "direction": "新材料体系"
+  },
+  {
+    "id": 1003,
+    "category": "硅基负极",
+    "titleCn": "微米硅阳极定制全电池设计实现快速充电锂离子电池",
+    "title": "Fast-chargeable lithium-ion batteries by u-Si anode-tailored full-cell design",
+    "source": "PNAS | 2025",
+    "doi": "https://doi.org/10.1073/pnas.2417053121",
+    "publishDate": "2025-01-07",
+    "views": 9200,
+    "summary": "ATFD (阳极定制全电池设计) 将微米硅限制在30-70% SOC窗口内，18650圆柱电池能量密度提升21.3%，3C快充500次容量保持率84.6%，首次库仑效率90.1%。",
+    "keyPoints": [
+      "ATFD设计将mu-Si (微米硅) 工作窗口限定在30-70% SOC范围内（DeltaSOC=40%），避免全SOC范围的体积膨胀(~300%)",
+      "K2 (Li15Si4) 相变阶段提供快速动力学，1C放电容量213.9mAh/g (vs 石墨188.2mAh/g)",
+      "3C快充20分钟截止，500次循环容量保持率84.6%；6C充电10分钟截止，150次后仍保持163.2mAh/g",
+      "预锂化补偿首圈不可逆容量，首次库仑效率从~83%提升至90.1%",
+      "与石墨体系相比，18650圆柱电芯能量密度提升21.3%，循环寿命提升4倍以上（84.6% vs 20.3%）"
+    ],
+    "bmsValue": [
+      "SOC窗口管理：BMS需将mu-Si体系SOC严格控制在30-70%区间，建议设置软上限(如75%SOC)防止过充损伤",
+      "快充智能降流：充电末端(>65%SOC)自动降流，避免微米硅在高压区的体积膨胀加速SEI破裂",
+      "内阻在线估算：ATFD体系R0随SOC变化更剧烈，BMS需建立双段式内阻-温度联合模型"
+    ],
+    "imageUrl": "./images/mu-si-anode-atfd-fast-charging-pnas-2025.jpg",
+    "direction": "新材料体系"
+  },
+  {
+    "id": 1004,
+    "category": "寿命预测",
+    "titleCn": "无历史数据驱动的电池降解阶段检测与寿命预测",
+    "title": "Battery degradation stage detection and life prediction without accessing historical operating data",
+    "source": "Energy Storage Materials | 2024",
+    "doi": "https://doi.org/10.1016/j.ensm.2024.103441",
+    "publishDate": "2024-05-01",
+    "views": 5600,
+    "summary": "从relaxation电压提取6个物理特征，结合无监督学习选择高相似训练数据，降解阶段检测准确率>90%，寿命预测RMSE降低53.56%，无需历史运行数据即可实时评估退役电池SOH。",
+    "keyPoints": [
+      "利用等效电路模型从relaxation电压提取6个物理特征，实现无需历史数据的降解阶段检测",
+      "无监督学习(高斯过程分类器)对电池内部物理相似性建模，训练数据选取准确率>90%",
+      "降解阶段检测准确率>90%，寿命预测RMSE较基准降低53.56%",
+      "65个电池验证(NCA/NCM和LFP/石墨两种体系)，兼容不同化学体系",
+      "用于退役电池分级：快速判断进入快速降解阶段的电池直接回收，正常阶段电池可梯次利用"
+    ],
+    "bmsValue": [
+      "实时SOH估算：仅需停车静置期间(5-30分钟)的开路电压弛豫曲线，即可输出当前SOH评估结果",
+      "退役电池分级：BMS结合云端数据库，批量识别进入快速降解阶段的电池用于梯次利用筛选",
+      "变温度适应性：模型参数与温度相关性低，可在-20C至55C范围内直接部署，无需额外温度补偿"
+    ],
+    "imageUrl": "./images/drt-eis-time-frequency-soh-jps-2025.jpg",
+    "direction": "SOH估算"
+  },
+  {
+    "id": 1005,
+    "category": "电池模型",
+    "titleCn": "双种群多目标灰狼优化实现P2D电化学模型参数辨识",
+    "title": "Physics-based parameter identification of an electrochemical model for lithium-ion batteries with two-population optimization method",
+    "source": "Applied Energy | 2025",
+    "doi": "https://doi.org/10.1016/j.apenergy.2024.124116",
+    "publishDate": "2025-01-15",
+    "views": 4100,
+    "summary": "TPMOGWO算法辨识P2D模型23个参数，动态工况电压预测误差<9mV，非收敛种群增强粒子更新，解决过拟合问题，实现NCM811/石墨18650电池的全参数精确辨识。",
+    "keyPoints": [
+      "TPMOGWO (双种群多目标灰狼优化) 算法将参数分为5类（固相扩散、液相扩散、反应速率等），分类辨识",
+      "收敛种群用RMSE电压曲线目标函数，非收敛种群用正负极容量平衡方程目标函数，双目标协同优化",
+      "成功辨识NCM811/石墨18650电池(1.5Ah)全部23个P2D模型参数",
+      "动态工况下电压预测误差<9mV，数值验证平均百分比误差<3%",
+      "两步选择策略：先用电极容量平衡方程选择容量参数，再用1C恒流充电RMSE选择极化参数"
+    ],
+    "bmsValue": [
+      "云端电池数字孪生：P2D模型参数作为电池护照特征量，可用于跨批次一致性筛选和质量追溯",
+      "实时参数更新：简化版TPMOGWO可嵌入BMS MCU，在线辨识R0、R1、C1等关键ECM参数（计算时间<10s）",
+      "SOH慢时变参数：固体扩散系数Ds随老化缓慢降低，定期（如每月一次）全参数辨识可替代EIS设备"
+    ],
+    "imageUrl": "./images/p2d-physics-parameter-identification-applied-energy-2025.jpg",
+    "direction": "先进电池模型"
+  },
+  {
+    "id": 1006,
+    "category": "EIS分析",
+    "titleCn": "DRT联合时频融合实现锂离子电池健康状态精确估计",
+    "title": "DRT-enhanced time-frequency fusion for reliable lithium-ion battery SOH estimation",
+    "source": "Journal of Power Sources | 2025",
+    "doi": "https://doi.org/10.1016/j.jpowsour.2025.235421",
+    "publishDate": "2025-03-05",
+    "views": 4800,
+    "summary": "联合EIS频谱DRT分析与充电曲线IC峰特征，基于SSGPR概率模型融合多源退化信息，实现在线变温SOH估计精度>95%，为车载BMS的实时健康评估提供新范式。",
+    "keyPoints": [
+      "DRT (Distribution of Relaxation Times) 将EIS谱分解为连续峰，分离SEI扩散(R1 10的-2至10的-1s)、电荷转移(R2 10的-1至10的1s)、固态扩散(R3 >10s)等不同过程",
+      "充电曲线IC (Incremental Capacity) 峰位漂移与DRT峰面积变化高度相关，相关系数>0.92",
+      "SSGPR (Sparse Spectrum Gaussian Process Regression) 概率模型融合EIS+IC双源特征，输出不确定性估计",
+      "0C/25C/45C三温度验证，SOH估计相对误差<5%，预测区间宽度随老化增大可量化风险",
+      "仅需10分钟停车静置采集EIS，无需额外放电测试，适合实际车队运营场景"
+    ],
+    "bmsValue": [
+      "EIS在线集成：车载宽带阻抗谱仪(10mHz-10kHz)可于停车期间自动采集，BMS实时解析R0、R1变化",
+      "不确定性预警：SSGPR输出概率分布，当P(SOH<80%)>30%时触发预防性维护提醒",
+      "温度自适应补偿：DRT峰面积归一化后温度敏感度降低30%，模型无需额外温度校准即可跨温度使用"
+    ],
+    "imageUrl": "./images/drt-eis-time-frequency-soh-jps-2025.jpg",
+    "direction": "EIS检测"
+  },
+  {
+    "id": 1007,
+    "category": "AI诊断",
+    "titleCn": "可解释专家混合网络iMOE实现退役电池全生命周期降解轨迹预测",
+    "title": "iMOE: prediction of second-life battery degradation trajectory using interpretable mixture of experts",
+    "source": "Nature Communications | 2026",
+    "doi": "https://doi.org/10.1038/s41467-026-69369-1",
+    "publishDate": "2026-02-09",
+    "views": 6800,
+    "summary": "iMOE网络识别SEI形成、SEI增厚、锂沉积三种降解模式，AMDP模块分类当前阶段，FORNN预测未来150圈轨迹，MAPE仅0.95%，推理时间0.43ms，适合退役电池梯次利用快速评估。",
+    "keyPoints": [
+      "iMOE识别三个降解阶段：SEI形成阶段(Li0浓集)、SEI增厚阶段(中段)、锂沉积阶段(末端)，各阶段由不同专家网络主导",
+      "AMDP (自适应多降解预测) 模块利用专家权重合成学习，自动分类电池当前所处降解模式",
+      "FORNN (未来运行循环神经网络) 融合部分充电曲线+弛豫电压+假设未来工况条件，预测未来150圈轨迹",
+      "295电池/93工况/84213圈数据验证，平均MAPE 0.95%，推理时间仅0.43ms，适合边缘部署",
+      "无需历史循环数据，仅需当前圈部分充电曲线(random起始SOC)+30分钟弛豫电压即可预测未来轨迹"
+    ],
+    "bmsValue": [
+      "退役电池快速评估：BMS上传当前圈充电曲线+弛豫电压，云端iMOE在0.43ms内输出150圈SOH轨迹和梯次利用建议",
+      "析锂预警：AMDP识别到Li沉积专家网络权重>50%时，BMS自动触发低温充电电流限制策略",
+      "车队一致性管理：iMOE对每块电池独立建模，支持车队级别的差异化管理，优先替换Li沉积风险高的电池"
+    ],
+    "imageUrl": "./images/imoe-battery-degradation-trajectory-nature-comm-2026.jpg",
+    "direction": "AI/机器学习"
+  },
+  {
+    "id": 1008,
+    "category": "热失控",
+    "titleCn": "基于安全状态(SOS)的锂离子电池热失控早期预警",
+    "title": "Early warning of thermal runaway based on state of safety for lithium-ion batteries",
+    "source": "Communications Engineering | 2025",
+    "doi": "https://doi.org/10.1038/s44172-025-00442-1",
+    "publishDate": "2025-06-10",
+    "views": 11300,
+    "summary": "SOS多维参数(温度、中压、容量、功率、应变)量化安全状态(0-100%)，应变触发点Str比温度触发提前906秒，过热条件下可预警热失控约5小时，预警时间远超现有电压(1.47h)、温度(0.57h)方法。",
+    "keyPoints": [
+      "SOS安全状态量化：综合温度升速、中压、中值电压、容量保持率、峰值功率、应变等6参数，输出0-100%安全评分",
+      "5阶段演化：Stage I(30-90C应变萌生)到Stage II(SEI分解气体)、Stage III(隔膜分解)、Stage IV(温度突变)再到Stage V(热失控触发)",
+      "应变触发点(Str)比温度触发点提前平均906秒，5小时预警窗口（充电2.5h x 2轮），SOS=60%为推荐预警阈值",
+      "过充(105%-130% SOC)、过速(3C-5C)、过热三种滥用场景均验证有效，100%SOC触发Str最低",
+      "与现有方法对比：电压法1.47h，温度法0.57h，气体法0.7h，声学法0.3h，本方法5.0h"
+    ],
+    "bmsValue": [
+      "多参数融合预警：BMS集成应变传感器(如FBG光纤光栅)，实时计算SOS评分，自动化分级报警(SOS<80%报警，<60%断电)",
+      "充电策略优化：建议充电上限SOC=80%并开启SOS实时监测，过充(>105%SOC)自动终止充电",
+      "热失控预防联动：BMS检测到SOS快速下降(>5%/min)时，立即启动强制液冷散热并通知用户"
+    ],
+    "imageUrl": "./images/sos-thermal-runaway-early-warning-communications-engineering-2025.jpg",
+    "direction": "热失控"
+  },
+  {
+    "id": 1009,
+    "category": "eVTOL",
+    "titleCn": "eVTOL热管理系统综述：架构、关键组件与新兴技术",
+    "title": "A state-of-the-art review on eVTOL thermal management: system architectures, key components and emerging technologies",
+    "source": "eTransportation | 2025",
+    "doi": "https://doi.org/10.1016/j.etran.2025.100480",
+    "publishDate": "2025-12-01",
+    "views": 3800,
+    "summary": "首个系统性eVTOL热管理综述，分析分布式冗余电池设计的冷却挑战，对比空气冷却、冲压空气辅助液冷、热泵、相变材料等方案，指出BMS与热管理系统协同设计是eVTOL安全运营的关键。",
+    "keyPoints": [
+      "eVTOL电池是热敏性最高的动力系统组件，与电机和电力电子不同，需要同时主动制冷和主动加热",
+      "分布式冗余电池设计使大面积冷板冷却方案不适用，重量约束排除了传统EV液冷的大规模应用",
+      "eVTOL任务剖面比EV复杂得多，起飞/悬停/巡航/降落各阶段功率峰值差异大，热管理挑战更严峻",
+      "空气冷却和冲压空气辅助液冷是当前主流方案，热泵和相变材料在炎热气候和高功率场景中不可或缺",
+      "BMS与TMS协同设计是关键：电池峰值温度>50C需强制散热，<-10C需启动电池加热，均需BMS协调"
+    ],
+    "bmsValue": [
+      "分布式BMS架构：eVTOL分布式电池组需要多节点独立BMS，每个节点独立监测温度并与中央BMS通信",
+      "飞行阶段功率预管理：起飞前预热(0-20C)、悬停时限制峰值功率(防止温升>3C/min)、巡航时优化功率分配",
+      "热失控分区隔离：分布式电池包之间需设置热屏障，BMS检测到任一电池包热失控时快速隔离相邻模块"
+    ],
+    "imageUrl": "./images/evtol-battery-thermal-management-eTransportation-2025.jpg",
+    "direction": "非乘用车场景"
+  }
+]
