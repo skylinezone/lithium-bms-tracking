@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Search, SortAsc, Calendar, MessageCircle, X, BookOpen } from 'lucide-react';
 import FeedbackHandbook from './components/FeedbackHandbook';
-import { saveFeedback, getAllFeedback, StarRating, Toast } from './lib/feedback';
+import { getAllFeedback, saveFeedbackToLocal, Toast } from './lib/feedback';
 
 interface Paper {
   id: number;
@@ -647,11 +647,14 @@ export default function App() {
               <button
                 onClick={() => {
                   if (!newComment.trim() && newQuality < 5) return;
-                  saveFeedback({ rating: newQuality, comment: newComment.trim(), pageContext: `今日文献追踪 ${data?.updateDate || ''}` });
+                  const ctx = `今日文献追踪 ${data?.updateDate || ''}`;
+                  // 同步写入 localStorage（立即更新 badge）
+                  saveFeedbackToLocal({ rating: newQuality, comment: newComment.trim(), pageContext: ctx });
+                  setFeedbackCount(getAllFeedback().length);
+                  // 备注：反馈已保存到本地存储（localStorage），切换浏览器后需手动导出备份
                   setNewComment('');
                   setNewQuality(7);
                   setShowComment(false);
-                  setFeedbackCount(getAllFeedback().length);
                   setToast('✅ 感谢您的反馈，已收录！');
                   setTimeout(() => setToast(''), 3500);
                 }}
