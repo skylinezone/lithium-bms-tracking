@@ -439,5 +439,48 @@ if cp != 8: print(f'⚠️  currentPapers应有8篇，当前{cp}篇')
 
 ---
 
-*本手册最后更新：2026-03-22（反馈手册增强 + 维护手册更新）*
+
+
+### ⚕️ Cloudflare Worker 部署指南（让所有用户可见反馈）
+
+> ⚠️ 如果不部署 Worker：反馈仅保存在提交者的本地浏览器，其他用户看不到。
+> 部署 Worker 后，所有用户的反馈实时同步到 GitHub，所有人都能看到。
+
+**步骤：**
+
+**① 创建 GitHub Personal Access Token（已有可跳过）**
+- 进入 https://github.com/settings/tokens → Generate new token (classic)
+- 勾选 `repo` 权限（完整仓库读写）
+- 创建后**立即复制 Token**（只显示一次）
+
+**② 部署 Cloudflare Worker**
+- 登录 https://dash.cloudflare.com → Workers & Pages → 创建 Worker
+- Worker 名称随意，如 `github-feedback`
+- 将 `docs/github-feedback-worker.js` 的全部内容粘贴到 Worker 编辑器
+- Settings → Variables → 添加环境变量（共5个）：
+
+| 变量名 | 值 |
+|--------|-----|
+| `GITHUB_TOKEN` | 步骤①的 Token |
+| `GITHUB_OWNER` | `skylinezone` |
+| `GITHUB_REPO` | `lithium-bms-tracking` |
+| `GITHUB_BRANCH` | `main` |
+| `FEEDBACK_PATH` | `docs/feedback_history.json` |
+
+- 点击部署，Worker URL 示例：`https://github-feedback.signalcyber.workers.dev`
+
+**③ 填写前端 Worker 地址**
+- 打开 `src/lib/feedback.tsx`，找到 `const WORKER_URL: string = ''`（约第 25 行）
+- 填入 Worker URL，例如：
+  ```typescript
+  const WORKER_URL: string = 'https://github-feedback.signalcyber.workers.dev';
+  ```
+- `pnpm build` → `cp dist/* docs/` → git push
+
+**验证是否生效：**
+- 打开手册页面，顶部应显示绿色提示「✅ 反馈已同步至 GitHub，所有用户可见」
+- 不同浏览器/设备提交反馈后，互相刷新页面应能看到彼此的反馈
+
+
+*本手册最后更新：2026-03-22（Worker跨用户同步 + Cloudflare部署指南）*
 *更新人：锂电文献追踪系统*
