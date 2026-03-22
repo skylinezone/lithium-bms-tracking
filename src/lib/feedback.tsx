@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 // ══════════════════════════════════════════════════════════════
 // FeedbackItem — 扩展版（支持历史存储、精选、日期）
@@ -11,12 +11,58 @@ export interface FeedbackItem {
   date: string;             // YYYY-MM-DD
   pageContext?: string;     // 当前浏览方向/论文
   featured: boolean;        // 是否为精选建议
-  userAgent?: string;
+  ip?: string;              // 提交者 IP（Worker 模式时附加）
 }
 
 const STORAGE_KEY = 'li_feedback_items';
 
-// ── localStorage 读写 ────────────────────────────────────────
+/**
+ * ============================================================
+ * 重要：WORKER_URL 配置说明
+ * ============================================================
+ * 将 github-feedback-worker.js 部署到 Cloudflare Workers 后，
+ * 在 Workers 设置中添加工商变量 WORKER_URL 为你的 Worker 地址，
+ * 例如：https://github-feedback.你的名字.workers.dev
+ *
+ * 部署步骤：
+ * 1. 登录 https://dash.cloudflare.com → Workers & Pages → 创建 Worker
+ * 2. 粘贴 github-feedback-worker.js 的内容
+ * 3. Settings → Variables 添加环境变量：
+ *    GITHUB_TOKEN：GitHub Personal Access Token（需 repo 写权限）
+ *    GITHUB_OWNER：skylinezone
+ *    GITHUB_REPO：lithium-bms-tracking
+ *    GITHUB_BRANCH：main
+ *    FEEDBACK_PATH：docs/feedback_history.json
+ * 4. 部署 Worker，将地址填入下方的 WORKER_URL
+ * ============================================================
+ */
+const WORKER_URL: string = ''; // ← 部署 Worker 后填入，例如：'https://github-feedback.signalcyber.workers.dev'
+
+// ── 判断是否使用 Worker ──────────────────────────────────────
+export function isWorkerMode() {
+  const url = typeof WORKER_URL === 'string' ? WORKER_URL.trim() : '';
+  return url.length > 0 && url.startsWith('http');
+}
+
+// ── Worker API ──────────────────────────────────────────────
+
+async function fetchWorkerHistory(): Promise<FeedbackItem[]> {
+  const res = await fetch(`${WORKER_URL}/history`);
+  const json = await res.json();
+  return json.success ? json.data : [];
+}
+
+async function submitToWorker(item: Omit<FeedbackItem, 'id' | 'timestamp' | 'date' | 'featured' | 'ip'>): Promise<FeedbackItem | null> {
+  const res = await fetch(WORKER_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(item),
+  });
+  const json = await res.json();
+  return json.success ? json.data : null;
+}
+
+// ── localStorage 读写（离线兜底）───────────────────────────
 
 export function getAllFeedback(): FeedbackItem[] {
   try {
@@ -26,7 +72,7 @@ export function getAllFeedback(): FeedbackItem[] {
 }
 
 export function saveFeedbackToLocal(
-  item: Omit<FeedbackItem, 'id' | 'timestamp' | 'date' | 'featured' | 'userAgent'>
+  item: Omit<FeedbackItem, 'id' | 'timestamp' | 'date' | 'featured'>
 ): FeedbackItem {
   const all = getAllFeedback();
   const newItem: FeedbackItem = {
@@ -35,7 +81,6 @@ export function saveFeedbackToLocal(
     timestamp: Date.now(),
     date: new Date().toISOString().slice(0, 10),
     featured: false,
-    userAgent: typeof navigator !== 'undefined' ? navigator.userAgent.slice(0, 120) : '',
   };
   localStorage.setItem(STORAGE_KEY, JSON.stringify([newItem, ...all]));
   return newItem;
@@ -62,16 +107,12 @@ export function clearAllFeedback(): void {
   localStorage.removeItem(STORAGE_KEY);
 }
 
-// ── 从 GitHub 同步的历史数据（docs/feedback_history.json）─────
-// 合并到本地，避免换浏览器后历史丢失
-
+// ── GitHub 历史 JSON（用于合并）────────────────────────────
 const GITHUB_HISTORY_URL = './feedback_history.json';
 
-export async function fetchGitHubHistory(): Promise<FeedbackItem[]> {
+async function fetchGitHubJSON(): Promise<FeedbackItem[]> {
   try {
-    const res = await fetch(GITHUB_HISTORY_URL + '?t=' + Date.now(), {
-      cache: 'no-store',
-    });
+    const res = await fetch(GITHUB_HISTORY_URL + '?t=' + Date.now(), { cache: 'no-store' });
     if (!res.ok) return [];
     const json = await res.json();
     return Array.isArray(json) ? json : [];
@@ -79,18 +120,54 @@ export async function fetchGitHubHistory(): Promise<FeedbackItem[]> {
 }
 
 /**
- * 合并 localStorage 和 GitHub 历史数据
- * - localStorage 优先（最新提交）
- * - GitHub 历史补充本地没有的（去重 by id）
+ * 获取所有反馈（合并 localStorage + GitHub JSON）
+ * Worker 模式：直接调 Worker API 获取最新历史
+ * 本地模式：合并 localStorage 和 GitHub JSON（去重）
  */
 export async function fetchMergedFeedback(): Promise<FeedbackItem[]> {
-  const [local, remote] = await Promise.all([
-    Promise.resolve(getAllFeedback()),
-    fetchGitHubHistory(),
-  ]);
+  const local = getAllFeedback();
+
+  if (isWorkerMode()) {
+    try {
+      const remote = await fetchWorkerHistory();
+      const seen = new Set(local.map(it => it.id));
+      const remoteNew = remote.filter(it => !seen.has(it.id));
+      return [...local, ...remoteNew];
+    } catch {
+      // Worker 失败时用本地数据
+      return local;
+    }
+  }
+
+  // 非 Worker 模式：合并 localStorage + GitHub JSON
+  const [remote] = await Promise.all([fetchGitHubJSON()]);
   const seen = new Set(local.map(it => it.id));
   const remoteNew = remote.filter(it => !seen.has(it.id));
   return [...local, ...remoteNew];
+}
+
+/**
+ * 提交反馈
+ * Worker 模式：→ Worker → GitHub（所有用户可见）
+ * 本地模式：→ localStorage（仅本浏览器可见）
+ */
+export async function submitFeedbackAPI(
+  item: Omit<FeedbackItem, 'id' | 'timestamp' | 'date' | 'featured' | 'ip'>
+): Promise<FeedbackItem | null> {
+  // 立即保存到 localStorage（确保即使 Worker 失败也不丢）
+  const localItem = saveFeedbackToLocal(item);
+
+  if (isWorkerMode()) {
+    const remote = await submitToWorker(item);
+    if (remote) {
+      // 从 localStorage 移除刚才的本地副本（避免重复）
+      deleteFeedbackFromLocal(localItem.id);
+      return remote;
+    }
+    // Worker 失败，但 localStorage 已保存，下次加载会合并
+  }
+
+  return localItem;
 }
 
 // ── 导出功能（扩展字段）────────────────────────────────────

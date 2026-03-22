@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Search, SortAsc, Calendar, MessageCircle, X, BookOpen } from 'lucide-react';
 import FeedbackHandbook from './components/FeedbackHandbook';
-import { getAllFeedback, saveFeedbackToLocal, Toast } from './lib/feedback';
+import { getAllFeedback, submitFeedbackAPI, Toast } from './lib/feedback';
 
 interface Paper {
   id: number;
@@ -645,16 +645,17 @@ export default function App() {
               <button onClick={() => setShowComment(false)}
                 className="flex-1 py-2 border rounded-lg text-sm hover:bg-gray-50">取消</button>
               <button
-                onClick={() => {
+                onClick={async () => {
                   if (!newComment.trim() && newQuality < 5) return;
                   const ctx = `今日文献追踪 ${data?.updateDate || ''}`;
-                  // 同步写入 localStorage（立即更新 badge）
-                  saveFeedbackToLocal({ rating: newQuality, comment: newComment.trim(), pageContext: ctx });
+                  setShowComment(false);
+                  setToast('⏳ 提交中...');
+                  // Worker 模式：→ GitHub（所有用户可见）
+                  // 本地模式：→ localStorage（仅本浏览器可见）
+                  await submitFeedbackAPI({ rating: newQuality, comment: newComment.trim(), pageContext: ctx });
                   setFeedbackCount(getAllFeedback().length);
-                  // 备注：反馈已保存到本地存储（localStorage），切换浏览器后需手动导出备份
                   setNewComment('');
                   setNewQuality(7);
-                  setShowComment(false);
                   setToast('✅ 感谢您的反馈，已收录！');
                   setTimeout(() => setToast(''), 3500);
                 }}

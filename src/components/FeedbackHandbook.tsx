@@ -5,6 +5,7 @@ import {
   updateFeedbackInLocal,
   deleteFeedbackFromLocal,
   exportFeedbackAs,
+  isWorkerMode,
   FeedbackItem,
 } from '../lib/feedback';
 
@@ -166,6 +167,23 @@ export default function FeedbackHandbook({ onBack }: Props) {
             <div className="text-5xl mb-3">📝</div>
             <h2 className="text-lg font-semibold text-gray-600 mb-1">暂无反馈</h2>
             <p className="text-sm text-gray-400">当有用户提交反馈后，将在此展示</p>
+          </div>
+        )}
+
+        {/* 同步状态提示 */}
+        {!loading && (
+          <div className={`border rounded-lg px-4 py-2.5 flex items-center gap-2 text-sm ${
+            isWorkerMode()
+              ? 'bg-green-50 border-green-200 text-green-700'
+              : 'bg-amber-50 border-amber-200 text-amber-700'
+          }`}>
+            <span>{isWorkerMode() ? '🌐' : '📱'}</span>
+            <span>
+              {isWorkerMode()
+                ? '✅ 反馈已同步至 GitHub，所有用户可见'
+                : '⚠️ 仅本地存储（换浏览器/设备后不可见），请联系管理员配置 GitHub 同步'}
+            </span>
+            <span className="ml-auto text-xs opacity-60">共 {items.length} 条</span>
           </div>
         )}
 
