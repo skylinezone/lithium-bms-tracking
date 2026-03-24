@@ -36,7 +36,7 @@ const STORAGE_KEY = 'li_feedback_items';
  * 4. 部署 Worker，将地址填入下方的 WORKER_URL
  * ============================================================
  */
-const WORKER_URL: string = ''; // ← 部署 Worker 后填入，例如：'https://github-feedback.signalcyber.workers.dev'
+const WORKER_URL: string = 'https://lithium-bms-tracking.liwenzhang977.workers.dev';
 
 // ── 判断是否使用 Worker ──────────────────────────────────────
 export function isWorkerMode() {

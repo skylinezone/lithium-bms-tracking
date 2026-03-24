@@ -18,6 +18,7 @@
 
 const ALLOWED_ORIGINS = [
   'https://skylinezone.github.io',
+  'https://lithium-bms-tracking.pages.dev',
   'http://localhost:5173',  // 本地开发
 ];
 
