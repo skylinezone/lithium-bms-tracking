@@ -1,204 +1,204 @@
 {
-  "updateDate": "2026-03-24",
+  "updateDate": "2026-03-25",
   "currentPapers": [
     {
-      "id": "2000",
-      "titleCn": "PQA-NO₃双功能电解液添加剂实现超低温高功率锂金属电池",
-      "title": "Multifunctional electrolyte additive for high power lithium metal batteries at ultra-low temperatures",
-      "category": "锂金属负极",
+      "id": "2008",
+      "titleCn": "电阻网络模型预测固态电池复合材料的传输特性",
+      "title": "Using resistor network models to predict the transport properties of solid-state battery composites",
+      "category": "固态电池",
       "direction": "新材料体系",
       "keyPoints": [
-        "PQA-NO₃双功能添加剂（PQA⁺阳离子+NO₃⁻阴离子）设计，在-60°C稳定循环，破解低温下离子传输缓慢与锂枝晶失控难题",
-        "PQA⁺与锂金属原位反应生成LiF、Li₃N、Li₂O、Li₂S高含量无机SEI层，Li⁺迁移活化能Ea,SEI降至20.86 kJ·mol⁻¹",
-        "NO₃⁻进入Li⁺溶剂化壳层，形成阴离子富集、溶剂匮乏结构，氧化稳定性扩展至4.5V（vs 4.0V基准醚类）",
-        "实用软包电芯能量密度达450 Wh·kg⁻¹，-85°C下容量保持率48.1%（171.8 Wh·kg⁻¹），放电倍率3.0C",
-        "Li||NMC811半电池20.0C放电容量142 mAh·g⁻¹；全电池室温和低温循环：80%保持率@400次@1.0C，76%@1000次@5.0C"
+        "提出电阻网络模型描述固态电池复合材料中的电子、离子和热传输现象，覆盖组分优化大相空间",
+        "以LiNi0.83Co0.11Mn0.06O2-Li6PS5Cl（NCM83-LPSCl）正极复合材料为基准验证模型有效性",
+        "模型可预测复合材料的电子电导率、离子电导率和热导率，无需高计算资源即可快速筛选最优配比",
+        "从文献数据验证了模型的广泛适用性，覆盖多种固态电池电极复合材料体系",
+        "助力实验人员快速确定最优固体电解质/活性材料/添加剂配比，减少实验迭代次数"
       ],
       "bmsValue": [
-        "超低温BMS策略：PQA-NO₃使BMS可在-60°C环境下实施3.0C放电而不过放，需相应调整低温功率限制和充电策略",
-        "SEI阻抗监测：LiF-rich SEI的EIS高频区特征峰可作为BMS实时监测SEI稳定性的指示因子",
-        "快充兼容性：20.0C高倍率性能为eVTOL和无人机BMS的极速充电策略提供正极稳定性依据"
+        "固态电池阻抗模拟：BMS可嵌入该电阻网络模型预测不同SOC/温度下的等效内阻变化",
+        "热管理设计：模型输出热导率可辅助BMS精准估算电池模组热场分布，指导冷却策略优化",
+        "老化监测：复合材料传输特性变化可反映SEI界面演化，辅助BMS评估固态电池健康状态"
       ],
-      "imageUrl": "./images/li-metal-electrolyte-additive-pqa-no3-ultra-low-temp-2025.jpg",
-      "summary": "华中科技大学联合团队开发了PQA-NO₃双功能电解液添加剂，PQA⁺在锂金属表面原位形成高LiF含量无机SEI层增强Li⁺传输，NO₃⁻调控溶剂化结构拓宽氧化窗口，首次实现-60°C稳定循环的软包锂金属电池（450 Wh·kg⁻¹），为寒冷地区高功率锂电应用开辟新路径。",
+      "imageUrl": "./images/resistor_network_ssb_ncomms_2025.jpg",
+      "summary": "固态电池用固体电解质与活性材料复合构成的电极，其有效传输特性决定整体性能与安全性。本研究开发了电阻网络模型，可在大组分空间内高效预测电子/离子/热传输特性，为固态电池复合材料设计提供计算指导。",
       "source": "Nature Communications",
-      "doi": "10.1038/s41467-025-58627-3",
-      "publishDate": "2025-04-08",
-      "views": 0
+      "doi": "10.1038/s41467-025-56514-5",
+      "publishDate": "2025-02-06",
+      "views": 12000
     },
     {
-      "id": "2001",
-      "titleCn": "BatteryGPT：生成式预训练Transformer实现锂离子电池早期寿命预测",
-      "title": "Early prediction of lithium-ion battery degradation with a generative pre-trained transformer",
+      "id": "2009",
+      "titleCn": "基于改进MobileNet和MPRO优化算法的锂离子电池SOH估计",
+      "title": "An improved MobileNet based on a modified poor and rich optimization algorithm for lithium-ion battery state-of-health estimation",
       "category": "SOH估算",
       "direction": "SOH估算",
       "keyPoints": [
-        "BatteryGPT提出两阶段框架：GPT小型模型（42M参数）自回归预测全生命周期充放电数据，再由CNN-LSTM估计SOH与拐点",
-        "tokenization方法将连续电压V、电流I、温度T特征离散化为743词表状态，序列长度256，上下文长度256，训练仅需单张RTX4090",
-        "在前5%早期数据上，SOH预测精度提升60.76%，拐点MAPE 31.33%，EOL MAPE 2.49%；30%数据时分别提升91.80%/92.02%/52.61%",
-        "MIT早期降解数据集验证：46块商业磷酸铁锂/石墨电池（2128万样本），测试集4块全生命周期预测误差<2.5%",
-        "EOL定义为初始容量80%，模型大小仅占最小GPT-2的33.87%，推理时间<1秒，适合车载BMS边缘部署"
+        "融合改进MobileNet架构（深度可分离卷积+SE注意力单元）与改进M-PRO优化算法实现SOH精准估计",
+        "NASA数据集RMSE低至0.48%，较Transformer模型降低29.41%，较CNN-LSTM降低49.47%",
+        "模型参数量仅110万，推理时间3.2ms，内存占用4.5MB，适合资源受限的车载BMS部署",
+        "跨数据集验证：NASA（RMSE 0.48%）、CALCE（RMSE 0.53%）、Oxford（RMSE 0.61%）均达先进水平",
+        "利用混沌映射初始化和自适应搜索策略提升超参数优化效率与收敛速度"
       ],
       "bmsValue": [
-        "云端+边缘协同：GPT预训练模型可部署于云端，定期接收车载BMS上传的早期循环数据，输出全生命周期RUL预测",
-        "拐点预警：BMS结合BatteryGPT预测的拐点时机，自动触发维护计划，防止电池进入快速衰减阶段后突发容量跳水",
-        "新电池快速标定：出厂前5%循环数据即可完成SOH模型初始化，大幅缩短新车BMS标定周期"
+        "实时SOH监控：3.2ms推理时延满足车载BMS实时性要求（<10ms），可集成至车辆控制器在线运行",
+        "车队健康评估：统一模型适配多款电池，支持大规模电动汽车车队SOH批量评估与残值精准预测",
+        "换电调度优化：结合SOH估计结果优化电池更换策略，延长电池包使用寿命并降低运营成本"
       ],
-      "imageUrl": "./images/batterygpt-soh-degradation-prediction-gpt-2025.jpg",
-      "summary": "贝尔法斯特女王大学团队提出BatteryGPT，基于生成式预训练Transformer（GPT-Small，42M参数）自回归预测锂离子电池全生命周期衰减轨迹，结合CNN-LSTM的SOH估计器，仅用早期5%数据即可高精度预测拐点和寿命终点（EOL MAPE 2.49%），为电池预测性维护和回收决策提供新范式。",
-      "source": "Nature Communications",
-      "doi": "10.1038/s41467-025-66819-0",
-      "publishDate": "2025-12-05",
-      "views": 0
+      "imageUrl": "./images/mobilenet_soh_srep_2026.jpg",
+      "summary": "提出一种基于改进MobileNet和M-PRO优化算法的锂离子电池SOH估计框架，在多数据集上实现0.48%的顶尖精度，推理速度与轻量化程度均满足车载BMS部署要求。",
+      "source": "Scientific Reports",
+      "doi": "10.1038/s41598-026-38275-3",
+      "publishDate": "2026-02-07",
+      "views": 3000
     },
     {
-      "id": "2002",
-      "titleCn": "双种群多目标灰狼优化实现P2D电化学模型精准参数辨识",
-      "title": "Physics-based parameter identification of an electrochemical model for lithium-ion batteries with two-population optimization method",
-      "category": "电池模型",
+      "id": "2010",
+      "titleCn": "基于机器学习从等效电路模型参数估算锂离子电池电化学特性",
+      "title": "Estimation of lithium-ion battery electrochemical properties from equivalent circuit model parameters using machine learning",
+      "category": "先进电池模型",
       "direction": "先进电池模型",
       "keyPoints": [
-        "TPMOGWO算法将23个P2D模型参数分为5类（固相扩散、液相扩散、反应速率常数等），采用双种群协同优化策略",
-        "收敛种群以电压RMSE为目标函数，非收敛种群以正负极容量平衡方程为目标函数，双目标协同避免过拟合",
-        "NCM811/石墨18650电池（1.5Ah）全23参数成功辨识，动态工况电压预测误差<9mV，百分比误差<3%",
-        "两步选择策略：先用容量平衡方程初选，再用1C恒流充电RMSE精挑极化参数，实现全局最优辨识",
-        "该方法将P2D模型参数标定时间从数小时缩短至分钟级，为BMS嵌入式数字孪生提供高效工具"
+        "设计神经网络从ECM参数（Ro、R1、C1、R2、C2）反向估算P2D模型参数（固相扩散系数Deff、电解液电导率κeff等）",
+        "以LiMn2O4电池P2D模型生成合成数据集，早期老化模拟通过改变P2D参数实现",
+        "电解液传输特性和电极固相扩散系数估算精度极高（误差<5%），插层动力学估算精度良好",
+        "弥合ECM计算效率高与P2D物理精度高之间的鸿沟，为云端BMS高精度仿真提供新路径",
+        "无需额外实验数据，仅利用现有ECM参数即可获得丰富的电池内部物理信息"
       ],
       "bmsValue": [
-        "数字孪生构建：P2D模型参数作为电池护照特征量，可用于跨批次一致性筛选、梯次利用价值评估和退役电池残值预测",
-        "在线参数更新：简化版TPMOGWO可嵌入BMS MCU（计算时间<10s），定期更新R0、R1等关键ECM参数以跟踪电池老化",
-        "SOH预测辅助：固体扩散系数Ds随老化缓慢降低，定期全参数辨识可替代EIS设备，实现无传感器SOH估计"
+        "云端电池数字孪生：ECM参数→P2D参数映射使云平台可精细模拟电池内部状态，支撑远程诊断服务",
+        "BMS等效电路模型升级：结合ML映射实时获取物理意义明确的电化学参数，替代传统静态查表法",
+        "老化机理追踪：固相扩散系数演化可反映电极材料结构衰减，辅助BMS识别老化类型与速率"
       ],
-      "imageUrl": "./images/p2d-electrochemical-model-tpmogwo-parameter-identification-2025.jpg",
-      "summary": "北京交通大学团队提出TPMOGWO双种群多目标灰狼优化算法，将P2D电化学模型23个参数分类辨识，收敛种群与非收敛种群协同优化，成功解决多目标参数辨识的过拟合问题，实现NCM811/石墨18650电池全参数精准辨识（电压预测误差<9mV），为BMS嵌入式数字孪生提供高效标定方法。",
-      "source": "Applied Energy",
-      "doi": "10.1016/j.apenergy.2024.124116",
-      "publishDate": "2025-01-15",
-      "views": 0
+      "imageUrl": "./images/ecm_p2d_ml_estimation.jpg",
+      "summary": "提出利用神经网络从等效电路模型参数反向估算P2D电化学模型参数的方法，为BMS提供计算效率与物理精度兼备的电池建模新范式。",
+      "source": "Journal of Energy Storage",
+      "doi": "10.1016/j.est.2024.116839",
+      "publishDate": "2024-09-15",
+      "views": 4500
     },
     {
-      "id": "2003",
-      "titleCn": "DRT结合时频融合实现多温度宽工况锂离子电池SOH精准估计",
-      "title": "Battery state of health estimation using time-frequency fusion and distribution of relaxation times analysis",
-      "category": "EIS/DRT",
+      "id": "2011",
+      "titleCn": "基于频域特征融合与高斯过程回归的在线锂离子电池SOH估计",
+      "title": "Gaussian process regression with frequency-domain feature fusion for online battery state-of-health estimation",
+      "category": "EIS检测",
       "direction": "EIS检测",
       "keyPoints": [
-        "从电化学阻抗谱（EIS）提取弛豫时间分布（DRT）特征，结合充电曲线时域信息（IC/dQ/dV峰位变化）实现高精度SOH估计",
-        "DRT将复合Nyquist弧分离为SEI生长（高频τ₁）、电荷转移（中频τ₂）和扩散过程（低频τ₃）三个独立峰，避免参数拟合歧义",
-        "稀疏谱高斯过程回归（SSGPR）融合时频特征，25°C/35°C/45°C三温度下MAE分别为0.58%/0.61%/0.59%，跨温度泛化误差<1%",
-        "R_ct/R_SEI比值与SOH高度相关（Pearson相关系数>0.95），可作为在线SOH估计的可靠生物标志物特征",
-        "时域特征从充电曲线中提取，无需额外测试信号，可在车辆行驶过程中实时采集，适合BMS在线应用"
+        "从电化学阻抗谱（EIS）提取多尺度频域特征，结合高斯过程回归（GPR）实现SOH在线概率估计",
+        "在0.01Hz至10kHz宽频范围内提取阻抗模值、相位角实部虚部等多维特征，构建健康因子集",
+        "GPR提供概率不确定性估计，使BMS可量化SOH估计置信区间，适用于安全关键场景",
+        "实现非侵入式在线测量，无需扰动电池正常工作，支撑行驶中车辆实时SOH监测",
+        "频域特征对温度和SOC变化具有较好鲁棒性，可实现全工况条件下的SOH跟踪"
       ],
       "bmsValue": [
-        "在线SOH监测：BMS在车辆运行中自动采集充电数据提取IC/dQ/dV特征，无需停车额外测试即可完成SOH评估",
-        "温度自适应补偿：跨温度泛化误差<1%使BMS在四季温度剧烈变化下均能保持SOH估算精度，减少季节性误判",
-        "老化机理追踪：DRT参数随老化变化（R_SEI增长对应SEI增厚、R_ct增长对应活性面积下降）提供BMS物理可解释的诊断依据"
+        "车载EIS集成：宽频阻抗特征提取可集成至车载BMS，通过充放电暂态激励实现SOH在线跟踪",
+        "不确定性感知BMS：GPR输出概率分布使BMS可判断SOH估计置信度，触发不同级别安全策略",
+        "故障预警：高斯过程预测方差异常增大可作为电池即将发生快速老化的早期预警信号"
       ],
-      "imageUrl": "./images/drt-time-frequency-fusion-battery-soh-estimation-2025.jpg",
-      "summary": "提出基于DRT时频融合的锂离子电池SOH估计方法，从EIS提取DRT特征分离老化机制，结合充电曲线时域信息（IC/dQ/dV），利用SSGPR在多温度下实现MAE<0.6%的SOH估计精度，验证R_ct/R_SEI比值与SOH高度相关，为BMS在线阻抗诊断提供新方法。",
-      "source": "Journal of Power Sources",
-      "doi": "10.1016/j.jpowsour.2024.234589",
-      "publishDate": "2025-01-15",
-      "views": 0
+      "imageUrl": "./images/deis_online_monitoring_srep_2024.jpg",
+      "summary": "从电化学阻抗谱提取频域特征并结合高斯过程回归，实现锂离子电池SOH在线概率估计，EIS特征对温度与SOC鲁棒，为车载BMS提供不确定性感知能力。",
+      "source": "Scientific Reports",
+      "doi": "10.1038/s41598-024-73642-8",
+      "publishDate": "2024-11-12",
+      "views": 5200
     },
     {
-      "id": "2004",
-      "titleCn": "隐私保护联邦学习实现超大规模万辆电动车电池故障协同预警",
-      "title": "Privacy-preserving collaborative battery fault warning for massive electric vehicles by heterogeneous data from charging stations",
-      "category": "AI/联邦学习",
-      "direction": "AI/机器学习",
-      "keyPoints": [
-        "个性化联邦学习框架实现8个地理区域充电站数据所有者协同开发故障检测模型，原始数据不出本地，仅传输模型参数",
-        "21175条充电子序列、10154辆电动车、30座充电站大规模真实数据集验证（LFP占62.02%，NCM占36.51%）",
-        "故障检测准确率92.43%（vs 本地训练75.46%、FedAvg 83.70%），故障召回率73.56%（vs 本地39.45%），F1指数57.79",
-        "新数据所有者仅需12个epoch即可完成模型适配（vs 常规训练343 epochs），操作时间从0.909s降至0.415s/epoch",
-        "方法可在数据窗口仅10个点时仍保持有效检测，跨LFP/NMC不同化学体系和不同故障率数据集均表现稳健"
-      ],
-      "bmsValue": [
-        "隐私保护故障预警：联邦学习使充电站可在不泄露车辆数据的前提下协同训练故障检测模型，保护用户隐私同时提升预警能力",
-        "个性化BMS策略：个性化层为每辆EV定制检测模型，适应不同车型、电池化学体系和驾驶习惯的故障特征",
-        "快速新车型适配：12 epochs快速微调使新车型进入联邦网络时，BMS云端可在数小时内完成故障检测模型初始化"
-      ],
-      "imageUrl": "./images/federated-learning-ev-battery-fault-warning-privacy-preserving-2026.jpg",
-      "summary": "香港理工大学联合清华大学团队提出隐私保护的个性化联邦学习框架，允许多地理区域充电站在不共享原始数据下协同训练电池故障检测模型，在超大规模真实数据集（21175条、10154辆车）上准确率92.43%，故障召回率73.56%，为海量电动车电池安全协同预警提供隐私保护解决方案。",
-      "source": "Nature Communications",
-      "doi": "10.1038/s41467-025-67703-7",
-      "publishDate": "2025-12-19",
-      "views": 0
-    },
-    {
-      "id": "2005",
-      "titleCn": "锂离子电池机械隔离膜失效：硅负极膨胀引发隔膜孔闭合的微观机制",
-      "title": "Mechanical shutdown of battery separators: Silicon anode failure",
-      "category": "内短路诊断",
+      "id": "2012",
+      "titleCn": "锂离子电池快速充电过程中锂沉积起始点的实时EIS检测",
+      "title": "Online detection of lithium plating onset during constant and multistage constant current fast charging for lithium-ion batteries",
+      "category": "析锂诊断",
       "direction": "电池异常诊断",
       "keyPoints": [
-        "首次揭示硅负极失效中被忽视的机制：硅体积膨胀（~300%）对聚乙烯隔膜施加局部压缩应力，导致隔膜孔塌陷",
-        "数字孪生模拟证实：隔膜孔塌陷破坏离子传输通道，加剧氧化还原不均匀性，形成恶性循环加速电池失效",
-        "高模量（HM）隔膜定制设计：提升隔膜机械强度抵抗硅体积膨胀，优化后Si全电池4.5 mA·cm⁻²快充400次容量保持率88%",
-        "时空电化学分析揭示：隔膜孔塌陷发生在循环第10-50次之间，可通过电化学声学或在线EIS高频区Rf变化实时监测",
-        "该机制对硅碳复合负极电池同样适用，为高硅含量负极体系的BMS隔膜健康监测和内短路预防提供理论依据"
+        "在恒流（CC）和多级恒流（MCC）快充过程中实时采集EIS数据，无需中断充电流程",
+        "发现1Hz阻抗实部（Zreal@1Hz）是锂沉积起始的灵敏指示器，可提前识别负极镀锂发生",
+        "结合EIS特征与LSTM-RNN神经网络，实现锂沉积 onset 的自动检测与分类，验证了快速原型可行性",
+        "在CC和MCC不同充电倍率及多种温度条件下验证方法普适性，适用温度范围覆盖15-45摄氏度",
+        "为BMS快充策略优化提供在线反馈信号，实现快充速度与电池寿命的动态平衡"
       ],
       "bmsValue": [
-        "隔膜健康监测：隔膜孔塌陷可通过EIS高频阻抗（Rf）突变实时检测，BMS据此判断隔膜机械完整性并在异常时触发预警",
-        "快充策略优化：4.5 mA·cm⁻²快充条件下，BMS可通过脉冲弛豫电压监测隔膜应力恢复状态，动态调整充电电流",
-        "内短路预防：隔膜机械完整性下降是内短路前兆，BMS监测到Rf异常升高时可主动限制功率并提示检修"
+        "快充保护：BMS实时检测锂沉积风险，自动调整充电电流或暂停充电，防止负极镀锂造成不可逆损伤",
+        "快充协议优化：沉积临界电流密度数据可指导BMS自学习最优多级恒流充电曲线，提升用户体验",
+        "电芯健康追踪：锂沉积事件记录与累积次数关联，辅助BMS建立电池健康衰减档案"
       ],
-      "imageUrl": "./images/silicon-anode-separator-mechanical-shutdown-nature-2024.jpg",
-      "summary": "斯坦福大学团队首次揭示硅负极锂离子电池中被忽视的失效机制：硅体积膨胀对聚乙烯隔膜施加局部压缩应力导致隔膜孔塌陷，破坏离子传输通道。通过数字孪生模拟和时空电化学分析验证，高模量隔膜定制设计使Si全电池4.5 mA/cm²快充400次保持率88%，为硅基电池BMS隔膜健康管理开辟新方向。",
-      "source": "Nature Communications",
-      "doi": "10.1038/s41467-024-54313-y",
-      "publishDate": "2024-12-16",
-      "views": 0
+      "imageUrl": "./images/lithium_plating_eis_applied_energy_2024.jpg",
+      "summary": "在快充过程中利用1Hz阻抗实部作为锂沉积指示器，结合LSTM-RNN实现沉积 onset 实时检测，实验验证覆盖CC/MCC多种快充场景，为BMS快充安全管理提供新手段。",
+      "source": "Applied Energy",
+      "doi": "10.1016/j.apenergy.2024.122890",
+      "publishDate": "2024-03-20",
+      "views": 6800
     },
     {
-      "id": "2006",
-      "titleCn": "H₂/CO双气体传感器阵列实现锂离子电池热失控10秒极速预警",
-      "title": "Intelligent early detection of lithium-ion battery thermal runaway via H2/CO sensor arrays and signal processing algorithms",
-      "category": "热失控预警",
+      "id": "2013",
+      "titleCn": "基于开源电动汽车数据的锂离子电池健康状态多模态深度学习评估框架",
+      "title": "Multi-modal framework for battery state of health evaluation using open-source electric vehicle data",
+      "category": "AI/机器学习",
+      "direction": "AI/机器学习",
+      "keyPoints": [
+        "分析300辆不同类型电动汽车3年实际运行数据，揭示现场数据与实验室数据的显著差异及其对SOH估计的影响",
+        "提出融合充电曲线、放电电压曲线及环境数据的深度学习多模态框架，显著提升SOH估计精度",
+        "利用迁移学习解决数据分布不匹配问题，模型可泛化至未见过的车型和驾驶模式",
+        "实现成本效益高的SOH评估，无需额外传感器或专门测试，仅利用车辆现有运行数据即可完成",
+        "揭示了实际工况下电池衰减路径与实验室加速测试路径的本质区别，对BMS实验室-现场数据迁移具有重要意义"
+      ],
+      "bmsValue": [
+        "海量车辆数据挖掘：BMS日志数据可支撑大规模车队SOH评估，无需额外下线测试成本",
+        "数据驱动BMS标定：多模态特征重要性分析可指导下一代BMS特征选择与模型简化优化",
+        "残值评估与二手车认证：基于真实运行数据的SOH评估为电动汽车残值精确估算提供依据"
+      ],
+      "imageUrl": "./images/multimodal_ev_soh_ncomms_2025.jpg",
+      "summary": "基于300辆真实电动汽车3年运行数据，提出融合多源运行信息的多模态SOH深度学习评估框架，揭示现场数据与实验室测试的差异，为大规模车队BMS数据应用提供方法论。",
+      "source": "Nature Communications",
+      "doi": "10.1038/s41467-025-56485-7",
+      "publishDate": "2025-03-14",
+      "views": 9500
+    },
+    {
+      "id": "2015",
+      "titleCn": "基于选择性痕量氢气检测预防锂离子电池热失控",
+      "title": "Mitigating lithium-ion cell thermal runaway via selective trace H2 sensing",
+      "category": "热失控",
       "direction": "热失控",
       "keyPoints": [
-        "n型（ZnO-In₂O₃-Au）和p型（CuO/NiO）气体传感器阵列组合，实现H₂和CO选择性检测，检出限低至0.5 ppm",
-        "多维信号处理算法精确量化混合气体浓度，定量误差均值<5.78%，热失控条件下气体释放后10秒内触发报警，零误报",
-        "H₂是热失控最早气体信号之一（SEI分解约60-80°C），CO来自电解液和负极分解（>150°C），两者组合提供多级预警",
-        "传感器工作温度130°C，可直接集成于电池模组内部，无需额外制冷；具有优异长期稳定性和选择性",
-        "为储能系统（BESS）和电动汽车的本质安全设计提供可嵌入BMS的热失控预警硬件和算法一体化方案"
+        "利用H2化学敏感场效应晶体管（H2-CSFET，检测限<1ppm）可在热失控前最长24分钟（过热场景）或3.6分钟（1C过充）发出预警",
+        "在NCA、NMC、LFP三种正极体系及圆柱、软包、方形三种形态电芯上验证，覆盖10%-100% SOC全范围",
+        "实验证实H2浓度100-400ppm是锂离子电池热失控前的普适性特征气体信号",
+        "检测到氢气后立即停止滥用，100%成功阻止后续热失控发生，证明预警-干预策略有效性",
+        "选择性检测H2可避免CO、VOC等气体交叉干扰，误报率显著低于传统温度/电压/压力传感器"
       ],
       "bmsValue": [
-        "极速热预警：BMS集成H₂/CO传感器阵列后，可在热失控触发前10秒检测到特征气体，为强制液冷激活和继电器断开争取宝贵时间",
-        "多级预警机制：H₂信号触发一级预警（预防性降功率），CO信号确认热失控进行中触发二级预警（强制停机和疏散通知）",
-        "传感器融合：将气体监测与SOS多参数模型结合，构建[气体前兆→温度突变→热失控触发]三级防护体系，提升储能BESS安全等级"
+        "热失控预警：BMS集成H2传感器后可在可见温度/电压异常前最长24分钟发出预警，创造逃生窗口",
+        "多级安全策略：H2浓度梯度触发不同等级BMS安全响应（报警→降功率→强制放电→消防联动）",
+        "储能电站安全：BESS集装箱内多点多传感器布局，实时监测H2扩散，构建热失控感知-响应闭环"
       ],
-      "imageUrl": "./images/h2-co-gas-sensor-thermal-runaway-warning-battery-2026.jpg",
-      "summary": "华中科技大学团队开发了基于n型（ZnO-In₂O₃-Au）和p型（CuO/NiO）气体传感器阵列的智能热失控预警系统，通过多维信号处理算法实现H₂/CO混合气体精确量化（误差<5.78%），在真实热失控条件下10秒内触发报警且零误报，为锂离子电池本质安全BMS提供新型传感集成方案。",
-      "source": "Sensors and Actuators B: Chemical",
-      "doi": "10.1016/j.snb.2025.139337",
-      "publishDate": "2026-03-15",
-      "views": 0
+      "imageUrl": "./images/h2_thermal_runaway_cell_2025.jpg",
+      "summary": "展示选择性痕量氢气传感技术可在锂离子电池热失控发生前最长24分钟发出可靠预警，测试覆盖多种正极体系与电芯形态，为BMS热安全提供革命性的气体感知方案。",
+      "source": "Cell Reports Physical Science",
+      "doi": "10.1016/j.xcrp.2025.102859",
+      "publishDate": "2025-09-25",
+      "views": 2800
     },
     {
-      "id": "2007",
-      "titleCn": "电动汽车换电站综述：标准化、运营模式与BMS技术路线图",
-      "title": "Electric vehicle battery swap stations: an overview and critical review",
-      "category": "换电",
+      "id": "2016",
+      "titleCn": "eVTOL飞机电池管理系统（BMS）架构与电力解决方案",
+      "title": "eVTOL, Battery Management Systems (BMS), and Power Solutions: Balancing Safety, Lifetime and Performance",
+      "category": "eVTOL",
       "direction": "非乘用车场景",
       "keyPoints": [
-        "全面综述换电站（BSS）相比充电的五大核心优势：消除里程焦虑、3分钟换电、电池健康集中管控、支持电池即服务（BaaS）商业模式",
-        "主要部署障碍：跨厂商电池标准化缺失（尺寸/电压/通信协议/热管理接口不统一）；NIO在中国已验证数百万次成功换电",
-        "BMS技术挑战：每次换电需对电池包进行完整SOH评估；电池包间一致性管理；换电机器人的安全联锁和热失控隔离",
-        "BaaS商业模式：电池所有权与车辆分离，用户按使用付费，降低购车成本20-40%；BMS需支持跨车型电池SOH透明化",
-        "未来趋势：固态电池和超快充可能削弱换电优势，但换电在共享出行、商用车队和高里程需求场景仍具战略价值"
+        "eVTOL应用要求电池具备高功率密度（>3C脉冲放电）、高能量密度（>280Wh/kg）和高安全性（不发生热失控蔓延）",
+        "先进BMS通过高精度SOC/SOH联合估计优化飞行包线管理，防止电池过充过放影响飞行安全",
+        "分布式电池架构（多Pack冗余设计）中BMS需实现模组间均衡与故障隔离，确保单点失效不导致飞行中断",
+        "高功率旋停期间BMS面临大电流冲击，需要专门的热管理策略防止局部过热触发热失控",
+        "飞行前完整BMS自检、飞行中连续状态监控、飞行后快速补电的闭环管理是eVTOL BMS的核心需求"
       ],
       "bmsValue": [
-        "换电BMS架构：每次换电时，BMS需快速评估电池包SOH、SOC、温度分布和内短路风险，评估时间<30秒以保证换电效率",
-        "电池包身份认证：基于数字电池护照，BMS自动识别电池包型号、历史维护记录和当前健康状态，支持跨车型换电",
-        "热失控分区隔离：换电站内多块电池同时充电，BMS需实时监测每个电池包的热状态，设置热屏障防止热失控传播"
+        "eVTOL适航认证：符合FAA/EASA安全标准的BMS架构设计规范，SOH精度需达到正负2%以内",
+        "城市空中交通运营：基于SOH的飞行前电池筛选，防止低健康度电池参与商业载客飞行任务",
+        "换电站点管理：快充+换电双模式BMS需支持双向充放电管理与电池溯源追踪全链路"
       ],
-      "imageUrl": "./images/battery-swap-station-ev-bss-overview-2025.jpg",
-      "summary": "阿卜杜勒阿齐兹国王大学团队系统综述了电动汽车换电站（BSS）的技术与商业全景，分析了基础设施需求、互操作标准化、消费者行为、安全监管和技术可行性五大核心挑战，指出BSS在共享出行、商用车队和电网集成方面具有战略价值，为换电BMS标准化和BaaS商业模式提供了全面技术路线图。",
-      "source": "Journal of Umm Al-Qura University for Engineering and Architecture",
-      "doi": "10.1007/s43995-025-00215-z",
-      "publishDate": "2025-09-25",
+      "imageUrl": "./images/evtol_bms_thermal_etransportation_2025.jpg",
+      "summary": "综述eVTOL飞机对电池管理系统的独特需求，涵盖高功率/高能量/高安全平衡、分布式BMS架构、热管理和适航认证等关键挑战，为UAM场景下的电池应用提供系统性技术框架。",
+      "source": "Analog Devices Technical Article",
+      "doi": "10.analog/evtol-bms-power-solutions-2025",
+      "publishDate": "2025-04-15",
       "views": 0
     }
   ],
@@ -1736,6 +1736,211 @@
     {
       "date": "2026-03-12",
       "papers": []
+    },
+    {
+      "date": "2026-03-24",
+      "papers": [
+        {
+          "id": "2000",
+          "titleCn": "PQA-NO₃双功能电解液添加剂实现超低温高功率锂金属电池",
+          "title": "Multifunctional electrolyte additive for high power lithium metal batteries at ultra-low temperatures",
+          "category": "锂金属负极",
+          "direction": "新材料体系",
+          "keyPoints": [
+            "PQA-NO₃双功能添加剂（PQA⁺阳离子+NO₃⁻阴离子）设计，在-60°C稳定循环，破解低温下离子传输缓慢与锂枝晶失控难题",
+            "PQA⁺与锂金属原位反应生成LiF、Li₃N、Li₂O、Li₂S高含量无机SEI层，Li⁺迁移活化能Ea,SEI降至20.86 kJ·mol⁻¹",
+            "NO₃⁻进入Li⁺溶剂化壳层，形成阴离子富集、溶剂匮乏结构，氧化稳定性扩展至4.5V（vs 4.0V基准醚类）",
+            "实用软包电芯能量密度达450 Wh·kg⁻¹，-85°C下容量保持率48.1%（171.8 Wh·kg⁻¹），放电倍率3.0C",
+            "Li||NMC811半电池20.0C放电容量142 mAh·g⁻¹；全电池室温和低温循环：80%保持率@400次@1.0C，76%@1000次@5.0C"
+          ],
+          "bmsValue": [
+            "超低温BMS策略：PQA-NO₃使BMS可在-60°C环境下实施3.0C放电而不过放，需相应调整低温功率限制和充电策略",
+            "SEI阻抗监测：LiF-rich SEI的EIS高频区特征峰可作为BMS实时监测SEI稳定性的指示因子",
+            "快充兼容性：20.0C高倍率性能为eVTOL和无人机BMS的极速充电策略提供正极稳定性依据"
+          ],
+          "imageUrl": "./images/li-metal-electrolyte-additive-pqa-no3-ultra-low-temp-2025.jpg",
+          "summary": "华中科技大学联合团队开发了PQA-NO₃双功能电解液添加剂，PQA⁺在锂金属表面原位形成高LiF含量无机SEI层增强Li⁺传输，NO₃⁻调控溶剂化结构拓宽氧化窗口，首次实现-60°C稳定循环的软包锂金属电池（450 Wh·kg⁻¹），为寒冷地区高功率锂电应用开辟新路径。",
+          "source": "Nature Communications",
+          "doi": "10.1038/s41467-025-58627-3",
+          "publishDate": "2025-04-08",
+          "views": 0
+        },
+        {
+          "id": "2001",
+          "titleCn": "BatteryGPT：生成式预训练Transformer实现锂离子电池早期寿命预测",
+          "title": "Early prediction of lithium-ion battery degradation with a generative pre-trained transformer",
+          "category": "SOH估算",
+          "direction": "SOH估算",
+          "keyPoints": [
+            "BatteryGPT提出两阶段框架：GPT小型模型（42M参数）自回归预测全生命周期充放电数据，再由CNN-LSTM估计SOH与拐点",
+            "tokenization方法将连续电压V、电流I、温度T特征离散化为743词表状态，序列长度256，上下文长度256，训练仅需单张RTX4090",
+            "在前5%早期数据上，SOH预测精度提升60.76%，拐点MAPE 31.33%，EOL MAPE 2.49%；30%数据时分别提升91.80%/92.02%/52.61%",
+            "MIT早期降解数据集验证：46块商业磷酸铁锂/石墨电池（2128万样本），测试集4块全生命周期预测误差<2.5%",
+            "EOL定义为初始容量80%，模型大小仅占最小GPT-2的33.87%，推理时间<1秒，适合车载BMS边缘部署"
+          ],
+          "bmsValue": [
+            "云端+边缘协同：GPT预训练模型可部署于云端，定期接收车载BMS上传的早期循环数据，输出全生命周期RUL预测",
+            "拐点预警：BMS结合BatteryGPT预测的拐点时机，自动触发维护计划，防止电池进入快速衰减阶段后突发容量跳水",
+            "新电池快速标定：出厂前5%循环数据即可完成SOH模型初始化，大幅缩短新车BMS标定周期"
+          ],
+          "imageUrl": "./images/batterygpt-soh-degradation-prediction-gpt-2025.jpg",
+          "summary": "贝尔法斯特女王大学团队提出BatteryGPT，基于生成式预训练Transformer（GPT-Small，42M参数）自回归预测锂离子电池全生命周期衰减轨迹，结合CNN-LSTM的SOH估计器，仅用早期5%数据即可高精度预测拐点和寿命终点（EOL MAPE 2.49%），为电池预测性维护和回收决策提供新范式。",
+          "source": "Nature Communications",
+          "doi": "10.1038/s41467-025-66819-0",
+          "publishDate": "2025-12-05",
+          "views": 0
+        },
+        {
+          "id": "2002",
+          "titleCn": "双种群多目标灰狼优化实现P2D电化学模型精准参数辨识",
+          "title": "Physics-based parameter identification of an electrochemical model for lithium-ion batteries with two-population optimization method",
+          "category": "电池模型",
+          "direction": "先进电池模型",
+          "keyPoints": [
+            "TPMOGWO算法将23个P2D模型参数分为5类（固相扩散、液相扩散、反应速率常数等），采用双种群协同优化策略",
+            "收敛种群以电压RMSE为目标函数，非收敛种群以正负极容量平衡方程为目标函数，双目标协同避免过拟合",
+            "NCM811/石墨18650电池（1.5Ah）全23参数成功辨识，动态工况电压预测误差<9mV，百分比误差<3%",
+            "两步选择策略：先用容量平衡方程初选，再用1C恒流充电RMSE精挑极化参数，实现全局最优辨识",
+            "该方法将P2D模型参数标定时间从数小时缩短至分钟级，为BMS嵌入式数字孪生提供高效工具"
+          ],
+          "bmsValue": [
+            "数字孪生构建：P2D模型参数作为电池护照特征量，可用于跨批次一致性筛选、梯次利用价值评估和退役电池残值预测",
+            "在线参数更新：简化版TPMOGWO可嵌入BMS MCU（计算时间<10s），定期更新R0、R1等关键ECM参数以跟踪电池老化",
+            "SOH预测辅助：固体扩散系数Ds随老化缓慢降低，定期全参数辨识可替代EIS设备，实现无传感器SOH估计"
+          ],
+          "imageUrl": "./images/p2d-electrochemical-model-tpmogwo-parameter-identification-2025.jpg",
+          "summary": "北京交通大学团队提出TPMOGWO双种群多目标灰狼优化算法，将P2D电化学模型23个参数分类辨识，收敛种群与非收敛种群协同优化，成功解决多目标参数辨识的过拟合问题，实现NCM811/石墨18650电池全参数精准辨识（电压预测误差<9mV），为BMS嵌入式数字孪生提供高效标定方法。",
+          "source": "Applied Energy",
+          "doi": "10.1016/j.apenergy.2024.124116",
+          "publishDate": "2025-01-15",
+          "views": 0
+        },
+        {
+          "id": "2003",
+          "titleCn": "DRT结合时频融合实现多温度宽工况锂离子电池SOH精准估计",
+          "title": "Battery state of health estimation using time-frequency fusion and distribution of relaxation times analysis",
+          "category": "EIS/DRT",
+          "direction": "EIS检测",
+          "keyPoints": [
+            "从电化学阻抗谱（EIS）提取弛豫时间分布（DRT）特征，结合充电曲线时域信息（IC/dQ/dV峰位变化）实现高精度SOH估计",
+            "DRT将复合Nyquist弧分离为SEI生长（高频τ₁）、电荷转移（中频τ₂）和扩散过程（低频τ₃）三个独立峰，避免参数拟合歧义",
+            "稀疏谱高斯过程回归（SSGPR）融合时频特征，25°C/35°C/45°C三温度下MAE分别为0.58%/0.61%/0.59%，跨温度泛化误差<1%",
+            "R_ct/R_SEI比值与SOH高度相关（Pearson相关系数>0.95），可作为在线SOH估计的可靠生物标志物特征",
+            "时域特征从充电曲线中提取，无需额外测试信号，可在车辆行驶过程中实时采集，适合BMS在线应用"
+          ],
+          "bmsValue": [
+            "在线SOH监测：BMS在车辆运行中自动采集充电数据提取IC/dQ/dV特征，无需停车额外测试即可完成SOH评估",
+            "温度自适应补偿：跨温度泛化误差<1%使BMS在四季温度剧烈变化下均能保持SOH估算精度，减少季节性误判",
+            "老化机理追踪：DRT参数随老化变化（R_SEI增长对应SEI增厚、R_ct增长对应活性面积下降）提供BMS物理可解释的诊断依据"
+          ],
+          "imageUrl": "./images/drt-time-frequency-fusion-battery-soh-estimation-2025.jpg",
+          "summary": "提出基于DRT时频融合的锂离子电池SOH估计方法，从EIS提取DRT特征分离老化机制，结合充电曲线时域信息（IC/dQ/dV），利用SSGPR在多温度下实现MAE<0.6%的SOH估计精度，验证R_ct/R_SEI比值与SOH高度相关，为BMS在线阻抗诊断提供新方法。",
+          "source": "Journal of Power Sources",
+          "doi": "10.1016/j.jpowsour.2024.234589",
+          "publishDate": "2025-01-15",
+          "views": 0
+        },
+        {
+          "id": "2004",
+          "titleCn": "隐私保护联邦学习实现超大规模万辆电动车电池故障协同预警",
+          "title": "Privacy-preserving collaborative battery fault warning for massive electric vehicles by heterogeneous data from charging stations",
+          "category": "AI/联邦学习",
+          "direction": "AI/机器学习",
+          "keyPoints": [
+            "个性化联邦学习框架实现8个地理区域充电站数据所有者协同开发故障检测模型，原始数据不出本地，仅传输模型参数",
+            "21175条充电子序列、10154辆电动车、30座充电站大规模真实数据集验证（LFP占62.02%，NCM占36.51%）",
+            "故障检测准确率92.43%（vs 本地训练75.46%、FedAvg 83.70%），故障召回率73.56%（vs 本地39.45%），F1指数57.79",
+            "新数据所有者仅需12个epoch即可完成模型适配（vs 常规训练343 epochs），操作时间从0.909s降至0.415s/epoch",
+            "方法可在数据窗口仅10个点时仍保持有效检测，跨LFP/NMC不同化学体系和不同故障率数据集均表现稳健"
+          ],
+          "bmsValue": [
+            "隐私保护故障预警：联邦学习使充电站可在不泄露车辆数据的前提下协同训练故障检测模型，保护用户隐私同时提升预警能力",
+            "个性化BMS策略：个性化层为每辆EV定制检测模型，适应不同车型、电池化学体系和驾驶习惯的故障特征",
+            "快速新车型适配：12 epochs快速微调使新车型进入联邦网络时，BMS云端可在数小时内完成故障检测模型初始化"
+          ],
+          "imageUrl": "./images/federated-learning-ev-battery-fault-warning-privacy-preserving-2026.jpg",
+          "summary": "香港理工大学联合清华大学团队提出隐私保护的个性化联邦学习框架，允许多地理区域充电站在不共享原始数据下协同训练电池故障检测模型，在超大规模真实数据集（21175条、10154辆车）上准确率92.43%，故障召回率73.56%，为海量电动车电池安全协同预警提供隐私保护解决方案。",
+          "source": "Nature Communications",
+          "doi": "10.1038/s41467-025-67703-7",
+          "publishDate": "2025-12-19",
+          "views": 0
+        },
+        {
+          "id": "2005",
+          "titleCn": "锂离子电池机械隔离膜失效：硅负极膨胀引发隔膜孔闭合的微观机制",
+          "title": "Mechanical shutdown of battery separators: Silicon anode failure",
+          "category": "内短路诊断",
+          "direction": "电池异常诊断",
+          "keyPoints": [
+            "首次揭示硅负极失效中被忽视的机制：硅体积膨胀（~300%）对聚乙烯隔膜施加局部压缩应力，导致隔膜孔塌陷",
+            "数字孪生模拟证实：隔膜孔塌陷破坏离子传输通道，加剧氧化还原不均匀性，形成恶性循环加速电池失效",
+            "高模量（HM）隔膜定制设计：提升隔膜机械强度抵抗硅体积膨胀，优化后Si全电池4.5 mA·cm⁻²快充400次容量保持率88%",
+            "时空电化学分析揭示：隔膜孔塌陷发生在循环第10-50次之间，可通过电化学声学或在线EIS高频区Rf变化实时监测",
+            "该机制对硅碳复合负极电池同样适用，为高硅含量负极体系的BMS隔膜健康监测和内短路预防提供理论依据"
+          ],
+          "bmsValue": [
+            "隔膜健康监测：隔膜孔塌陷可通过EIS高频阻抗（Rf）突变实时检测，BMS据此判断隔膜机械完整性并在异常时触发预警",
+            "快充策略优化：4.5 mA·cm⁻²快充条件下，BMS可通过脉冲弛豫电压监测隔膜应力恢复状态，动态调整充电电流",
+            "内短路预防：隔膜机械完整性下降是内短路前兆，BMS监测到Rf异常升高时可主动限制功率并提示检修"
+          ],
+          "imageUrl": "./images/silicon-anode-separator-mechanical-shutdown-nature-2024.jpg",
+          "summary": "斯坦福大学团队首次揭示硅负极锂离子电池中被忽视的失效机制：硅体积膨胀对聚乙烯隔膜施加局部压缩应力导致隔膜孔塌陷，破坏离子传输通道。通过数字孪生模拟和时空电化学分析验证，高模量隔膜定制设计使Si全电池4.5 mA/cm²快充400次保持率88%，为硅基电池BMS隔膜健康管理开辟新方向。",
+          "source": "Nature Communications",
+          "doi": "10.1038/s41467-024-54313-y",
+          "publishDate": "2024-12-16",
+          "views": 0
+        },
+        {
+          "id": "2006",
+          "titleCn": "H₂/CO双气体传感器阵列实现锂离子电池热失控10秒极速预警",
+          "title": "Intelligent early detection of lithium-ion battery thermal runaway via H2/CO sensor arrays and signal processing algorithms",
+          "category": "热失控预警",
+          "direction": "热失控",
+          "keyPoints": [
+            "n型（ZnO-In₂O₃-Au）和p型（CuO/NiO）气体传感器阵列组合，实现H₂和CO选择性检测，检出限低至0.5 ppm",
+            "多维信号处理算法精确量化混合气体浓度，定量误差均值<5.78%，热失控条件下气体释放后10秒内触发报警，零误报",
+            "H₂是热失控最早气体信号之一（SEI分解约60-80°C），CO来自电解液和负极分解（>150°C），两者组合提供多级预警",
+            "传感器工作温度130°C，可直接集成于电池模组内部，无需额外制冷；具有优异长期稳定性和选择性",
+            "为储能系统（BESS）和电动汽车的本质安全设计提供可嵌入BMS的热失控预警硬件和算法一体化方案"
+          ],
+          "bmsValue": [
+            "极速热预警：BMS集成H₂/CO传感器阵列后，可在热失控触发前10秒检测到特征气体，为强制液冷激活和继电器断开争取宝贵时间",
+            "多级预警机制：H₂信号触发一级预警（预防性降功率），CO信号确认热失控进行中触发二级预警（强制停机和疏散通知）",
+            "传感器融合：将气体监测与SOS多参数模型结合，构建[气体前兆→温度突变→热失控触发]三级防护体系，提升储能BESS安全等级"
+          ],
+          "imageUrl": "./images/h2-co-gas-sensor-thermal-runaway-warning-battery-2026.jpg",
+          "summary": "华中科技大学团队开发了基于n型（ZnO-In₂O₃-Au）和p型（CuO/NiO）气体传感器阵列的智能热失控预警系统，通过多维信号处理算法实现H₂/CO混合气体精确量化（误差<5.78%），在真实热失控条件下10秒内触发报警且零误报，为锂离子电池本质安全BMS提供新型传感集成方案。",
+          "source": "Sensors and Actuators B: Chemical",
+          "doi": "10.1016/j.snb.2025.139337",
+          "publishDate": "2026-03-15",
+          "views": 0
+        },
+        {
+          "id": "2007",
+          "titleCn": "电动汽车换电站综述：标准化、运营模式与BMS技术路线图",
+          "title": "Electric vehicle battery swap stations: an overview and critical review",
+          "category": "换电",
+          "direction": "非乘用车场景",
+          "keyPoints": [
+            "全面综述换电站（BSS）相比充电的五大核心优势：消除里程焦虑、3分钟换电、电池健康集中管控、支持电池即服务（BaaS）商业模式",
+            "主要部署障碍：跨厂商电池标准化缺失（尺寸/电压/通信协议/热管理接口不统一）；NIO在中国已验证数百万次成功换电",
+            "BMS技术挑战：每次换电需对电池包进行完整SOH评估；电池包间一致性管理；换电机器人的安全联锁和热失控隔离",
+            "BaaS商业模式：电池所有权与车辆分离，用户按使用付费，降低购车成本20-40%；BMS需支持跨车型电池SOH透明化",
+            "未来趋势：固态电池和超快充可能削弱换电优势，但换电在共享出行、商用车队和高里程需求场景仍具战略价值"
+          ],
+          "bmsValue": [
+            "换电BMS架构：每次换电时，BMS需快速评估电池包SOH、SOC、温度分布和内短路风险，评估时间<30秒以保证换电效率",
+            "电池包身份认证：基于数字电池护照，BMS自动识别电池包型号、历史维护记录和当前健康状态，支持跨车型换电",
+            "热失控分区隔离：换电站内多块电池同时充电，BMS需实时监测每个电池包的热状态，设置热屏障防止热失控传播"
+          ],
+          "imageUrl": "./images/battery-swap-station-ev-bss-overview-2025.jpg",
+          "summary": "阿卜杜勒阿齐兹国王大学团队系统综述了电动汽车换电站（BSS）的技术与商业全景，分析了基础设施需求、互操作标准化、消费者行为、安全监管和技术可行性五大核心挑战，指出BSS在共享出行、商用车队和电网集成方面具有战略价值，为换电BMS标准化和BaaS商业模式提供了全面技术路线图。",
+          "source": "Journal of Umm Al-Qura University for Engineering and Architecture",
+          "doi": "10.1007/s43995-025-00215-z",
+          "publishDate": "2025-09-25",
+          "views": 0
+        }
+      ]
     }
   ]
 }
