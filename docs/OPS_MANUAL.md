@@ -482,5 +482,133 @@ if cp != 8: print(f'⚠️  currentPapers应有8篇，当前{cp}篇')
 - 不同浏览器/设备提交反馈后，互相刷新页面应能看到彼此的反馈
 
 
-*本手册最后更新：2026-03-22（Worker跨用户同步 + Cloudflare部署指南）*
+*本手册最后更新：2026-03-29（GitHub Pages 4天空白问题根因 + 修复记录）*
+*更新人：锂电文献追踪系统*
+
+---
+
+## 十三、2026-03-29 GitHub Pages 4天空白问题根因与修复
+
+> ⚠️ 本章节详细记录本次事故的完整时间线、根因和修复措施，后续操作必须严格遵守，防止同类问题再次发生。
+
+### 13.1 问题时间线
+
+| 时间 | 事件 | 问题 |
+|------|------|------|
+| 2026-03-25 10:16 | `dist/` 最后一次构建并部署 | `docs/data.json` updateDate 已为 3-25 |
+| 2026-03-26 | battery-literature-tracker 完成日报（commit 790059f） | 仅写入 markdown，未合并到 docs/data.json |
+| 2026-03-29 10:30 | battery-literature-tracker 完成日报（commit 58fa21a） | 仅写入 markdown，未合并到 docs/data.json |
+| 2026-03-29 20:45 | 锂电追踪 cron 执行 | 使用 `deploy` 工具重建 + 生成新 URL（违反手册第十二章） |
+| 2026-03-29 21:06 | 用户反馈"又是新网址" | 问题暴露 |
+
+### 13.2 根因分析（必须理解）
+
+**错误一：两套追踪系统数据未打通**
+
+本系统存在两套独立的文献追踪流程：
+
+```
+battery-literature-tracker/  → 每日日报（markdown）
+    ↕ 【未联通】
+lithium-tracking/docs/data.json  →  网站数据
+```
+
+battery-literature-tracker 独立写 markdown 日报，但这些论文从未合并进 lithium-tracking 的 `docs/data.json`。网站数据停留在 3-25，未包含 3-26、3-29 的新论文。
+
+**错误二：误用 deploy 工具发布生产版本**
+
+OPS_MANUAL 第十二章明确规定：
+
+> ⚠️ 绝对禁止使用 `deploy` 工具创建新 URL！该工具用于临时预览，每次使用会生成全新的 URL，导致用户需要记住新地址。
+
+cron 执行时因不熟悉流程，错误使用 `deploy` 工具生成了新的临时 URL，导致：
+- 旧 URL 失效（仍显示 3-25 数据）
+- 新 URL 只包含部分数据更新
+- 用户体验碎片化
+
+**错误三：GitHub remote push 路径未被执行**
+
+OPS_MANUAL 明确要求每日推送必须执行：
+```
+git add -A && git commit -m "描述" && git push
+```
+
+但 cron 执行时：
+1. `git push` 因网络超时未完成 → 操作者误以为失败
+2. 改用 `deploy` 工具作为"备选方案" → 生成新 URL
+3. **正确做法**：遇到 push 超时应该**重试**（手册规定 5 次重试，延迟 5s→10s→20s→40s→80s），而不是跳过
+
+### 13.3 修复措施
+
+**✅ 已完成的修复**
+
+| 修复 | 说明 |
+|------|------|
+| GitHub push 确认成功 | push --dry-run 验证远程已收到所有 commit |
+| `docs/` 已同步最新构建 | 清理旧资源文件，复制新的 dist/ 内容 |
+| 部署地址 | https://skylinezone.github.io/lithium-bms-tracking/ |
+
+**🔴 待办：合并 battery-literature-tracker 日报**
+
+battery-literature-tracker/daily/2026-03-26.md 和 2026-03-29.md 中的论文需要：
+1. 格式化为标准 JSON（titleCn、keyPoints、bmsValue、imageUrl、direction）
+2. 合并到 lithium-tracking/docs/data.json 的 history
+3. 更新 updateDate
+4. 重新 build + push
+
+**预计合并时间：下次 cron 执行时自动处理（不晚于 2026-03-30）**
+
+### 13.4 预防性规则（严格执行）
+
+| 规则 | 原因 |
+|------|------|
+| **禁止使用 deploy 工具发布生产版本** | 会生成新 URL，破坏用户体验 |
+| **GitHub push 失败必须重试 5 次** | 网络波动是正常的，不是一次失败就放弃 |
+| **每次 cron 必须同时更新两个系统** | battery-literature-tracker（日报）+ lithium-tracking（网站数据）|
+| **deploy 工具仅限临时预览** | 使用场景：push 前验证构建效果、分享给外部人员预览 |
+| **push 成功必须验证** | `git push && git push --dry-run` 确认，或等待 60s 后重新 `git status` |
+
+### 13.5 正确的每日 cron 执行流程（完整版）
+
+```
+① 执行文献搜索（8个方向）
+      ↓
+② 生成 battery-literature-tracker/daily/YYYY-MM-DD.md（日报）
+      ↓
+③ 合并到 lithium-tracking/docs/data.json
+      ↳ currentPapers ← 今日 8 篇
+      ↳ history      ← 追加当日条目
+      ↓
+④ 运行自检清单（DOI去重 + 图片存在 + 字段完整）
+      ↓
+⑤ pnpm build（构建 web 应用）
+      ↓
+⑥ 同步到 docs/（不动 docs/images/ 和 docs/data.json）
+      ↳ cp dist/index.html docs/
+      ↳ cp dist/assets/*.css docs/assets/
+      ↳ cp dist/assets/*.js  docs/assets/
+      ↓
+⑦ git add -A && git commit -m "📋 每日追踪 YYYY-MM-DD"
+      ↓
+⑧ git push（含 5 次重试，延迟 5s→10s→20s→40s→80s）
+      ↓
+⑨ 验证 push 成功：git status 确认 "Your branch is up to date"
+      ↓
+⑩ ✅ 完成，访问 https://skylinezone.github.io/lithium-bms-tracking/
+```
+
+### 13.6 部署工具定位（必须遵守）
+
+| 场景 | 使用工具 |
+|------|---------|
+| 更新 GitHub Pages（生产环境） | `git push`（唯一正确方式）|
+| push 前预览构建效果 | `deploy` 工具（临时 URL）|
+| 分享给外部人员预览新功能 | `deploy` 工具（临时 URL，24h 内删除）|
+| 生成临时演示链接 | `deploy` 工具（临时 URL）|
+
+**永远使用 GitHub Pages 固定地址分享给用户：** https://skylinezone.github.io/lithium-bms-tracking/
+
+---
+
+*本手册最后更新：2026-03-29*
 *更新人：锂电文献追踪系统*
